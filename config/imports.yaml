@@ -1,0 +1,31 @@
+# =============================================================================
+# imports.yaml - public lists you download yourself, then feed to Engine 2.
+#
+# WHY: regulator and association sites have page layouts I cannot see from here,
+# so instead of guessing scrapers, you (or I, once you share a sample) save the
+# public list as a CSV into data/imports/ and describe its columns here.
+#
+# RULES
+#   * Only add a list after reviewing that site's terms (reviewed_by / reviewed_on).
+#   * source_url is REQUIRED: the page where the list is published. Every row
+#     inherits it so your team can verify before outreach.
+#   * columns: map OUR field name -> the CSV's column header. Omit what the file lacks.
+#     Fields: name, sub_industry, hq_location, website, licence_number,
+#             licence_status, ownership_type, parent_group, size, size_source,
+#             facility_level, email (competitor list only)
+#   * size is stored ONLY when size_source is also given. No size_source = ignored.
+#   * output: master (client universe)  |  competitor_agencies (never a lead)
+# =============================================================================
+imports: []
+
+# Example (replace every value; do not copy URLs you have not checked):
+# imports:
+#   - id: example_regulator_list
+#     file: data/imports/example_regulator_list.csv
+#     source_ref: cbk_licensed            # id from sources.yaml, for provenance
+#     source_url: "PAGE-WHERE-THE-LIST-IS-PUBLISHED"
+#     reviewed_by: "your name"
+#     reviewed_on: "2026-10-30"
+#     sector: financial_services          # fixed sector for the whole file, or omit
+#     output: master
+#     columns: {name: "Institution", hq_location: "Town", licence_number: "Licence No"}

@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridge Lead Radar</title>
+<meta name="description" content="Kenya hiring activity: public aggregates from Bridge Lead Radar (signal-based prioritization).">
+<meta name="robots" content="noindex">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --surface-2: #f0efec;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #6f6d68;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --ring: rgba(11, 11, 11, 0.10);
+  --accent: #2a78d6;
+  --series-1: #2a78d6;
+  --t-cold: #86b6ef;
+  --t-warm: #2a78d6;
+  --t-hot: #104281;
+  --on-cold: #0b0b0b;
+  --on-warm: #ffffff;
+  --on-hot: #ffffff;
+  --good: #0ca30c;
+  --good-text: #006300;
+  --warning: #fab219;
+  --critical: #d03b3b;
+  --banner: #fff6dd;
+  --banner-ink: #5b4300;
+  --hover: rgba(42, 120, 214, 0.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-2: #232321;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --muted: #9a988f;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --ring: rgba(255, 255, 255, 0.10);
+    --accent: #3987e5;
+    --series-1: #3987e5;
+    --t-cold: #184f95;
+    --t-warm: #3987e5;
+    --t-hot: #9ec5f4;
+    --on-cold: #ffffff;
+    --on-warm: #0b0b0b;
+    --on-hot: #0b0b0b;
+    --good-text: #0ca30c;
+    --banner: #2e2610;
+    --banner-ink: #f3dfa6;
+    --hover: rgba(57, 135, 229, 0.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-2: #232321;
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --muted: #9a988f;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --ring: rgba(255, 255, 255, 0.10);
+  --accent: #3987e5;
+  --series-1: #3987e5;
+  --t-cold: #184f95;
+  --t-warm: #3987e5;
+  --t-hot: #9ec5f4;
+  --on-cold: #ffffff;
+  --on-warm: #0b0b0b;
+  --on-hot: #0b0b0b;
+  --good-text: #0ca30c;
+  --banner: #2e2610;
+  --banner-ink: #f3dfa6;
+  --hover: rgba(57, 135, 229, 0.14);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--page);
+  color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 24px 16px 48px; }
+
+/* header */
+header.top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 20px; }
+h1 { font-size: 24px; line-height: 1.2; margin: 0; letter-spacing: -0.01em; }
+.sub { color: var(--ink-2); margin: 4px 0 0; }
+.meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; color: var(--ink-2); font-size: 13px; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--ring); background: var(--surface); font-size: 13px; color: var(--ink); }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+button.theme { font: inherit; font-size: 13px; color: var(--ink); background: var(--surface); border: 1px solid var(--ring); border-radius: 8px; padding: 4px 10px; cursor: pointer; }
+button.theme:hover { background: var(--hover); }
+
+.banner { border-radius: 10px; padding: 10px 14px; margin: 0 0 16px; background: var(--banner); color: var(--banner-ink); font-size: 14px; }
+.banner[hidden] { display: none; }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: minmax(220px, 1.3fr) repeat(4, minmax(140px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.card { background: var(--surface); border: 1px solid var(--ring); border-radius: 12px; padding: 16px; min-width: 0; }
+.tile .lbl { color: var(--ink-2); font-size: 13px; }
+.tile .val { font-size: 28px; font-weight: 600; line-height: 1.2; margin-top: 4px; }
+.tile.hero .val { font-size: 52px; line-height: 1.05; }
+.tile .note { color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+/* chart cards */
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+.card h2 { font-size: 15px; margin: 0; font-weight: 600; }
+.card .desc { color: var(--ink-2); font-size: 13px; margin: 2px 0 12px; }
+.empty { color: var(--muted); font-size: 14px; padding: 18px 0; }
+.span2 { grid-column: 1 / -1; }
+
+/* horizontal bars (HTML) */
+.hbars { display: grid; grid-template-columns: minmax(90px, 38%) 1fr; row-gap: 6px; column-gap: 10px; align-items: center; }
+.hbars .lab { font-size: 13px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hbars .lab small { color: var(--muted); }
+.track { position: relative; display: flex; align-items: center; height: 24px; min-width: 0; border-radius: 4px; outline: none; }
+.track:hover, .track:focus-visible { background: var(--hover); }
+.bar { height: 18px; background: var(--series-1); border-radius: 0 4px 4px 0; min-width: 2px; flex: none; }
+.bar-val { font-size: 13px; color: var(--ink-2); margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stack { display: flex; gap: 2px; height: 18px; flex: none; min-width: 2px; }
+.seg { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; overflow: visible; }
+.seg:last-child { border-radius: 0 4px 4px 0; }
+.seg[data-t="Hot"] { background: var(--t-hot); color: var(--on-hot); }
+.seg[data-t="Warm"] { background: var(--t-warm); color: var(--on-warm); }
+.seg[data-t="Cold"] { background: var(--t-cold); color: var(--on-cold); }
+.seg span.hide { visibility: hidden; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--ink-2); margin: 0 0 10px; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.temp-totals { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 10px; }
+.temp-totals div { font-size: 13px; color: var(--ink-2); }
+.temp-totals b { display: block; font-size: 22px; color: var(--ink); font-weight: 600; }
+
+/* column chart (SVG) */
+svg { display: block; overflow: visible; }
+svg text { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+svg .gridline { stroke: var(--grid); stroke-width: 1; }
+svg .baseline { stroke: var(--axis); stroke-width: 1; }
+svg .col { fill: var(--series-1); }
+svg .hit { fill: transparent; cursor: default; outline: none; }
+svg .hit:hover + .col, svg .hit:focus + .col { opacity: 0.75; }
+svg .hit:focus-visible { stroke: var(--accent); stroke-width: 1; }
+
+details.tv { margin-top: 10px; font-size: 13px; }
+details.tv summary { cursor: pointer; color: var(--ink-2); }
+details.tv table { margin-top: 8px; }
+
+/* tables */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+th { color: var(--ink-2); font-weight: 600; white-space: nowrap; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+th button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+th button::after { content: ""; margin-left: 4px; }
+th[aria-sort="ascending"] button::after { content: "▲"; font-size: 9px; }
+th[aria-sort="descending"] button::after { content: "▼"; font-size: 9px; }
+tbody tr:hover { background: var(--hover); }
+.tablewrap { overflow-x: auto; }
+#co-table { min-width: 680px; }
+details.tv table { min-width: 0; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin: 4px 0 12px; }
+.filters input[type="search"], .filters select {
+  font: inherit; font-size: 14px; color: var(--ink); background: var(--page);
+  border: 1px solid var(--axis); border-radius: 8px; padding: 6px 10px; min-height: 36px;
+}
+.filters input[type="search"] { flex: 1 1 220px; min-width: 0; }
+.filters label.chk { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; color: var(--ink-2); }
+.count { color: var(--muted); font-size: 13px; }
+button.more { font: inherit; font-size: 14px; margin-top: 12px; background: var(--surface-2); color: var(--ink); border: 1px solid var(--ring); border-radius: 8px; padding: 6px 14px; cursor: pointer; }
+.status { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+
+#tip { position: fixed; z-index: 10; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--ring); border-radius: 8px; padding: 6px 10px; font-size: 13px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); max-width: 260px; }
+#tip[hidden] { display: none; }
+#tip strong { display: block; font-size: 15px; font-variant-numeric: tabular-nums; }
+#tip span { color: var(--ink-2); }
+
+footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpis .hero { grid-column: 1 / -1; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .tile.hero .val { font-size: 44px; }
+  .tile .val { font-size: 24px; }
+  .hbars { grid-template-columns: minmax(80px, 42%) 1fr; }
+}
+@media (forced-colors: active) {
+  .bar, .seg, svg .col { forced-color-adjust: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Bridge Lead Radar</h1>
+      <p class="sub">Kenya hiring activity from public sources: aggregates only</p>
+    </div>
+    <div class="meta-row">
+      <span id="refreshed">Loading…</span>
+      <span id="health" class="pill" hidden></span>
+      <button class="theme" id="theme" type="button" aria-label="Colour theme">Theme: auto</button>
+    </div>
+  </header>
+
+  <p class="banner" id="banner" hidden></p>
+
+  <section class="kpis" aria-label="Key figures">
+    <div class="card tile hero"><div class="lbl">Active job postings</div><div class="val" id="k-active">–</div><div class="note" id="k-active-note"></div></div>
+    <div class="card tile"><div class="lbl">New today</div><div class="val" id="k-new">–</div><div class="note" id="k-new-note"></div></div>
+    <div class="card tile"><div class="lbl">Companies hiring now</div><div class="val" id="k-hiring">–</div></div>
+    <div class="card tile"><div class="lbl">Companies tracked</div><div class="val" id="k-tracked">–</div><div class="note" id="k-contact"></div></div>
+    <div class="card tile"><div class="lbl">Live hiring signals</div><div class="val" id="k-signals">–</div><div class="note">news-based, heuristic</div></div>
+  </section>
+
+  <section class="grid">
+    <div class="card"><h2>Active postings by sector</h2><p class="desc">Open postings, all employers. ● marks a Bridge core vertical.</p><div id="c-sector"></div></div>
+    <div class="card"><h2>Top hiring companies</h2><p class="desc">Most open postings (agency and confidential postings excluded)</p><div id="c-top"></div></div>
+    <div class="card span2"><h2>New postings per day</h2><p class="desc">First seen by the radar, last 30 days</p><div id="c-trend"></div></div>
+    <div class="card"><h2>Leads by sector and temperature</h2><p class="desc">Counts only. Individual leads are kept private.</p><div id="c-leads"></div></div>
+    <div class="card"><h2>Live hiring signals by type</h2><p class="desc">Funding, expansion and similar news. Signal-based prioritization, not predictions.</p><div id="c-signals"></div></div>
+  </section>
+
+  <section class="card" aria-labelledby="co-h">
+    <h2 id="co-h">Companies</h2>
+    <p class="desc">Contact <em>status</em> only. No names, emails or phone numbers are published.</p>
+    <div class="filters">
+      <input type="search" id="f-q" placeholder="Search company or location" aria-label="Search companies">
+      <select id="f-sector" aria-label="Sector"><option value="">All sectors</option></select>
+      <select id="f-contact" aria-label="Contact status">
+        <option value="">Any contact status</option><option>Found</option><option>Not found</option><option>Not checked</option>
+      </select>
+      <label class="chk"><input type="checkbox" id="f-hiring"> Hiring now</label>
+      <span class="count" id="f-count"></span>
+    </div>
+    <div class="tablewrap">
+      <table id="co-table">
+        <thead><tr>
+          <th data-k="name" aria-sort="none"><button type="button">Company</button></th>
+          <th data-k="sector" aria-sort="none"><button type="button">Sector</button></th>
+          <th data-k="location" aria-sort="none"><button type="button">Location</button></th>
+          <th data-k="fit" aria-sort="none"><button type="button">Profile fit</button></th>
+          <th data-k="open_jobs" class="num" aria-sort="descending"><button type="button">Open postings</button></th>
+          <th data-k="contact" aria-sort="none"><button type="button">Contact</button></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button class="more" id="more" type="button" hidden>Show 50 more</button>
+  </section>
+
+  <section class="card" style="margin-top:16px" aria-labelledby="src-h">
+    <h2 id="src-h">Data sources</h2>
+    <p class="desc">Latest run of each source. Sources stay off until their terms and robots.txt have been reviewed.</p>
+    <div id="c-sources"></div>
+  </section>
+
+  <footer>
+    <p><b>Signal-based prioritization.</b> Hiring signals are keyword heuristics over public job postings and news
+      headlines; expect errors and check the source before acting. Company sizes are shown only where a public source
+      states them. This page publishes aggregates and company-level facts only, never personal data.</p>
+    <p>Bridge Talent Management · <a href="https://bridgetalentgroup.com" rel="noopener">bridgetalentgroup.com</a></p>
+  </footer>
+</div>
+<div id="tip" role="tooltip" hidden><strong></strong><span></span></div>
+
+<script>
+(function () {
+  "use strict";
+  var TZ = "Africa/Nairobi";
+  var TEMPS = ["Hot", "Warm", "Cold"];
+  var STATUS = {
+    "ok": ["var(--good)", "OK", "✓"], "zero results": ["var(--warning)", "Zero results", "!"],
+    "blocked": ["var(--critical)", "Blocked", "✕"], "error": ["var(--critical)", "Error", "✕"],
+    "manual only": ["var(--axis)", "Manual only", "–"], "off / not reviewed": ["var(--axis)", "Off / not reviewed", "–"]
+  };
+
+  // ---------- small DOM helpers (all data goes in via textContent)
+  function el(tag, attrs, text) {
+    var e = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (k === "class") e.className = attrs[k]; else if (k === "style") e.style.cssText = attrs[k]; else e.setAttribute(k, attrs[k]);
+    });
+    if (text !== undefined && text !== null) e.textContent = String(text);
+    return e;
+  }
+  function svg(tag, attrs) {
+    var e = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    Object.keys(attrs || {}).forEach(function (k) { e.setAttribute(k, attrs[k]); });
+    return e;
+  }
+  var nf = new Intl.NumberFormat("en-KE");
+  function fmt(n) { return nf.format(n || 0); }
+  function compact(n) { return n >= 1000 ? (Math.round(n / 100) / 10) + "K" : String(n); }
+  function todayEAT() { return new Intl.DateTimeFormat("en-CA", {timeZone: TZ}).format(new Date()); }
+
+  // ---------- theme toggle (auto / light / dark); storage is optional
+  var themes = ["auto", "light", "dark"];
+  function applyTheme(t) {
+    if (t === "auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", t);
+    document.getElementById("theme").textContent = "Theme: " + t;
+  }
+  var saved = "auto";
+  try { saved = localStorage.getItem("blr-theme") || "auto"; } catch (e) {}
+  applyTheme(themes.indexOf(saved) >= 0 ? saved : "auto");
+  document.getElementById("theme").addEventListener("click", function () {
+    var cur = document.documentElement.getAttribute("data-theme") || "auto";
+    var next = themes[(themes.indexOf(cur) + 1) % themes.length];
+    applyTheme(next);
+    try { localStorage.setItem("blr-theme", next); } catch (e) {}
+  });
+
+  // ---------- tooltip (enhances; every value is also in a label or table)
+  var tip = document.getElementById("tip");
+  function showTip(target, value, label) {
+    tip.firstChild.textContent = value;
+    tip.lastChild.textContent = label;
+    tip.hidden = false;
+    var r = target.getBoundingClientRect();
+    var x = Math.min(window.innerWidth - tip.offsetWidth - 8, Math.max(8, r.left + r.width / 2 - tip.offsetWidth / 2));
+    var y = r.top - tip.offsetHeight - 8;
+    if (y < 8) y = r.bottom + 8;
+    tip.style.left = x + "px";
+    tip.style.top = y + "px";
+  }
+  function hideTip() { tip.hidden = true; }
+  function bindTip(node, value, label) {
+    node.setAttribute("tabindex", "0");
+    node.setAttribute("aria-label", label + ": " + value);
+    node.addEventListener("pointerenter", function () { showTip(node, value, label); });
+    node.addEventListener("pointerleave", hideTip);
+    node.addEventListener("focus", function () { showTip(node, value, label); });
+    node.addEventListener("blur", hideTip);
+  }
+  window.addEventListener("scroll", hideTip, {passive: true});
+
+  function tableView(head, rows) {
+    var d = el("details", {class: "tv"});
+    d.appendChild(el("summary", null, "Show as table"));
+    var t = el("table"), tr = el("tr");
+    head.forEach(function (h, i) { tr.appendChild(el("th", i ? {class: "num"} : null, h)); });
+    t.appendChild(el("thead")).appendChild(tr);
+    var tb = t.appendChild(el("tbody"));
+    rows.forEach(function (r) {
+      var row = el("tr");
+      r.forEach(function (v, i) { row.appendChild(el("td", i ? {class: "num"} : null, i ? fmt(v) : v)); });
+      tb.appendChild(row);
+    });
+    d.appendChild(t);
+    return d;
+  }
+  function empty(box, msg) { box.textContent = ""; box.appendChild(el("p", {class: "empty"}, msg)); }
+
+  // ---------- horizontal bars (single series)
+  function hbars(box, rows, emptyMsg, unit) {
+    if (!rows.length) return empty(box, emptyMsg);
+    box.textContent = "";
+    var max = Math.max.apply(null, rows.map(function (r) { return r.count; })) || 1;
+    var g = el("div", {class: "hbars"});
+    rows.forEach(function (r) {
+      var lab = el("div", {class: "lab", title: r.label}, r.label);
+      if (r.mark) lab.appendChild(el("small", null, " ●"));
+      var track = el("div", {class: "track"});
+      track.appendChild(el("div", {class: "bar", style: "width:calc((100% - 48px) * " + (r.count / max) + ")"}));
+      track.appendChild(el("span", {class: "bar-val"}, fmt(r.count)));
+      bindTip(track, fmt(r.count) + " " + unit, r.label + (r.sub ? " · " + r.sub : ""));
+      g.appendChild(lab);
+      g.appendChild(track);
+    });
+    box.appendChild(g);
+    box.appendChild(tableView(["", unit.charAt(0).toUpperCase() + unit.slice(1)], rows.map(function (r) { return [r.label, r.count]; })));
+  }
+
+  // ---------- stacked bars: leads by sector x temperature (ordinal ramp)
+  function leadsChart(box, totals, rows) {
+    var total = TEMPS.reduce(function (s, t) { return s + (totals[t] || 0); }, 0);
+    if (!total) return empty(box, "No leads yet. Counts appear after the pipeline's first scored run.");
+    box.textContent = "";
+    var tt = el("div", {class: "temp-totals"});
+    TEMPS.forEach(function (t) { var d = el("div"); d.appendChild(el("b", null, fmt(totals[t]))); d.appendChild(document.createTextNode(t)); tt.appendChild(d); });
+    box.appendChild(tt);
+    var lg = el("div", {class: "legend", "aria-hidden": "true"});
+    TEMPS.forEach(function (t) { var s = el("span"); s.appendChild(el("i", {style: "background:var(--t-" + t.toLowerCase() + ")"})); s.appendChild(document.createTextNode(t)); lg.appendChild(s); });
+    box.appendChild(lg);
+    var max = Math.max.apply(null, rows.map(function (r) { return r.Hot + r.Warm + r.Cold; })) || 1;
+    var g = el("div", {class: "hbars"});
+    rows.forEach(function (r) {
+      var sum = r.Hot + r.Warm + r.Cold;
+      g.appendChild(el("div", {class: "lab", title: r.label}, r.label));
+      var track = el("div", {class: "track", style: "outline:none"});
+      track.setAttribute("tabindex", "-1");
+      var st = el("div", {class: "stack", style: "width:calc((100% - 48px) * " + (sum / max) + ")"});
+      TEMPS.forEach(function (t) {
+        if (!r[t]) return;
+        var seg = el("div", {class: "seg", "data-t": t, style: "flex:" + r[t] + " 1 0"});
+        seg.appendChild(el("span", null, fmt(r[t])));
+        bindTip(seg, fmt(r[t]) + " " + t, r.label);
+        st.appendChild(seg);
+      });
+      track.appendChild(st);
+      track.appendChild(el("span", {class: "bar-val"}, fmt(sum)));
+      g.appendChild(track);
+    });
+    box.appendChild(g);
+    // a label that does not fit inside its segment is hidden, never clipped (value stays in tooltip + table)
+    requestAnimationFrame(function () {
+      box.querySelectorAll(".seg").forEach(function (s) {
+        var span = s.firstChild;
+        if (span.offsetWidth + 8 > s.clientWidth) span.className = "hide";
+      });
+    });
+    var d = tableView(["Sector", "Hot", "Warm", "Cold"], rows.map(function (r) { return [r.label, r.Hot, r.Warm, r.Cold]; }));
+    box.appendChild(d);
+  }
+
+  // ---------- column chart: new postings per day
+  function columns(box, rows, baseline) {
+    var any = rows.some(function (r) { return r.count > 0; });
+    if (!any) return empty(box, baseline ? "Still in the first 30 days: postings found on the first run are not counted as new." : "No new postings in the last 30 days.");
+    box.textContent = "";
+    var W = Math.max(280, box.clientWidth), H = 180, padL = 32, padB = 22, padT = 16;
+    var max = Math.max.apply(null, rows.map(function (r) { return r.count; }));
+    var step = niceStep(max), top = Math.ceil(max / step) * step || 1;
+    var s = svg("svg", {width: W, height: H + padB, viewBox: "0 0 " + W + " " + (H + padB), role: "img", "aria-label": "New postings per day, last 30 days"});
+    for (var v = 0; v <= top; v += step) {
+      var y = padT + (H - padT) * (1 - v / top);
+      s.appendChild(svg("line", {x1: padL, x2: W, y1: y, y2: y, class: v ? "gridline" : "baseline"}));
+      var tx = svg("text", {x: padL - 6, y: y + 4, "text-anchor": "end"}); tx.textContent = compact(v); s.appendChild(tx);
+    }
+    var band = (W - padL) / rows.length, bw = Math.max(2, Math.min(24, band - 2));
+    var maxI = rows.reduce(function (bi, r, i) { return r.count > rows[bi].count ? i : bi; }, 0);
+    rows.forEach(function (r, i) {
+      var x = padL + i * band + (band - bw) / 2;
+      var h = (H - padT) * (r.count / top), y0 = H;
+      var hit = svg("rect", {x: padL + i * band, y: padT, width: band, height: H - padT, class: "hit"});
+      s.appendChild(hit);
+      if (r.count > 0) {
+        var rr = Math.min(4, bw / 2, h);
+        var p = "M" + x + "," + y0 + "V" + (y0 - h + rr) + "Q" + x + "," + (y0 - h) + " " + (x + rr) + "," + (y0 - h) +
+          "H" + (x + bw - rr) + "Q" + (x + bw) + "," + (y0 - h) + " " + (x + bw) + "," + (y0 - h + rr) + "V" + y0 + "Z";
+        s.appendChild(svg("path", {d: p, class: "col"}));
+      } else {
+        s.appendChild(svg("g", {}));
+      }
+      bindTip(hit, fmt(r.count) + " new", dayLabel(r.date));
+      if (i === maxI && r.count > 0) {
+        var lt = svg("text", {x: x + bw / 2, y: y0 - h - 5, "text-anchor": "middle"}); lt.textContent = fmt(r.count); s.appendChild(lt);
+      }
+      if ((i % 7 === 0 && rows.length - 1 - i >= 4) || i === rows.length - 1) {   // no colliding labels
+        var xl = svg("text", {x: padL + i * band + band / 2, y: H + 16, "text-anchor": "middle"}); xl.textContent = shortDay(r.date); s.appendChild(xl);
+      }
+    });
+    box.appendChild(s);
+    box.appendChild(tableView(["Date", "New postings"], rows.map(function (r) { return [r.date, r.count]; })));
+  }
+  function niceStep(max) {
+    var raw = Math.max(1, max) / 4, p = Math.pow(10, Math.floor(Math.log10(raw))), n = raw / p;
+    return Math.max(1, (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * p);
+  }
+  function dayLabel(iso) { var d = new Date(iso + "T12:00:00Z"); return d.toLocaleDateString("en-GB", {weekday: "short", day: "numeric", month: "short", timeZone: "UTC"}); }
+  function shortDay(iso) { var d = new Date(iso + "T12:00:00Z"); return d.toLocaleDateString("en-GB", {day: "numeric", month: "short", timeZone: "UTC"}); }
+
+  // ---------- data sources
+  function sources(box, rows) {
+    if (!rows.length) return empty(box, "No source runs logged yet.");
+    box.textContent = "";
+    var counts = {};
+    rows.forEach(function (r) { counts[r.status] = (counts[r.status] || 0) + 1; });
+    var sum = el("p", {class: "desc"});
+    sum.textContent = Object.keys(counts).sort().map(function (k) { return counts[k] + " " + (STATUS[k] ? STATUS[k][1].toLowerCase() : k); }).join(" · ");
+    box.appendChild(sum);
+    var d = el("details", {class: "tv"});
+    d.appendChild(el("summary", null, "Show all " + rows.length + " sources"));
+    var t = el("table"), hr = el("tr");
+    ["Engine", "Source", "Status", "Last run"].forEach(function (h) { hr.appendChild(el("th", null, h)); });
+    t.appendChild(el("thead")).appendChild(hr);
+    var tb = t.appendChild(el("tbody"));
+    rows.forEach(function (r) {
+      var tr = el("tr");
+      tr.appendChild(el("td", null, r.engine.replace(/^engine\d_/, "")));
+      tr.appendChild(el("td", null, r.source));
+      var st = STATUS[r.status] || ["var(--axis)", r.status, "?"];
+      var td = el("td"), span = el("span", {class: "status"});
+      span.appendChild(el("span", {class: "dot", style: "background:" + st[0], "aria-hidden": "true"}));
+      span.appendChild(document.createTextNode(st[2] + " " + st[1]));
+      td.appendChild(span); tr.appendChild(td);
+      tr.appendChild(el("td", null, r.date));
+      tb.appendChild(tr);
+    });
+    d.appendChild(t);
+    box.appendChild(d);
+  }
+
+  // ---------- company table
+  var CO = [], view = [], shown = 50, sortKey = "open_jobs", sortDir = -1;
+  function companies(list) {
+    CO = list;
+    var sectors = {};
+    list.forEach(function (c) { sectors[c.sector] = 1; });
+    var sel = document.getElementById("f-sector");
+    Object.keys(sectors).sort().forEach(function (s) { sel.appendChild(el("option", {value: s}, s)); });
+    ["f-q", "f-sector", "f-contact", "f-hiring"].forEach(function (id) {
+      document.getElementById(id).addEventListener(id === "f-q" ? "input" : "change", function () { shown = 50; renderCo(); });
+    });
+    document.querySelectorAll("#co-table th").forEach(function (th) {
+      th.querySelector("button").addEventListener("click", function () {
+        var k = th.getAttribute("data-k");
+        sortDir = k === sortKey ? -sortDir : (k === "open_jobs" ? -1 : 1);
+        sortKey = k;
+        document.querySelectorAll("#co-table th").forEach(function (o) { o.setAttribute("aria-sort", "none"); });
+        th.setAttribute("aria-sort", sortDir > 0 ? "ascending" : "descending");
+        renderCo();
+      });
+    });
+    document.getElementById("more").addEventListener("click", function () { shown += 50; renderCo(); });
+    renderCo();
+  }
+  function renderCo() {
+    var q = document.getElementById("f-q").value.trim().toLowerCase();
+    var sec = document.getElementById("f-sector").value, con = document.getElementById("f-contact").value;
+    var hiring = document.getElementById("f-hiring").checked;
+    view = CO.filter(function (c) {
+      return (!q || (c.name + " " + c.location).toLowerCase().indexOf(q) >= 0) && (!sec || c.sector === sec) &&
+        (!con || c.contact === con) && (!hiring || c.open_jobs > 0);
+    });
+    view.sort(function (a, b) {
+      var x = a[sortKey], y = b[sortKey];
+      if (typeof x === "number") return (x - y) * sortDir || a.name.localeCompare(b.name);
+      return String(x).localeCompare(String(y)) * sortDir || b.open_jobs - a.open_jobs;
+    });
+    var tb = document.querySelector("#co-table tbody");
+    tb.textContent = "";
+    if (!CO.length) {
+      var tr0 = el("tr"); tr0.appendChild(el("td", {colspan: "6", class: "empty"}, "No companies yet. The list fills as postings and public lists are added.")); tb.appendChild(tr0);
+    }
+    view.slice(0, shown).forEach(function (c) {
+      var tr = el("tr"), td = el("td");
+      if (c.website) { var a = el("a", {href: c.website, rel: "noopener nofollow", target: "_blank"}, c.name); td.appendChild(a); }
+      else td.textContent = c.name;
+      tr.appendChild(td);
+      tr.appendChild(el("td", null, c.sector));
+      tr.appendChild(el("td", null, c.location || "—"));
+      tr.appendChild(el("td", null, c.fit));
+      tr.appendChild(el("td", {class: "num"}, fmt(c.open_jobs)));
+      var ct = el("td"), sp = el("span", {class: "status"});
+      var col = c.contact === "Found" ? "var(--good)" : "var(--axis)";
+      sp.appendChild(el("span", {class: "dot", style: "background:" + col, "aria-hidden": "true"}));
+      sp.appendChild(document.createTextNode(c.contact));
+      ct.appendChild(sp); tr.appendChild(ct);
+      tb.appendChild(tr);
+    });
+    document.getElementById("f-count").textContent = "Showing " + fmt(Math.min(shown, view.length)) + " of " + fmt(view.length);
+    document.getElementById("more").hidden = view.length <= shown;
+  }
+
+  // ---------- page
+  var DATA = null;
+  function renderCharts() {
+    if (!DATA) return;
+    hbars(document.getElementById("c-sector"), DATA.jobs_by_sector.map(function (r) { return {label: r.label, count: r.count, mark: r.target}; }), "No active postings yet.", "postings");
+    hbars(document.getElementById("c-top"), DATA.top_hiring.map(function (r) { return {label: r.label, count: r.count, sub: r.sector}; }), "No employer postings yet.", "postings");
+    columns(document.getElementById("c-trend"), DATA.new_jobs_trend, DATA.baseline.active);
+    leadsChart(document.getElementById("c-leads"), DATA.leads_by_temperature, DATA.leads_by_sector);
+    hbars(document.getElementById("c-signals"), DATA.signals_by_type, "No live signals. News sources are off until reviewed.", "signals");
+  }
+  function render(d) {
+    DATA = d;
+    var k = d.kpis;
+    document.getElementById("k-active").textContent = fmt(k.active_jobs);
+    document.getElementById("k-new").textContent = fmt(k.new_today);
+    document.getElementById("k-hiring").textContent = fmt(k.companies_hiring);
+    document.getElementById("k-tracked").textContent = fmt(k.companies_tracked);
+    document.getElementById("k-signals").textContent = fmt(k.live_signals);
+    document.getElementById("k-contact").textContent = fmt(k.companies_with_contact) + " with a published contact route";
+    if (d.baseline.active) document.getElementById("k-new-note").textContent = "first 30 days: undercounted";
+    var when = d.last_refreshed_utc || d.generated_utc;
+    var t = when ? new Intl.DateTimeFormat("en-GB", {timeZone: TZ, day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit"}).format(new Date(when)) + " EAT" : "unknown";
+    document.getElementById("refreshed").textContent = "Updated " + t;
+    var h = document.getElementById("health");
+    h.textContent = "";
+    h.appendChild(el("span", {class: "dot", style: "background:" + (d.pipeline_ok ? "var(--good)" : "var(--critical)"), "aria-hidden": "true"}));
+    h.appendChild(document.createTextNode(d.pipeline_ok ? "✓ Pipeline OK" : "✕ " + d.failed_steps.length + " step(s) failed"));
+    h.hidden = false;
+    var msgs = [];
+    var age = (Date.parse(todayEAT()) - Date.parse(d.run_date)) / 86400000;
+    if (age >= 2) msgs.push("This data is " + Math.round(age) + " days old: the daily update has not run.");
+    if (!d.pipeline_ok && d.failed_steps.length) msgs.push("Some steps failed on the last run (" + d.failed_steps.join(", ") + "); their figures are from the run before.");
+    if (d.baseline.active) msgs.push("The radar started on " + d.baseline.since + ". For the first 30 days, \"new\" counts and trends are incomplete.");
+    var b = document.getElementById("banner");
+    b.textContent = msgs.join(" ");
+    b.hidden = !msgs.length;
+    renderCharts();
+    sources(document.getElementById("c-sources"), d.sources);
+    companies(d.companies);
+  }
+
+  var rt;
+  window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { renderCharts(); }, 150); });
+
+  fetch("data/dashboard.json", {cache: "no-cache"})
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(function () {
+      document.getElementById("refreshed").textContent = "No data published yet";
+      var b = document.getElementById("banner");
+      b.textContent = "The dashboard data appears after the first daily pipeline run.";
+      b.hidden = false;
+      ["c-sector", "c-top", "c-trend", "c-leads", "c-signals", "c-sources"].forEach(function (id) { empty(document.getElementById(id), "No data yet."); });
+      companies([]);
+    });
+})();
+</script>
+</body>
+</html>

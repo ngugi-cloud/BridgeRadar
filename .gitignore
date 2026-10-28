@@ -1,0 +1,8 @@
+# Private data: NEVER commit. The workflow keeps this in the private repo.
+private_data/
+cache/
+__pycache__/
+*.pyc
+.env
+# The workflow checks the private data repo out here. NEVER commit it.
+_private/

@@ -1,0 +1,184 @@
+# Bridge Lead Radar - daily pipeline
+#
+# 1. Checks out this (public) repo and the PRIVATE data repo.
+# 2. Runs the offline tests. If they fail, nothing is run or published.
+# 3. Runs E1 -> E2 -> E3 -> E4 -> scoring -> dashboard (scraper/run_all.py).
+# 4. Commits private files to the private repo, public files here (after a privacy check).
+# 5. Publishes docs/ to GitHub Pages.
+# 6. On failure: the run turns red (GitHub emails you) and an issue is opened here.
+#
+# Timing: 02:17 UTC = 05:17 Nairobi. GitHub may start scheduled runs 10-60 min late.
+# The Sheet sends your edits at ~03:00 EAT and imports at ~07:00 EAT, so there is slack.
+# run_all.py stamps the UTC date, which equals the Nairobi date between 00:00 and 21:00 UTC.
+#
+# Keepalive: GitHub disables scheduled workflows after 60 days without repo activity.
+# Every run commits data/meta.json (its timestamp changes daily), which counts as activity.
+#
+# Secrets (Settings > Secrets and variables > Actions):
+#   PRIVATE_REPO_TOKEN   required. Fine-grained token: only the private data repo, Contents: Read and write.
+#   RELIEFWEB_APPNAME, JOOBLE_API_KEY, SEARCH_API_KEY   optional; only used by sources you enable.
+# Variable (optional): PRIVATE_REPO = owner/name of the data repo (default: <you>/bridge-lead-data).
+
+name: Daily pipeline
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-pipeline
+  cancel-in-progress: false
+
+env:
+  PRIVATE_REPO: ${{ vars.PRIVATE_REPO || format('{0}/bridge-lead-data', github.repository_owner) }}
+  TZ: UTC
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    outputs:
+      uploaded: ${{ steps.upload.outputs.done }}
+    steps:
+      - name: Check the private-repo secret is set
+        env:
+          TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::Secret PRIVATE_REPO_TOKEN is missing. Add it under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
+      - name: Check out this repo (public code + public data)
+        uses: actions/checkout@v4
+
+      - name: Check out the PRIVATE data repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.PRIVATE_REPO }}
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: _private
+
+      - name: Refuse to run if the data repo is public
+        env:
+          GH_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+        run: |
+          vis=$(gh api "repos/$PRIVATE_REPO" --jq .private)
+          if [ "$vis" != "true" ]; then
+            echo "::error::$PRIVATE_REPO is not private. Stopping before any personal data is written."
+            exit 1
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Tests (offline)
+        run: python -m unittest discover -s tests -t .
+
+      - name: Run the pipeline
+        id: run
+        continue-on-error: true          # still publish what worked; the job is marked failed at the end
+        env:
+          PRIVATE_DATA_DIR: ${{ github.workspace }}/_private   # set ONLY here, so tests can never touch real data
+          RELIEFWEB_APPNAME: ${{ secrets.RELIEFWEB_APPNAME }}
+          JOOBLE_API_KEY: ${{ secrets.JOOBLE_API_KEY }}
+          SEARCH_API_KEY: ${{ secrets.SEARCH_API_KEY }}
+        run: python -m scraper.run_all
+
+      - name: Git identity
+        run: |
+          for d in . _private; do
+            git -C "$d" config user.name "github-actions[bot]"
+            git -C "$d" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          done
+
+      - name: Save PRIVATE data to the private repo
+        run: |
+          cd _private
+          git add -A
+          if git diff --cached --quiet; then echo "No private changes."; exit 0; fi
+          git commit -q -m "Daily data $(date -u +%F)"
+          for i in 1 2 3; do
+            # the Sheet may have pushed edits since checkout; it never touches the files we write
+            git pull --rebase -q && git push -q && exit 0
+            sleep $((i * 10))
+          done
+          echo "::error::Could not push to the private repo."; exit 1
+
+      - name: Privacy check, then save PUBLIC data here
+        run: |
+          git add data docs
+          python -m scraper.check_public --staged
+          if git diff --cached --quiet; then echo "No public changes."; exit 0; fi
+          git commit -q -m "Daily data $(date -u +%F)"
+          for i in 1 2 3; do
+            git pull --rebase -q && git push -q && exit 0
+            sleep $((i * 10))
+          done
+          echo "::error::Could not push to this repo."; exit 1
+
+      - name: Package the dashboard
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Note that the dashboard was packaged
+        id: upload
+        run: echo "done=true" >> "$GITHUB_OUTPUT"
+
+      - name: Mark the run failed if a pipeline step failed
+        if: steps.run.outcome != 'success'
+        run: |
+          echo "::error::One or more pipeline steps failed. Data from those steps is from the previous run. See the 'Run the pipeline' log."
+          exit 1
+
+  pages:
+    needs: pipeline
+    # publish even if a pipeline step failed (partial data is still the latest data),
+    # but only if the dashboard was actually packaged
+    if: ${{ !cancelled() && needs.pipeline.outputs.uploaded == 'true' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
+  notify:
+    needs: [pipeline, pages]
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open (or update) a failure issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh label create pipeline-failure --repo "$GITHUB_REPOSITORY" --color d03b3b \
+            --description "Daily pipeline failed" --force >/dev/null
+          n=$(gh issue list --repo "$GITHUB_REPOSITORY" --label pipeline-failure --state open --json number --jq '.[0].number')
+          body="The daily pipeline failed on $(date -u +%F). Open the run for details: $RUN_URL
+          Close this issue once fixed. (No data is shown here on purpose: this repo is public.)"
+          if [ -n "$n" ]; then
+            gh issue comment "$n" --repo "$GITHUB_REPOSITORY" --body "$body"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --label pipeline-failure \
+              --title "Daily pipeline failed" --body "$body"
+          fi

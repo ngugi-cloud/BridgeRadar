@@ -1,0 +1,98 @@
+# =============================================================================
+# signals.yaml - Engine 4 (hiring-intent signals).  signal-based prioritization:
+# these are heuristics over news headlines, NOT predictions. Expect false
+# positives; every row links to its source so a human can check.
+# Points, decay and reliability multipliers live in scoring.yaml.
+# =============================================================================
+settings:
+  lookback_days: 90            # older articles are ignored
+  retention_days: 120          # signals kept in the file this long
+  cluster_window_days: 14      # same company + same type within 14 days = ONE event
+  max_items_per_feed: 100
+  require_kenya_marker_for_unmatched: true   # unknown companies need a Kenya reference
+
+google_news:
+  base: "https://news.google.com/rss/search"
+  params: "hl=en-KE&gl=KE&ceid=KE:en"
+  window: "when:30d"
+  # NOTE: the runner checks news.google.com/robots.txt every run. If it disallows
+  # this path, the source is skipped and logged - use the feeds below instead.
+  queries:
+    - "Kenya company raises funding"
+    - "Kenya startup raises Series A"
+    - "Kenya expansion new factory"
+    - "Kenya opens new branch"
+    - "Kenya hospital expansion new facility"
+    - "Kenya manufacturing plant jobs"
+    - "Kenya agribusiness investment jobs"
+    - "Kenya PPP investment agreement"
+    - "KenInvest investment announcement"
+    - "Kenya acquisition acquires company"
+    - "Kenya licence granted approval company"
+    - "Kenya wins tender contract awarded"
+    - "Kenya appoints new CEO managing director"
+    - "Kenya launches new product"
+    - "Kenya layoffs retrenchment redundancies"
+
+# Fill in feed URLs ONLY after reviewing each site's terms and finding a real RSS link.
+feeds:
+  kna: ""
+  businessdaily: ""
+  thestar: ""
+  kenyanwallstreet: ""
+  newstrendske: ""
+  techcabal_disrupt: ""
+# Google Alerts "deliver to: RSS feed" URLs (one per company/sector you want to watch)
+alert_feeds: []
+
+# Who is a more reliable outlet? Editable judgement (substring match, lowercase).
+outlet_classes:
+  government: [kenya news agency, keninvest, state house, treasury, kenya gazette]
+  major_press: [business daily, nation, the star, standard, the east african, reuters, bloomberg, bbc, citizen digital, capital fm, financial times]
+  tracker: [kenyan wallstreet, techcabal, disrupt africa, techpoint, african business, afrik21]
+  tracker_new: [newstrendske]
+
+# Regexes on the headline (case-insensitive). One article -> at most ONE hiring signal
+# (the highest-points type), so a single story is never double counted.
+patterns:
+  funding_raised:
+    - '\b(raises?|raised|secures?|secured|closes|closed|bags|lands|attracts?|receives?|wins?)\b[^.]{0,80}(?:\b(?:funding|seed|series [a-d]|pre-seed|round|grant|equity|investment|capital|financing|prize)\b|\$ ?\d|\b(?:usd|kes|ksh|sh) ?\d)'
+    - '\b(funding round|seed round|series [a-d] round)\b'
+  expansion_announced:
+    - '\b(expands?|expansion|breaks? ground|groundbreaking|market entry)\b'
+    - '\b(opens?|launche[sd]|unveils?|commissions?|sets? up|to build|to open|to set up|building)\b[^.]{0,40}\b(branch|plant|factory|warehouse|hospital|facility|store|outlet|office|hub|distribution centre|processing)\b'
+    - '\benters? (the )?(kenyan?|kenya) market\b'
+  government_investment_deal:
+    - '\b(ppp|public[- ]private partnership|fdi|foreign direct investment|investment (deal|agreement|pledge)|memorandum of understanding|special economic zone)\b'
+  mna_or_ipo:
+    - '\b(acquires?|acquired|acquisition|takeover|merger|merges|buyout|ipo|initial public offering|lists? on (the )?(nse|nairobi securities exchange))\b'
+  licence_or_approval:
+    - '\b(licen[cs]e|approval|accreditation|permit)\b[^.]{0,60}\b(granted|awarded|issued|secured|obtained)\b'
+    - '\b(granted|awarded|receives?|secures?|obtains?)\b[^.]{0,40}\b(licen[cs]e|approval|accreditation|permit)\b'
+  contract_or_tender_won:
+    - '\b(wins?|won|awarded|bags|secures?|clinches|lands)\b[^.]{0,50}\b(contract|tender|deal|order)\b'
+    - '\bcontract (award|awarded)\b'
+  leadership_hire:
+    - '\b(appoints?|appointed|names?|named|hires?|hired|taps)\b[^.]{0,40}\b(ceo|chief executive|managing director|coo|cfo|chief [a-z]+ officer|hr director|head of (hr|human resources|people)|country manager|general manager)\b'
+  product_launch:
+    - '\b(launche[sd]?|unveils?|introduces?|rolls out|debuts?)\b[^.]{0,50}\b(product|service|platform|app|range|line|brand|solution|offering)\b'
+    - '\bnew product\b'
+
+# Layoffs / freezes: ADVISORY only. Never changes lead scores. Takes precedence
+# over hiring patterns for the same headline.
+advisory_pattern: '\b(layoffs?|lays? off|retrench\w*|redundanc(y|ies)|job cuts?|hiring freeze|restructuring|cost[- ]cutting|downsiz\w*|shuts? down|closes? (down )?(its )?(plant|factory|branch|operations))\b'
+advisory_angle: "HR Consulting / outplacement"
+
+# What to say (angle templates). {amount} and {jobs} appear only when found in the headline.
+angles:
+  funding_raised: "Raised {amount} — pitch scale-up recruitment and contract staffing"
+  expansion_announced: "Expansion announced{jobs} — pitch recruitment for the new site and outsourced staffing"
+  government_investment_deal: "Investment / PPP deal{jobs} — pitch project-based recruitment and compliance set-up"
+  mna_or_ipo: "M&A / listing activity — pitch HR consulting, payroll consolidation and compliance"
+  licence_or_approval: "New licence / approval — pitch launch staffing and compliance support"
+  contract_or_tender_won: "Contract win{jobs} — pitch project and contract staffing"
+  leadership_hire: "New senior leader — pitch team build-out and HR consulting"
+  product_launch: "Product launch — pitch sales and operations hiring"
+
+kenya_markers: [kenya, kenyan, nairobi, mombasa, kisumu, nakuru, eldoret, thika, kiambu, machakos, ksh, kes]
+generic_candidate_words: [kenya, government, govt, firm, company, startup, bank, hospital, county, ministry, investors, group, farmers, state, firms]

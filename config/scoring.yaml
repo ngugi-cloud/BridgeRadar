@@ -1,0 +1,188 @@
+# =============================================================================
+# scoring.yaml  -  Bridge Lead Radar
+# All weights live here. Change numbers, not code. Re-calibrate monthly using
+# the Outcome column in the Sheet (Won / Lost / Meeting booked).
+#
+# TEMPERATURE APPLIES TO LEADS, NOT COMPANIES.
+# A lead = one actionable trigger:
+#   job_lead            one de-duplicated active posting (company + title + location)
+#   signal_lead         one clustered news event (same story across outlets = one)
+#   contact_change_lead a newly detected HR/TA head at a company
+# One company can have several leads at different temperatures.
+#
+# Lead score (0-100) = trigger (40) + momentum (20) + account_fit (20) + reachability (20)
+# Label: "signal-based prioritization". Nothing here predicts hiring with certainty.
+# =============================================================================
+
+lead_score:
+  max: 100
+
+  # ---------------------------------------------------------------- TRIGGER (max 40)
+  trigger:
+    max: 40
+
+    job_lead:
+      base_active_posting: 15
+      freshness_bonus:                 # by days since first_seen / posted
+        - {max_days: 3,  points: 10}
+        - {max_days: 7,  points: 7}
+        - {max_days: 14, points: 4}
+        - {max_days: 30, points: 2}
+      urgency_bonus: 10                # urgent / bulk / repost / multiple openings / open > 30 days
+      hiring_own_hr_bonus: 5           # company is hiring its own HR role
+      cap: 40
+
+    signal_lead:
+      # points x age_decay x reliability x multiplier, then + job_numbers_bonus, cap 40
+      multiplier: 2.5
+      job_numbers_bonus:               # PROPOSAL: story states expected jobs
+        - {min_jobs: 500, points: 3}
+        - {min_jobs: 200, points: 2}
+        - {min_jobs: 50,  points: 1}
+      cap: 40
+
+    contact_change_lead:
+      fixed: 20
+      shelf_life_days: 60
+
+  # ---------------------------------------------------------------- MOMENTUM (max 20)
+  momentum:
+    max: 20
+    also_has_live_lead_of_other_type: 10   # e.g. job lead + signal lead at same company
+    hiring_velocity_up: 5                  # new postings this 7 days > previous 7 days
+    volume_or_corroboration: 5             # 3+ open postings, OR signal in 2+ independent outlets
+
+  # ---------------------------------------------------------------- ACCOUNT FIT (max 20)
+  # Sector and ICP together are capped at 20.
+  # ASSUMPTION to confirm: adjacent=4 and other=1 (you only fixed target=8).
+  account_fit:
+    max: 20
+    sector:
+      target: 8          # healthcare, tech_ecommerce, manufacturing, agriculture
+      adjacent: 4
+      other: 1
+    size_icp:
+      verified_in_band: 12     # private, 10-250 employees, size sourced
+      unknown_size: 4          # kept in, flagged "size unverified" - never guessed
+      outside_band_large: 2    # large multinationals: kept, flagged, lower fit
+      public_sector_or_ngo: 0
+
+  # ---------------------------------------------------------------- REACHABILITY (max 20)
+  reachability:
+    max: 20
+    named_hr_or_ta:      {high: 20, medium: 14, low: 8}
+    other_decision_maker: {high: 12, medium: 8,  low: 4}
+    generic_inbox_or_form: 5
+    none_found: 0
+    halve_if_verified_older_than_days: 180
+
+# =============================================================================
+# SIGNAL POINTS (Engine 4 inputs to signal_lead)
+# =============================================================================
+signals:
+  points:
+    funding_raised: 15            # seed / Series A,B / grant / prize
+    expansion_announced: 15       # branch, factory, warehouse, market entry
+    government_investment_deal: 15  # PPP, FDI
+    mna_or_ipo: 10
+    licence_or_approval: 8
+    contract_or_tender_won: 8
+    leadership_hire: 8
+    product_launch: 8
+
+  # Removed from Engine 4 to avoid double counting (now handled as lead triggers):
+  #   new HR head -> contact_change_lead
+  #   hiring spike / company hiring its own HR manager -> job_lead trigger
+
+  # Sector-wide items are NOT leads. They add a small modifier and a campaign angle.
+  sector_modifier:
+    hiring_intent_survey: 4       # added to leads in that sector, max once
+    regulatory_trigger: 3         # e.g. statutory payroll changes (team confirms rates)
+
+  age_decay:
+    - {max_days: 30, multiplier: 1.0}
+    - {max_days: 60, multiplier: 0.75}
+    - {max_days: 90, multiplier: 0.5}
+    - {over_days: 90, multiplier: 0.0}
+
+  reliability:
+    government: 1.0
+    major_press: 1.0
+    tracker: 0.8
+    tracker_new: 0.7              # NewsTrendsKE until it has a track record
+    single_unverified: 0.7
+    corroboration_bonus: 0.20     # 2+ independent outlets, capped so multiplier <= 1.2
+    corroboration_cap: 1.2
+
+  probability_label:              # predicted_hiring_probability on each signal row
+    high_at_or_above: 12
+    medium_at_or_above: 6
+  required_label: "signal-based prioritization"
+
+# =============================================================================
+# TEMPERATURE (applied per lead)
+# =============================================================================
+temperature:
+  hot:
+    min_score: 65
+    requires_fresh_trigger: true
+    fresh_trigger:
+      job_lead_max_days: 14
+      signal_lead_max_days: 30
+      contact_change_lead_max_days: 30   # ASSUMPTION (not in the original brief): confirm
+    requires_contact_route: true       # reachability >= min_reachability
+    min_reachability: 5
+    action: "Outreach within 48 hours"
+  warm:
+    min_score: 40
+    cap_when_no_contact: true          # would-be Hot with no contact route -> Warm + flag
+    no_contact_flag: "find contact"
+    action: "Weekly nurture"
+  cold:
+    action: "Monthly review"
+
+  lifecycle:
+    job_lead_drop_tier_after_days_without_new_trigger: 30
+    signal_lead_expires_after_days: 90
+    contact_change_lead_expires_after_days: 60
+    new_trigger_rescores_lead: true    # Cold leads can heat up again
+    group_hot_leads_per_company: true  # one primary lead, others listed under it
+    untouched_hot_alert_days: 7        # Status still "New" after 7 days -> flag
+
+# =============================================================================
+# EXCLUSIONS (leads are never queued for these)
+# =============================================================================
+exclusions:
+  statuses: [Won, Lost]                # frozen: carried forward as "Closed", never re-scored
+  lists: [suppression, existing_clients, competitor_agencies, do_not_contact]
+  public_sector: true
+  ngo: true                            # outside private-sector ICP by default
+  # Also outside the ICP (same rule Engine 3 uses): Level 1-2 facilities and micro firms.
+  also_exclude_icp: [excluded_facility, excluded_micro]
+  # Job postings by agencies (competitors) or "confidential" employers have no buyer to call.
+  job_posted_by: [agency, confidential]
+
+# Advisory track (layoffs / freezes): flag only, does not change scores.
+advisory:
+  affects_score: false
+  suggested_angle: "HR Consulting / outplacement"
+
+# =============================================================================
+# PRIORITY QUEUE (scraper/scoring.py -> PRIVATE priority_queue.csv)
+# =============================================================================
+queue:
+  default_owner: "Head of BD"          # single user for now; change to your name if you like
+  statuses: [New, Contacted, Meeting booked, Won, Lost]
+  # Signals about companies NOT yet in the master list (name taken from a headline):
+  #   include_capped_warm = show them, never Hot, flagged "verify company"
+  #   exclude             = leave them in signal_company_candidates.csv only
+  unmatched_signals: include_capped_warm
+  # Sector-wide events (surveys, regulatory changes) add their points to MOMENTUM (cap 20).
+  # Leads that disappear (job closed, signal expired) are kept as "Expired" only if you
+  # touched them (status changed, notes, last contacted, outcome), for this many days.
+  keep_touched_expired_days: 180
+  angles:
+    job_lead: "Hiring {title} now — offer Recruitment (shortlist in days) or contract staffing"
+    job_lead_hr_role: "Hiring their own HR ({title}) — offer interim HR support, HR Consulting or to run the search"
+    job_lead_bulk: "Several open roles — offer volume Recruitment or Outsourcing"
+    contact_change_lead: "New HR/TA lead ({title}) — introduce Bridge in their first 90 days: HR audit, Compliance review, Recruitment support"

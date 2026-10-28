@@ -1,0 +1,106 @@
+# =============================================================================
+# sector_map.yaml  -  Bridge Lead Radar
+# 1. ICP (ideal client profile)
+# 2. Keyword -> sector / Bridge Talent vertical mapping
+# 3. Manual overrides
+#
+# Keyword matching is a heuristic. Every classified row stores
+# classification_confidence (high / medium / low). Low-confidence rows go to
+# data/needs_review.csv. A manual override always wins.
+# =============================================================================
+
+icp:
+  ownership: private
+  employees_min: 10
+  employees_max: 250            # SME band; adjust here. MSE Act thresholds: please verify.
+  size_unknown_policy: keep_flagged   # "size unverified", never guessed
+  large_multinationals: keep_flagged  # you chose to include them (lower account-fit)
+  exclude:
+    - public_sector               # ministries, counties, state corporations
+    - ngo_development             # outside private-sector ICP (change if you want NGO leads)
+  healthcare:
+    include: [private hospital, medical centre, nursing home, diagnostic lab, imaging centre, clinic chain, dialysis centre]
+    min_facility_level: 3         # Kenya MFL level 3 (health centre) and above
+    exclude: [single-practitioner clinic, small dispensary]
+    exclude_terms: [dispensary, single practitioner, solo practice]   # matched in name / sub-industry
+    unless: part_of_group
+  pending_confirmation:
+    - "employees_max 250 is my assumption; confirm your SME ceiling"
+
+# Bridge Talent verticals (your 4 core) and adjacent sectors
+verticals:
+  target: [healthcare, tech_ecommerce, manufacturing, agriculture]
+  adjacent: [financial_services, energy, hospitality, construction, logistics,
+             professional_services, education, telecoms, retail_fmcg]
+  other: [other]
+  out_of_icp: [ngo_development, public_sector]
+
+sectors:
+  healthcare:
+    vertical: "Healthcare"
+    keywords: [hospital, clinic, medical centre, nursing home, diagnostic, laboratory, pharmacy, pharmaceutical, nurse, clinical officer, radiograph, dental, health facility]
+  tech_ecommerce:
+    vertical: "Tech & E-commerce"
+    keywords: [software, developer, fintech, startup, e-commerce, ecommerce, saas, data engineer, cloud, cybersecurity, mobile app, platform, digital, marketplace]
+  manufacturing:
+    vertical: "Manufacturing"
+    keywords: [manufacturing, factory, plant, production, assembly, packaging, steel, plastics, cement, textile, quality assurance, machine operator, industrial]
+  agriculture:
+    vertical: "Agriculture"
+    keywords: [agribusiness, farm, horticulture, flower, tea, coffee, dairy, agronomist, greenhouse, feed, fertiliser, agri-input, aquaculture]
+  financial_services:
+    vertical: "Other"
+    keywords: [bank, sacco, insurance, microfinance, investment, asset management, payments, credit, underwriting]
+  energy:
+    vertical: "Other"
+    keywords: [solar, power, petroleum, fuel, renewable, geothermal, energy, utilities, lpg]
+  hospitality:
+    vertical: "Other"
+    keywords: [hotel, resort, lodge, restaurant, tourism, safari, catering, hospitality]
+  construction:
+    vertical: "Other"
+    keywords: [construction, contractor, civil engineer, quantity surveyor, real estate, developer (property), architect]
+  logistics:
+    vertical: "Other"
+    keywords: [logistics, freight, courier, warehouse, supply chain, transport, fleet, shipping, clearing and forwarding]
+  professional_services:
+    vertical: "Other"
+    keywords: [audit, consulting, law firm, advisory, accounting, recruitment (competitor flag), marketing agency]
+  education:
+    vertical: "Other"
+    keywords: [school, university, college, academy, training institute, tutor]
+  telecoms:
+    vertical: "Other"
+    keywords: [telecom, mobile network, isp, fibre, broadband, data centre]
+  retail_fmcg:
+    vertical: "Other"
+    keywords: [supermarket, retail, fmcg, consumer goods, distributor, wholesale, beverage, food processing]
+  ngo_development:
+    vertical: "Other"
+    keywords: [ngo, foundation, humanitarian, donor-funded, un agency, charity]
+    out_of_icp: true
+
+# Role-family mapping (Engine 1)
+role_families:
+  clinical: [nurse, doctor, clinical officer, pharmacist, radiographer, lab technician, physiotherapist]
+  engineering: [engineer, developer, devops, technician, mechanic, electrician]
+  sales_marketing: [sales, business development, marketing, account manager]
+  finance_admin: [accountant, finance, payroll, auditor, administrator, receptionist]
+  operations: [operations, production, supervisor, warehouse, driver, logistics]
+  hr: [hr, human resources, talent acquisition, recruiter, people and culture]
+  executive: [ceo, coo, cfo, director, head of, general manager]
+
+seniority:
+  executive: [ceo, coo, cfo, director, head of, general manager, chief]
+  senior: [senior, lead, manager, principal]
+  mid: [officer, specialist, analyst, supervisor]
+  junior: [assistant, intern, trainee, graduate, clerk]
+
+# Urgency keywords (Engine 1)
+urgency_keywords: [urgent, immediate, "multiple positions", "several vacancies", "walk-in"]
+
+# Manual overrides: a company or domain mapped here always wins over keywords.
+# Example:
+# overrides:
+#   - {company: "Example Hospital Ltd", sector: healthcare, icp: in_band}
+overrides: []

@@ -1,0 +1,50 @@
+# =============================================================================
+# contacts.yaml - Engine 3 (HR / decision-maker contacts)
+# PHASE 1 RULES (enforced in code, not just policy):
+#   * Only data published on the company's OWN website pages we are allowed to fetch.
+#   * Emails: only addresses on the company's own domain. Personal-mail domains dropped.
+#     A person-style address is kept only when it sits in the same page block as that
+#     person's name + title. No guessed addresses. No SMTP probing (DNS MX only).
+#   * Phones: landlines only (switchboard). Mobiles are dropped because we cannot tell
+#     a business line from a personal one.
+#   * Output goes to the PRIVATE folder, never to the public repo.
+# =============================================================================
+settings:
+  crawl_budget_companies_per_run: 150     # rolling: ~1/7 of a 1,000-company list per day
+  max_pages_per_company: 6                # homepage + up to 5 relevant pages
+  max_contacts_per_company: 8
+  max_role_inboxes_per_company: 3
+  max_phones_per_company: 2
+  reverify_days: {found: 90, none: 45, blocked: 90, error: 7}
+  retention_days: 365                     # contacts not re-verified in 12 months are purged
+  confidence_stale_after_days: 90         # older than this -> confidence drops one step
+  check_mx: true                          # DNS MX lookup only (skipped if dnspython missing)
+  eligible_icp: [in_band, unknown_size, large_outside_band]
+
+page_keywords: [contact, team, leadership, management, people, about, careers, who-we-are, our-people, staff, board]
+page_priority: [contact, team, leadership, management, careers, people, our-people, who-we-are, about, staff, board]
+
+role_inbox_locals:
+  hr: [hr, humanresources, human.resources, careers, career, recruitment, recruit, jobs, vacancies, talent, people, hiring, work]
+  generic: [info, contact, hello, admin, enquiries, enquiry, office, mail, reception, customercare, support]
+
+blocked_email_domains: [gmail.com, yahoo.com, yahoo.co.uk, hotmail.com, outlook.com, live.com, icloud.com, proton.me, protonmail.com, aol.com]
+
+# Title patterns, checked in this order; first match gives role_category.
+title_patterns:
+  hr: '\b(head|director|manager|lead|officer|partner|specialist|executive|coordinator|chief|vp|vice president|associate|generalist)\b.*\b(hr|human resources?|human capital|talent|recruitment|people)\b|\b(hr|human resources?|human capital|talent( acquisition)?|recruitment|people (and|&) culture|people operations)\b.*\b(head|director|manager|lead|officer|partner|specialist|executive|coordinator|chief|generalist)\b|\bchro\b|\bhead of people\b'
+  finance: '\b(cfo|chief financial officer|finance director|director of finance|head of finance|finance manager|financial controller|finance and administration manager)\b'
+  operations: '\b(coo|chief operating officer|operations director|director of operations|head of operations|operations manager|plant manager|factory manager|production manager)\b'
+  legal_compliance: '\b(legal counsel|head of legal|compliance (manager|officer|head)|company secretary|chief compliance officer)\b'
+  executive: '\b(ceo|chief executive( officer)?|managing director|general manager|country manager|group md)\b'
+
+# Which Bridge Talent service each role typically buys (shown to BD, not a prediction)
+buys:
+  hr: "Recruitment; Compliance; HR Consulting"
+  finance: "Payroll"
+  operations: "Outsourcing"
+  legal_compliance: "Compliance"
+  executive: "Outsourcing; HR Consulting"
+  generic: ""
+
+name_stopwords: [our, team, meet, contact, about, read, more, view, learn, send, call, email, phone, tel, board, members, management, leadership, executive, head, director, manager, officer, human, resources, people, culture, talent, limited, ltd, plc, company, group, chief, general, managing, finance, operations, careers, profile, linkedin, twitter, facebook, nairobi, kenya]
