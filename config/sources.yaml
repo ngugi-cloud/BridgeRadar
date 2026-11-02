@@ -26,7 +26,7 @@
 settings:
   # PLACEHOLDER: put a real, monitored business email here. It goes in the
   # User-Agent so site owners can contact you or ask you to stop.
-  user_agent: "BridgeLeadRadar/1.0 (+https://bridgetalentgroup.com; contact: info@dymz.co.ke)"
+  user_agent: "BridgeLeadRadar/1.0 (+https://bridgetalentgroup.com)"
   respect_robots_txt: true          # do not change
   min_seconds_between_requests: 2   # per domain
   max_requests_per_source_per_run: 200

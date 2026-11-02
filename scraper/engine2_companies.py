@@ -134,9 +134,10 @@ def adapter_employers(clf: Classifier, data_dir) -> tuple[list[dict], list[dict]
     return recs, agencies
 
 
-def adapter_career_seeds(clf: Classifier) -> list[dict]:
+def adapter_career_seeds(clf: Classifier, config_dir=None) -> list[dict]:
     recs = []
-    for r in read_csv(CONFIG_DIR / "career_pages.csv"):
+    career_config_dir = config_dir or CONFIG_DIR
+    for r in read_csv(career_config_dir / "career_pages.csv"):
         name, url = clean(r.get("company")), clean(r.get("careers_url"))
         if not name or not url:
             continue
@@ -263,7 +264,7 @@ def run(dry_run: bool = False, today: dt.date | None = None, client: PoliteClien
                 agencies += ags
                 log.append(log_row(ENGINE, src["id"], "ok" if recs else "zero_results", len(recs), today=today))
             elif src["id"] == "career_pages_seed":
-                recs = adapter_career_seeds(clf)
+                recs = adapter_career_seeds(clf, config_dir)
                 records += recs
                 log.append(log_row(ENGINE, src["id"], "ok" if recs else "zero_results", len(recs), today=today))
             elif src.get("table"):

@@ -185,6 +185,7 @@ class RunnerTests(unittest.TestCase):
                                 "reviewed_on": "2026-10-22", "output": "competitor_agencies",
                                 "columns": {"name": "Agency", "email": "Email"}}]}
         (cfg / "imports.yaml").write_text(yaml.safe_dump(imports), encoding="utf-8")
+        write_csv(cfg / "career_pages.csv", [], ["company", "careers_url", "ats_type", "ats_token"])
         write_csv(tmp / "data/imports/ira.csv", [{"Name": "Alpha Insurance Ltd", "Town": "Nairobi"},
                                                  {"Name": "Karibu Staffing Kenya", "Town": "Nairobi"}], ["Name", "Town"])
         write_csv(tmp / "data/imports/nea.csv", [{"Agency": "Karibu Staffing Kenya", "Email": "info@karibu.co.ke"}],
