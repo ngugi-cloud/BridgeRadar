@@ -1,0 +1,5 @@
+source_id,name,reason,helper_url,date
+brightermonday,BrighterMonday Kenya,"Terms page states site information is for personal, non-commercial use only and prohibits data mining, robots and screen scraping without prior written consent. It also says advertiser contact details must not be used for unsolicited commercial correspondence. => Do not scrape. Do not harvest employ",https://www.brightermonday.co.ke/jobs,2026-11-02
+fuzu,Fuzu,NOT CONFIRMED. First-pass search returned nothing usable. Default manual until a human reads the ToS and robots.txt.,https://www.fuzu.com/kenya/job,2026-11-02
+pigiame,Pigiame,"Classifieds: noisy, fake-listing risk. Manual unless a clean structure + permissive ToS is confirmed.",,2026-11-02
+linkedin_jobs,LinkedIn jobs,"LinkedIn's terms are widely understood to prohibit scraping, including public listings. Not re-read in this pass. Manual only.",https://www.linkedin.com/jobs/search/?location=Kenya,2026-11-02
