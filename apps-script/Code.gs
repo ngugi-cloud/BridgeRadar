@@ -539,7 +539,7 @@ function setup() {
   var ui = SpreadsheetApp.getUi();
   var ask = [
     ['GITHUB_OWNER', 'Your GitHub username (the owner of both repos):', ''],
-    ['PUBLIC_REPO', 'Public code repo name:', 'bridge-lead-radar'],
+    ['PUBLIC_REPO', 'Public code repo name:', 'BridgeRadar'],
     ['PRIVATE_REPO', 'PRIVATE data repo name:', 'bridge-lead-data'],
     ['GITHUB_TOKEN', 'Paste the fine-grained GitHub token (only the private repo, Contents: Read and write):', ''],
     ['DEFAULT_OWNER', 'Name to put in the Owner column for new leads:', 'Head of BD']

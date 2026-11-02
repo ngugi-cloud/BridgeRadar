@@ -3,7 +3,7 @@
 About 20 minutes. You need:
 
 - Your personal Google account (the Sheet lives there).
-- The two GitHub repos already created: public `bridge-lead-radar` and **private** `bridge-lead-data`.
+- The two GitHub repos already created: public `BridgeRadar` and **private** `bridge-lead-data`.
 - The pipeline must have run at least once, so there is data to import. If it hasn't, setup still works and the
   tabs stay empty until the first run.
 
@@ -67,7 +67,7 @@ The script uses this key to read the data and to send your edits back. It can on
 5. Click **Bridge Radar** → **1. First-time setup** again. The first click only grants permission.
 6. Answer the questions:
    - **GitHub username:** your username, exactly as it appears in your repo addresses.
-   - **Public code repo name:** press OK to accept `bridge-lead-radar`.
+   - **Public code repo name:** press OK to accept `BridgeRadar`.
    - **PRIVATE data repo name:** press OK to accept `bridge-lead-data`.
    - **Token:** paste the key from Part A.
    - **Owner name:** the name to show in the Owner column, for example your name.
@@ -134,7 +134,7 @@ You can delete the empty default tab, **Sheet1**.
 | Property | Meaning | Default |
 |---|---|---|
 | `GITHUB_OWNER` | your GitHub username | — |
-| `PUBLIC_REPO` / `PRIVATE_REPO` | repo names | `bridge-lead-radar` / `bridge-lead-data` |
+| `PUBLIC_REPO` / `PRIVATE_REPO` | repo names | `BridgeRadar` / `bridge-lead-data` |
 | `GITHUB_TOKEN` | the key from Part A | — |
 | `DEFAULT_OWNER` | Owner column for new rows | `Head of BD` |
 | `DIGEST_TO` *(optional)* | send the digest to another address | your Google account |
