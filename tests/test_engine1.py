@@ -72,10 +72,10 @@ class GateTests(unittest.TestCase):
         self.assertEqual(gate({**base, "secret": "KEY"}, s, {"KEY": "x"})[0], True)
         self.assertEqual(gate(base, {"user_agent": "x PLACEHOLDER"}, {})[1], "user_agent_placeholder")
 
-    def test_shipped_config_runs_nothing_by_default(self):
+    def test_shipped_company_career_pages_are_the_only_default_runnable_source(self):
         cfg = load_yaml("sources.yaml")
         runnable = [s["id"] for s in cfg["engine1_jobs"] if gate(s, cfg["settings"], {})[0]]
-        self.assertEqual(runnable, [])
+        self.assertEqual(runnable, ["company_ats"])
 
 
 class HttpTests(unittest.TestCase):
@@ -204,6 +204,28 @@ class AdapterTests(unittest.TestCase):
                                           "createdAt": 1760000000000, "hostedUrl": "u"}]), t)
         self.assertEqual(lv[0]["title"], "Dev")
         self.assertEqual(e1.parse_greenhouse("not json", t), [])
+        wk = e1.parse_workable(json.dumps({"jobs": [{"title": "Accountant", "location": {"city": "Nairobi", "country": "Kenya"},
+                                                     "published_on": "2026-11-03", "application_url": "https://example.test/jobs/1"}]}), t)
+        self.assertEqual((wk[0]["title"], wk[0]["location"], wk[0]["posted_date"]),
+                         ("Accountant", "Nairobi, Kenya", "2026-11-03"))
+
+    def test_additional_public_ats_adapters(self):
+        target = {"company": "Acme"}
+        smart = e1.parse_smartrecruiters(json.dumps({"content": [{
+            "name": "Data Analyst", "location": {"city": "Nairobi", "country": "Kenya"},
+            "releasedDate": "2026-11-03", "ref": "https://example.test/job/1",
+        }]}), target)
+        ashby = e1.parse_ashby(json.dumps({"jobs": [{
+            "title": "Finance Officer", "location": {"name": "Nairobi, Kenya"},
+            "publishedAt": "2026-11-03", "jobUrl": "https://example.test/job/2",
+        }]}), target)
+        recruitee = e1.parse_recruitee(json.dumps({"offers": [{
+            "title": "HR Manager", "location": "Nairobi",
+            "created_at": "2026-11-03", "careers_url": "https://example.test/job/3",
+        }]}), target)
+        self.assertEqual((smart[0]["title"], smart[0]["location"]), ("Data Analyst", "Nairobi, Kenya"))
+        self.assertEqual((ashby[0]["title"], ashby[0]["location"]), ("Finance Officer", "Nairobi, Kenya"))
+        self.assertEqual((recruitee[0]["title"], recruitee[0]["location"]), ("HR Manager", "Nairobi"))
 
 
 class PipelineTests(unittest.TestCase):

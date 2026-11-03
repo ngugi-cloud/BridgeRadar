@@ -142,11 +142,16 @@ def build(data_dir=None, today: dt.date | None = None, meta: dict | None = None,
     companies.sort(key=lambda c: (-c["open_jobs"], c["name"].lower()))
 
     steps = meta.get("steps") or {}
+    pipeline_ok = bool(meta.get("ok", True))
+    source_states = [s["status"] for s in sources]
+    external_states = [s["status"] for s in sources if s["engine"] in ("engine1_jobs", "engine4_signals")]
+    if external_states and not any(s == "ok" for s in external_states):
+        pipeline_ok = False
     return {
         "generated_utc": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat(),
         "run_date": t,
         "last_refreshed_utc": meta.get("last_refreshed_utc", ""),
-        "pipeline_ok": bool(meta.get("ok", True)),
+        "pipeline_ok": pipeline_ok,
         "failed_steps": [str(s) for s in meta.get("failed_steps") or []],
         "baseline": {"active": in_baseline, "since": baseline_since.isoformat() if baseline_since else ""},
         "kpis": {"active_jobs": len(jobs), "new_today": new_today, "companies_hiring": len(hiring_norms),

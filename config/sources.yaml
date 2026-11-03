@@ -139,7 +139,7 @@ engine1_jobs:
     url: https://api.reliefweb.int/v2/jobs
     access: api
     status: approved
-    enabled: false                  # turn on after you register an appname
+    enabled: true                  # requires the RELIEFWEB_APPNAME GitHub secret
     tos_reviewed_by: "Claude first pass (API docs read); human to confirm"
     tos_reviewed_on: "2026-10-22"
     finding: >
@@ -152,10 +152,10 @@ engine1_jobs:
   - id: company_ats
     name: Company career pages and ATS boards (schema.org JobPosting, Greenhouse, Lever, Workable)
     access: ats_json
-    status: pending_review
-    enabled: false
-    tos_reviewed_by: ""
-    tos_reviewed_on: ""
+    status: approved
+    enabled: true
+    tos_reviewed_by: "Akilipathways Kenya"
+    tos_reviewed_on: "2026-11-03"
     finding: "Per-company check. Only companies already in the master list. robots.txt enforced per domain."
 
   - id: jooble_api
@@ -218,7 +218,7 @@ engine3_contacts:
 # -----------------------------------------------------------------------------
 engine4_signals:
   sources:
-    - {id: gnews_rss, name: Google News RSS (sector + signal keyword queries), access: rss, status: approved, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: major_press}
+    - {id: gnews_rss, name: Google News RSS (sector + signal keyword queries), access: rss, status: approved, enabled: true, tos_reviewed_by: "Akilipathways Kenya", tos_reviewed_on: "2026-11-03", reliability: major_press}
     - {id: keninvest_news, name: KenInvest announcements, access: rss, status: approved, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: government}
     - {id: kna, name: Kenya News Agency, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: government}
     - {id: businessdaily, name: Business Daily, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: major_press, note: "paywall: headline + link only"}

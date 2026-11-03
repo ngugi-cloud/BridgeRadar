@@ -164,7 +164,8 @@ On day one the radar has nothing to look at. Start small.
 
 1. **Review the company career-page source** (it reads companies' own job pages):
    - In VS Code open `config/sources.yaml` and find `id: company_ats`.
-   - Set `tos_reviewed_by: "Your Name"`, `tos_reviewed_on: "2026-10-23"` (today's date) and `enabled: true`.
+   - The source is already enabled and protected by the robots.txt gate.
+   - Keep the reviewer and review date current if your legal/operating review changes.
 2. **Add 10–20 target companies** to `config/career_pages.csv`, one per line under the header:
 
    ```

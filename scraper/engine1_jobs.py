@@ -166,6 +166,100 @@ def parse_lever(text: str, target: dict) -> list[dict]:
     return out
 
 
+def parse_workable(text: str, target: dict) -> list[dict]:
+    """Parse Workable's public v3 jobs response without storing description text."""
+    try:
+        body = json.loads(text)
+        jobs = body.get("jobs", []) if isinstance(body, dict) else []
+    except (ValueError, AttributeError, TypeError):
+        return []
+    out = []
+    for j in jobs if isinstance(jobs, list) else []:
+        location = j.get("location") or {}
+        if isinstance(location, dict):
+            parts = [location.get("city"), location.get("region"), location.get("country")]
+        else:
+            parts = [location, j.get("country")]
+        out.append({
+            "title": j.get("title"),
+            "company": target["company"],
+            "location": ", ".join(clean(p) for p in parts if clean(p)),
+            "posted_date": j.get("published_on"),
+            "expiry_date": j.get("application_deadline"),
+            "url": j.get("application_url") or j.get("url"),
+            "category": j.get("department") or "",
+            "employment_type": j.get("employment_type") or "",
+            "text": "",
+        })
+    return out
+
+
+def parse_smartrecruiters(text: str, target: dict) -> list[dict]:
+    try:
+        jobs = json.loads(text).get("content", [])
+    except (ValueError, AttributeError, TypeError):
+        return []
+    out = []
+    for j in jobs if isinstance(jobs, list) else []:
+        loc = j.get("location") or {}
+        location = ", ".join(clean(p) for p in (
+            loc.get("city"), loc.get("country"),
+        ) if clean(p))
+        release = j.get("releasedDate") or j.get("lastUpdateDate")
+        out.append({
+            "title": j.get("name"), "company": target["company"],
+            "location": location, "posted_date": release, "expiry_date": None,
+            "url": j.get("ref") or j.get("postingUrl"),
+            "category": clean(j.get("department", {}).get("label")) if isinstance(j.get("department"), dict) else "",
+            "employment_type": clean(j.get("employmentType", {}).get("label")) if isinstance(j.get("employmentType"), dict) else "",
+            "text": "",
+        })
+    return out
+
+
+def parse_ashby(text: str, target: dict) -> list[dict]:
+    try:
+        jobs = json.loads(text).get("jobs", [])
+    except (ValueError, AttributeError, TypeError):
+        return []
+    out = []
+    for j in jobs if isinstance(jobs, list) else []:
+        location = j.get("location") or j.get("secondaryLocations") or ""
+        if isinstance(location, list):
+            location = ", ".join(clean(v.get("location") or v.get("name")) for v in location if isinstance(v, dict))
+        elif isinstance(location, dict):
+            location = clean(location.get("name"))
+        out.append({
+            "title": j.get("title"), "company": target["company"],
+            "location": location, "posted_date": j.get("publishedAt"),
+            "expiry_date": None,
+            "url": j.get("jobUrl") or j.get("applyUrl"),
+            "category": clean(j.get("department")), "employment_type": clean(j.get("employmentType")),
+            "text": "",
+        })
+    return out
+
+
+def parse_recruitee(text: str, target: dict) -> list[dict]:
+    try:
+        jobs = json.loads(text).get("offers", [])
+    except (ValueError, AttributeError, TypeError):
+        return []
+    out = []
+    for j in jobs if isinstance(jobs, list) else []:
+        out.append({
+            "title": j.get("title"), "company": target["company"],
+            "location": clean(j.get("location")),
+            "posted_date": j.get("created_at") or j.get("published_at"),
+            "expiry_date": j.get("ends_on"),
+            "url": j.get("careers_url") or j.get("url"),
+            "category": clean(j.get("department")),
+            "employment_type": clean(j.get("employment_type")),
+            "text": "",
+        })
+    return out
+
+
 def load_career_targets() -> list[dict]:
     """Seed list (config/career_pages.csv) + master list columns when Engine 2 has run."""
     rows = read_csv(CONFIG_DIR / "career_pages.csv")
@@ -194,6 +288,18 @@ def adapter_company_ats(client: PoliteClient, src: dict, ctx: dict) -> list[dict
             elif kind == "lever" and token:
                 text = client.get(f"https://api.lever.co/v0/postings/{token}", params={"mode": "json"})
                 raws += parse_lever(text or "", t)
+            elif kind == "workable" and token:
+                text = client.get(f"https://apply.workable.com/api/v3/accounts/{token}/jobs")
+                raws += parse_workable(text or "", t)
+            elif kind == "smartrecruiters" and token:
+                text = client.get(f"https://api.smartrecruiters.com/v1/companies/{token}/postings")
+                raws += parse_smartrecruiters(text or "", t)
+            elif kind == "ashby" and token:
+                text = client.get(f"https://api.ashbyhq.com/posting-api/job-board/{token}")
+                raws += parse_ashby(text or "", t)
+            elif kind == "recruitee" and token:
+                text = client.get(f"https://{token}.recruitee.com/api/offers/")
+                raws += parse_recruitee(text or "", t)
             else:
                 raws += scan_careers_page(client, t)
         except RobotsDisallowed:
