@@ -166,6 +166,34 @@ def parse_lever(text: str, target: dict) -> list[dict]:
     return out
 
 
+def parse_workable(text: str, target: dict) -> list[dict]:
+    """Parse Workable's public v3 jobs response without storing description text."""
+    try:
+        body = json.loads(text)
+        jobs = body.get("jobs", []) if isinstance(body, dict) else []
+    except (ValueError, AttributeError, TypeError):
+        return []
+    out = []
+    for j in jobs if isinstance(jobs, list) else []:
+        location = j.get("location") or {}
+        if isinstance(location, dict):
+            parts = [location.get("city"), location.get("region"), location.get("country")]
+        else:
+            parts = [location, j.get("country")]
+        out.append({
+            "title": j.get("title"),
+            "company": target["company"],
+            "location": ", ".join(clean(p) for p in parts if clean(p)),
+            "posted_date": j.get("published_on"),
+            "expiry_date": j.get("application_deadline"),
+            "url": j.get("application_url") or j.get("url"),
+            "category": j.get("department") or "",
+            "employment_type": j.get("employment_type") or "",
+            "text": "",
+        })
+    return out
+
+
 def load_career_targets() -> list[dict]:
     """Seed list (config/career_pages.csv) + master list columns when Engine 2 has run."""
     rows = read_csv(CONFIG_DIR / "career_pages.csv")
@@ -194,6 +222,9 @@ def adapter_company_ats(client: PoliteClient, src: dict, ctx: dict) -> list[dict
             elif kind == "lever" and token:
                 text = client.get(f"https://api.lever.co/v0/postings/{token}", params={"mode": "json"})
                 raws += parse_lever(text or "", t)
+            elif kind == "workable" and token:
+                text = client.get(f"https://apply.workable.com/api/v3/accounts/{token}/jobs")
+                raws += parse_workable(text or "", t)
             else:
                 raws += scan_careers_page(client, t)
         except RobotsDisallowed:
