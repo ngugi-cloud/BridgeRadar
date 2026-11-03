@@ -116,7 +116,11 @@ jobs:
           git commit -q -m "Daily data $(date -u +%F)"
           for i in 1 2 3; do
             # the Sheet may have pushed edits since checkout; it never touches the files we write
-            git pull --rebase -q && git push -q && exit 0
+            branch=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed 's/^origin\///')
+            branch=${branch:-main}
+            git fetch origin "$branch" -q
+            git merge --no-edit -X ours "origin/$branch" &&
+              git push origin "HEAD:$branch" && exit 0
             sleep $((i * 10))
           done
           echo "::error::Could not push to the private repo."; exit 1
@@ -128,7 +132,10 @@ jobs:
           if git diff --cached --quiet; then echo "No public changes."; exit 0; fi
           git commit -q -m "Daily data $(date -u +%F)"
           for i in 1 2 3; do
-            git pull --rebase -q && git push -q && exit 0
+            branch="${GITHUB_REF_NAME:-main}"
+            git fetch origin "$branch" -q
+            git merge --no-edit -X ours "origin/$branch" &&
+              git push origin "HEAD:$branch" && exit 0
             sleep $((i * 10))
           done
           echo "::error::Could not push to this repo."; exit 1

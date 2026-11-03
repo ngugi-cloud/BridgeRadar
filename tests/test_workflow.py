@@ -107,6 +107,11 @@ class WorkflowTests(unittest.TestCase):
         pub = next(s for s in steps if s.get("name", "").startswith("Privacy check"))["run"]
         self.assertLess(pub.index("check_public --staged"), pub.index("git commit"))
         self.assertIn("git add data docs", pub)
+        self.assertNotIn("git pull --rebase", pub)
+        self.assertIn("git merge --no-edit -X ours", pub)
+        private = next(s for s in steps if s.get("name", "").startswith("Save PRIVATE"))["run"]
+        self.assertNotIn("git pull --rebase", private)
+        self.assertIn("git merge --no-edit -X ours", private)
         self.assertIn("_private/", (ROOT / ".gitignore").read_text(encoding="utf-8"))
         self.assertEqual(set(y["jobs"]), {"pipeline", "pages", "notify"})
 
