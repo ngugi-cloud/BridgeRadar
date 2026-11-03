@@ -332,7 +332,7 @@ def parse_arbeitnow(text: str) -> list[dict]:
     return [{
         "title": j.get("title"), "company": j.get("company_name"),
         "location": j.get("location") or "Remote worldwide",
-        "posted_date": parse_date(str(j.get("created_at")), dt.date.today()).isoformat() if j.get("created_at") else "",
+        "posted_date": j.get("created_at") or "",
         "expiry_date": None, "url": j.get("url"),
         "category": ", ".join(j.get("tags") or []), "employment_type": ", ".join(j.get("job_types") or []),
         "text": BeautifulSoup(j.get("description") or "", "html.parser").get_text(" ")[:600],
