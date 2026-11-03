@@ -1,7 +1,7 @@
 {
-  "last_refreshed_utc": "2026-11-03T16:37:08+00:00",
+  "last_refreshed_utc": "2026-11-03T16:54:59+00:00",
   "run_date": "2026-11-03",
-  "started_utc": "2026-11-03T16:34:23+00:00",
+  "started_utc": "2026-11-03T16:54:59+00:00",
   "ok": true,
   "failed_steps": [],
   "steps": {
@@ -21,10 +21,10 @@
       "status": "ok",
       "seconds": 0.1,
       "summary": {
-        "companies": 51,
-        "created": 11,
+        "companies": 40,
+        "created": 0,
         "agencies": 0,
-        "review": 38,
+        "review": 27,
         "baseline": false,
         "skipped_unnamed": 0,
         "icp": {

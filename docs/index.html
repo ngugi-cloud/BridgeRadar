@@ -99,7 +99,7 @@ a { color: var(--accent); }
 /* header */
 header.top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 20px; }
 .brand { display: flex; align-items: center; gap: 14px; }
-.brand-logo { width: 190px; max-width: 190px; height: 58px; object-fit: contain; object-position: left center; border-radius: 8px; }
+.brand-logo { width: 190px; max-width: 190px; height: 58px; object-fit: contain; object-position: left center; border-radius: 8px; background: #ffffff; padding: 4px 8px; border: 1px solid var(--grid); }
 .brand-copy { border-left: 1px solid var(--grid); padding-left: 14px; }
 h1 { font-size: 24px; line-height: 1.2; margin: 0; letter-spacing: -0.01em; }
 .sub { color: var(--ink-2); margin: 4px 0 0; }
@@ -216,7 +216,7 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
 <div class="wrap">
   <header class="top">
     <div class="brand">
-      <img class="brand-logo" src="assets/btm-logo.png" alt="Bridge Talent Management">
+      <img class="brand-logo" src="assets/btm-logo.png?v=20261103-2" alt="Bridge Talent Management">
       <div class="brand-copy">
         <h1>Bridge Lead Radar</h1>
         <p class="sub">Kenya hiring activity from public sources: aggregates only</p>
@@ -321,15 +321,15 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
   function todayEAT() { return new Intl.DateTimeFormat("en-CA", {timeZone: TZ}).format(new Date()); }
 
   // ---------- theme toggle (auto / light / dark); storage is optional
-  var themes = ["auto", "light", "dark"];
+  var themes = ["light", "dark", "auto"];
   function applyTheme(t) {
     if (t === "auto") document.documentElement.removeAttribute("data-theme");
     else document.documentElement.setAttribute("data-theme", t);
     document.getElementById("theme").textContent = "Theme: " + t;
   }
-  var saved = "auto";
-  try { saved = localStorage.getItem("blr-theme") || "auto"; } catch (e) {}
-  applyTheme(themes.indexOf(saved) >= 0 ? saved : "auto");
+  var saved = "light";
+  try { saved = localStorage.getItem("blr-theme") || "light"; } catch (e) {}
+  applyTheme(themes.indexOf(saved) >= 0 ? saved : "light");
   document.getElementById("theme").addEventListener("click", function () {
     var cur = document.documentElement.getAttribute("data-theme") || "auto";
     var next = themes[(themes.indexOf(cur) + 1) % themes.length];
