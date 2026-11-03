@@ -86,6 +86,7 @@ class DetectTests(unittest.TestCase):
             "Company starts a workforce reskilling programme": "workforce_development",
             "Bank implements a new HRIS and payroll digitisation programme": "hr_system_or_transformation",
             "Global firm enters Kenya and opens Nairobi regional hub": "international_market_entry",
+            "Global company is hiring Kenyan talent for a remote software team": "overseas_remote_hiring",
             "Acme raises $5M": "funding_raised",                     # amount alone is enough
             "Acme raises prices in Nairobi": None,
             "Weather turns cold in Nairobi": None,

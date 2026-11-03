@@ -89,7 +89,7 @@ class DashboardTests(unittest.TestCase):
         p = json.loads(text)
         allowed = {"generated_utc", "run_date", "last_refreshed_utc", "pipeline_ok", "failed_steps", "baseline", "kpis",
                    "jobs_by_sector", "top_hiring", "new_jobs_trend", "leads_by_temperature", "leads_by_sector",
-                   "signals_by_type", "sources", "companies", "label", "steps_ok"}
+                   "remote_jobs_by_company", "signals_by_type", "sources", "companies", "label", "steps_ok"}
         self.assertEqual(set(p), allowed)                     # a new key must be reviewed and added here on purpose
 
     def test_baseline_banner_and_failed_steps(self):

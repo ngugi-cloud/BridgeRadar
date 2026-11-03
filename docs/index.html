@@ -112,9 +112,13 @@ button.theme:hover { background: var(--hover); }
 
 .banner { border-radius: 10px; padding: 10px 14px; margin: 0 0 16px; background: var(--banner); color: var(--banner-ink); font-size: 14px; }
 .banner[hidden] { display: none; }
+.view-tabs { display: flex; gap: 8px; margin: 0 0 16px; border-bottom: 1px solid var(--grid); }
+.view-tabs button { font: inherit; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--ink-2); padding: 8px 12px; cursor: pointer; }
+.view-tabs button.active { color: var(--orange); border-bottom-color: var(--orange); font-weight: 700; }
+.view-panel[hidden] { display: none; }
 
 /* KPIs */
-.kpis { display: grid; grid-template-columns: minmax(220px, 1.3fr) repeat(5, minmax(140px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(140px, 1fr)); gap: 12px; margin-bottom: 16px; }
 .card { background: var(--surface); border: 1px solid var(--ring); border-radius: 12px; padding: 16px; min-width: 0; }
 .tile .lbl { color: var(--ink-2); font-size: 13px; }
 .tile .val { font-size: 28px; font-weight: 700; line-height: 1.2; margin-top: 4px; color: var(--orange); }
@@ -231,17 +235,25 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
   </header>
 
   <p class="banner" id="banner" hidden></p>
+  <nav class="view-tabs" aria-label="Dashboard views">
+    <button type="button" class="active" data-view="overview">Overview</button>
+    <button type="button" data-view="remote">Remote jobs</button>
+    <button type="button" data-view="signals">Signals</button>
+    <button type="button" data-view="companies">Companies</button>
+  </nav>
 
-  <section class="kpis" aria-label="Key figures">
+  <section class="view-panel kpis" data-panel="overview" aria-label="Key figures">
     <div class="card tile hero"><div class="lbl">Active job postings</div><div class="val" id="k-active">–</div><div class="note" id="k-active-note"></div></div>
     <div class="card tile"><div class="lbl">New today</div><div class="val" id="k-new">–</div><div class="note" id="k-new-note"></div></div>
     <div class="card tile"><div class="lbl">Companies hiring now</div><div class="val" id="k-hiring">–</div></div>
     <div class="card tile"><div class="lbl">Companies tracked</div><div class="val" id="k-tracked">–</div><div class="note" id="k-contact"></div></div>
     <div class="card tile"><div class="lbl">Live hiring signals</div><div class="val" id="k-signals">–</div><div class="note">news-based, heuristic</div></div>
     <div class="card tile"><div class="lbl">Closed in last 30 days</div><div class="val" id="k-closed">–</div><div class="note">upsell opportunities</div></div>
+    <div class="card tile"><div class="lbl">Global remote jobs</div><div class="val" id="k-remote">–</div><div class="note">employer location not required</div></div>
+    <div class="card tile"><div class="lbl">Kenya/Africa eligible</div><div class="val" id="k-kenya-remote">–</div><div class="note">confirm eligibility before outreach</div></div>
   </section>
 
-  <section class="grid">
+  <section class="grid view-panel" data-panel="overview" id="overview-view">
     <div class="card"><h2>Active postings by sector</h2><p class="desc">Open postings, all employers. ● marks a Bridge core vertical.</p><div id="c-sector"></div></div>
     <div class="card"><h2>Top hiring companies</h2><p class="desc">Most open postings (agency and confidential postings excluded)</p><div id="c-top"></div></div>
     <div class="card span2"><h2>New postings per day</h2><p class="desc">First seen by the radar, last 30 days</p><div id="c-trend"></div></div>
@@ -249,7 +261,23 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
     <div class="card"><h2>Live hiring signals by type</h2><p class="desc">Funding, expansion and similar news. Signal-based prioritization, not predictions.</p><div id="c-signals"></div></div>
   </section>
 
-  <section class="card" aria-labelledby="co-h">
+  <section class="card view-panel" data-panel="remote" id="remote-view" hidden>
+    <h2>Global remote jobs</h2>
+    <p class="desc">Roles from worldwide remote-job feeds. Eligibility for Kenyan candidates must be checked against the source listing before contact.</p>
+    <div class="temp-totals">
+      <div>Remote postings<b id="r-total">–</b></div>
+      <div>Kenya/Africa eligible<b id="r-eligible">–</b></div>
+    </div>
+    <div id="c-remote"></div>
+  </section>
+
+  <section class="card view-panel" data-panel="signals" id="signals-view" hidden>
+    <h2>Hiring and market signals</h2>
+    <p class="desc">Expansion, funding, market entry, HR transformation, workforce development, and overseas remote hiring signals.</p>
+    <div id="c-signals-tab"></div>
+  </section>
+
+  <section class="card view-panel" data-panel="companies" aria-labelledby="co-h" id="companies-view" hidden>
     <h2 id="co-h">Companies</h2>
     <p class="desc">Contact <em>status</em> only. No names, emails or phone numbers are published.</p>
     <div class="filters">
@@ -591,6 +619,8 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
     columns(document.getElementById("c-trend"), DATA.new_jobs_trend, DATA.baseline.active);
     leadsChart(document.getElementById("c-leads"), DATA.leads_by_temperature, DATA.leads_by_sector);
     hbars(document.getElementById("c-signals"), DATA.signals_by_type, "No live signals. News sources are off until reviewed.", "signals");
+    hbars(document.getElementById("c-signals-tab"), DATA.signals_by_type, "No live signals. News sources are off until reviewed.", "signals");
+    hbars(document.getElementById("c-remote"), DATA.remote_jobs_by_company || [], "No global remote postings collected yet.", "postings");
   }
   function render(d) {
     DATA = d;
@@ -601,6 +631,10 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
     document.getElementById("k-tracked").textContent = fmt(k.companies_tracked);
     document.getElementById("k-signals").textContent = fmt(k.live_signals);
     document.getElementById("k-closed").textContent = fmt(k.closed_jobs_30d || 0);
+    document.getElementById("k-remote").textContent = fmt(k.remote_jobs || 0);
+    document.getElementById("k-kenya-remote").textContent = fmt(k.kenya_eligible_remote_jobs || 0);
+    document.getElementById("r-total").textContent = fmt(k.remote_jobs || 0);
+    document.getElementById("r-eligible").textContent = fmt(k.kenya_eligible_remote_jobs || 0);
     document.getElementById("k-contact").textContent = fmt(k.companies_with_contact) + " with a published contact route";
     if (d.baseline.active) document.getElementById("k-new-note").textContent = "first 30 days: undercounted";
     var when = d.last_refreshed_utc || d.generated_utc;
@@ -628,6 +662,18 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
   }
 
   var rt;
+  document.querySelectorAll(".view-tabs button").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var view = button.getAttribute("data-view");
+      document.querySelectorAll(".view-tabs button").forEach(function (b) {
+        b.classList.toggle("active", b === button);
+      });
+      document.querySelectorAll("[data-panel]").forEach(function (panel) {
+        panel.hidden = panel.getAttribute("data-panel") !== view;
+      });
+      if (DATA) renderCharts();
+    });
+  });
   window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { renderCharts(); }, 150); });
 
   fetch("data/dashboard.json", {cache: "no-cache"})

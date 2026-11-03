@@ -93,6 +93,7 @@ signals:
     workforce_development: 12
     youth_or_job_access: 12
     hr_system_or_transformation: 10
+    overseas_remote_hiring: 14
 
   # Removed from Engine 4 to avoid double counting (now handled as lead triggers):
   #   new HR head -> contact_change_lead

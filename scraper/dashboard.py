@@ -13,6 +13,7 @@ import argparse
 import datetime as dt
 import json
 import pathlib
+import re
 from collections import Counter, defaultdict
 
 from .common.config import DATA_DIR, ROOT, load_yaml
@@ -41,6 +42,7 @@ SIGNAL_LABELS = {"funding_raised": "Funding raised", "expansion_announced": "Exp
                  "leadership_hire": "Leadership hire", "product_launch": "Product launch",
                  "workforce_development": "Workforce development", "youth_or_job_access": "Youth / job access",
                  "hr_system_or_transformation": "HR / payroll transformation",
+                 "overseas_remote_hiring": "Overseas / remote hiring",
                  "international_market_entry": "International company enters Kenya"}
 # Every key that may appear in a company row. Anything else is a bug (see tests).
 COMPANY_KEYS = ["name", "sector", "location", "fit", "open_jobs", "contact", "website"]
@@ -74,6 +76,14 @@ def build(data_dir=None, today: dt.date | None = None, meta: dict | None = None,
     targets = set((sector_map.get("verticals") or {}).get("target") or [])
 
     jobs = [j for j in read_csv(data_dir / "active_jobs.csv") if clean(j.get("status") or "open") == "open"]
+    remote_jobs = [j for j in jobs if clean(j.get("work_arrangement")) == "remote"]
+    kenya_remote_jobs = [
+        j for j in remote_jobs
+        if clean(j.get("talent_market")) == "Kenya / Africa eligible"
+        or re.search(r"\b(kenya|kenyan|africa|african)\b", " ".join((
+            j.get("location", ""), j.get("title", "")
+        )), re.I)
+    ]
     closed = read_csv(data_dir / "closed_jobs.csv")
     master = read_csv(data_dir / "kenya_companies_master.csv")
     leads = read_csv(data_dir / "leads_summary.csv")
@@ -104,6 +114,10 @@ def build(data_dir=None, today: dt.date | None = None, meta: dict | None = None,
     by_sector = Counter(clean(j.get("sector")) or "other" for j in jobs)
     master_sector = {normalize_company(m.get("display_name", "")): m.get("sector", "") for m in master}
     top = sorted(by_company.items(), key=lambda kv: (-kv[1], kv[0].lower()))[:TOP_N]
+    remote_by_company = Counter(
+        clean(j.get("company")) for j in remote_jobs if clean(j.get("company"))
+    )
+    top_remote = sorted(remote_by_company.items(), key=lambda kv: (-kv[1], kv[0].lower()))[:TOP_N]
     trend = []
     first_seen = Counter(j.get("first_seen") for j in jobs + closed if clean(j.get("first_seen_baseline")) != "1")
     for i in range(TREND_DAYS - 1, -1, -1):
@@ -164,6 +178,8 @@ def build(data_dir=None, today: dt.date | None = None, meta: dict | None = None,
         "baseline": {"active": in_baseline, "since": baseline_since.isoformat() if baseline_since else ""},
         "kpis": {"active_jobs": len(jobs), "new_today": new_today, "companies_hiring": len(hiring_norms),
                  "companies_tracked": len(companies),
+                 "remote_jobs": len(remote_jobs),
+                 "kenya_eligible_remote_jobs": len(kenya_remote_jobs),
                  "closed_jobs_30d": closed_jobs_30d,
                  "companies_with_contact": sum(1 for c in companies if c["contact"] == "Found"),
                  "live_signals": sum(sig_types.values()), "leads": sum(lead_temp.values())},
@@ -171,6 +187,7 @@ def build(data_dir=None, today: dt.date | None = None, meta: dict | None = None,
                            for k, n in sorted(by_sector.items(), key=lambda kv: (-kv[1], kv[0]))],
         "top_hiring": [{"label": name, "sector": sector_label(master_sector.get(normalize_company(name), "")), "count": n}
                        for name, n in top],
+        "remote_jobs_by_company": [{"label": name, "count": n} for name, n in top_remote],
         "new_jobs_trend": trend,
         "leads_by_temperature": {k: lead_temp.get(k, 0) for k in TEMPS},
         "leads_by_sector": [{"label": sector_label(s), **{k: c.get(k, 0) for k in TEMPS}}

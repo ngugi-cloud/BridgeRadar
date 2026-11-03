@@ -106,6 +106,9 @@ patterns:
     - '\b(apprenticeship|graduate trainee programme|management trainee programme|skills programme|reskilling|upskilling|workforce development)\b'
   hr_system_or_transformation:
     - '\b(hris|human capital management system|payroll system)\b[^.]{0,50}\b(implements?|implemented|deploys?|deployed|launches?|launched|selects?|selected)\b|\b(digital hr transformation|hr transformation|payroll digitisation)\b'
+  overseas_remote_hiring:
+    - '\b(remote (jobs?|roles?|positions?|hiring|recruitment)|work (from|remotely from) (kenya|africa|home)|global (remote|distributed) team)\b'
+    - '\b(company|employer|firm)\b[^.]{0,60}\b(hiring|recruiting)\b[^.]{0,40}\b(Kenyans|Kenyan talent|Africa|African talent)\b'
 
 # Layoffs / freezes: ADVISORY only. Never changes lead scores. Takes precedence
 # over hiring patterns for the same headline.
@@ -126,6 +129,7 @@ angles:
   youth_or_job_access: "Youth/job-access initiative — pitch employability, skills, apprenticeships, and candidate pipelines"
   hr_system_or_transformation: "HR/payroll transformation — pitch HRIS implementation, payroll outsourcing, and change support"
   international_market_entry: "International market entry — pitch launch recruitment, EOR, payroll, HR setup, and compliance support"
+  overseas_remote_hiring: "Overseas or remote hiring — pitch Kenya talent access, EOR, payroll, recruitment, and compliance support"
 
 kenya_markers: [kenya, kenyan, nairobi, mombasa, kisumu, nakuru, eldoret, thika, kiambu, machakos, ksh, kes]
 generic_candidate_words: [kenya, government, govt, firm, company, startup, bank, hospital, county, ministry, investors, group, farmers, state, firms]

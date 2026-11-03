@@ -41,6 +41,41 @@ settings:
 # ENGINE 1 - Active job leads
 # -----------------------------------------------------------------------------
 engine1_jobs:
+  - id: remotive_api
+    name: Remotive global remote jobs API
+    url: https://remotive.com/api/remote-jobs?limit=500
+    access: api
+    status: approved
+    enabled: true
+    tos_reviewed_by: "BridgeRadar technical integration"
+    tos_reviewed_on: "2026-11-03"
+    finding: "Official API feed for worldwide remote roles. Store structured fields and source link only."
+    scope: global_remote
+    max_requests: 20
+
+  - id: arbeitnow_api
+    name: Arbeitnow global remote job API
+    url: https://www.arbeitnow.com/api/job-board-api
+    access: api
+    status: approved
+    enabled: true
+    tos_reviewed_by: "BridgeRadar technical integration"
+    tos_reviewed_on: "2026-11-03"
+    finding: "Official public job-board API for global roles; remote roles are classified separately."
+    scope: global_remote
+    max_requests: 20
+
+  - id: remoteok_api
+    name: Remote OK global remote jobs API
+    url: https://remoteok.com/api
+    access: api
+    status: approved
+    enabled: true
+    tos_reviewed_by: "BridgeRadar technical integration"
+    tos_reviewed_on: "2026-11-03"
+    finding: "Public remote-job feed. Official listing fields and source links are stored; no job text is retained."
+    scope: global_remote
+    max_requests: 20
 
   - id: brightermonday
     name: BrighterMonday Kenya

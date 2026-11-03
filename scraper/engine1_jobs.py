@@ -41,6 +41,7 @@ FIELDS = [
     "job_id", "title", "company", "location", "posted_date", "expiry_date",
     "source_id", "source_url", "category", "vertical", "sector",
     "classification_confidence", "seniority", "role_family", "employment_type",
+    "work_arrangement", "talent_market",
     "posted_by", "urgency_flag", "also_seen_on", "source_count", "first_seen",
     "last_seen", "days_open", "repost_count", "status", "missing_runs",
     "closed_date", "first_seen_baseline",
@@ -309,6 +310,62 @@ def adapter_company_ats(client: PoliteClient, src: dict, ctx: dict) -> list[dict
     return raws
 
 
+def parse_remotive(text: str) -> list[dict]:
+    try:
+        jobs = json.loads(text).get("jobs", [])
+    except (ValueError, AttributeError, TypeError):
+        return []
+    return [{
+        "title": j.get("title"), "company": j.get("company_name"),
+        "location": j.get("candidate_required_location") or j.get("location") or "Worldwide",
+        "posted_date": j.get("publication_date"), "expiry_date": None,
+        "url": j.get("url"), "category": j.get("category"),
+        "employment_type": j.get("job_type"), "text": BeautifulSoup(j.get("description") or "", "html.parser").get_text(" ")[:600],
+    } for j in jobs if isinstance(j, dict)]
+
+
+def parse_arbeitnow(text: str) -> list[dict]:
+    try:
+        jobs = json.loads(text).get("data", [])
+    except (ValueError, AttributeError, TypeError):
+        return []
+    return [{
+        "title": j.get("title"), "company": j.get("company_name"),
+        "location": j.get("location") or "Remote worldwide",
+        "posted_date": parse_date(str(j.get("created_at")), dt.date.today()).isoformat() if j.get("created_at") else "",
+        "expiry_date": None, "url": j.get("url"),
+        "category": ", ".join(j.get("tags") or []), "employment_type": ", ".join(j.get("job_types") or []),
+        "text": BeautifulSoup(j.get("description") or "", "html.parser").get_text(" ")[:600],
+    } for j in jobs if isinstance(j, dict)]
+
+
+def parse_remoteok(text: str) -> list[dict]:
+    try:
+        jobs = json.loads(text)
+    except (ValueError, AttributeError, TypeError):
+        return []
+    return [{
+        "title": j.get("position") or j.get("title"), "company": j.get("company"),
+        "location": j.get("location") or "Remote worldwide",
+        "posted_date": j.get("date"), "expiry_date": None,
+        "url": j.get("url") or (j.get("apply_url") if j.get("apply_url") else ""),
+        "category": ", ".join(j.get("tags") or []) if isinstance(j.get("tags"), list) else "",
+        "employment_type": "", "text": BeautifulSoup(j.get("description") or "", "html.parser").get_text(" ")[:600],
+    } for j in jobs if isinstance(j, dict) and (j.get("position") or j.get("title")) and j.get("company")]
+
+
+def adapter_remotive(client: PoliteClient, src: dict, ctx: dict) -> list[dict]:
+    return parse_remotive(client.get(src["url"]) or "")
+
+
+def adapter_arbeitnow(client: PoliteClient, src: dict, ctx: dict) -> list[dict]:
+    return parse_arbeitnow(client.get(src["url"]) or "")
+
+
+def adapter_remoteok(client: PoliteClient, src: dict, ctx: dict) -> list[dict]:
+    return parse_remoteok(client.get(src["url"]) or "")
+
+
 def adapter_reliefweb(client: PoliteClient, src: dict, ctx: dict) -> list[dict]:
     """ReliefWeb v2 API (NGO jobs; outside the private-sector ICP, off by default).
 
@@ -340,7 +397,11 @@ def adapter_reliefweb(client: PoliteClient, src: dict, ctx: dict) -> list[dict]:
 # Job-board adapters (MyJobMag, Talent.com, KenyaMoja ...) are intentionally NOT
 # built yet. Each needs a human-confirmed ToS + robots review first; we add an
 # adapter only after you approve that source.
-ADAPTERS = {"company_ats": adapter_company_ats, "reliefweb": adapter_reliefweb}
+ADAPTERS = {
+    "company_ats": adapter_company_ats, "reliefweb": adapter_reliefweb,
+    "remotive_api": adapter_remotive, "arbeitnow_api": adapter_arbeitnow,
+    "remoteok_api": adapter_remoteok,
+}
 
 
 # =============================================================================
@@ -352,7 +413,12 @@ def to_candidate(raw: dict, source_id: str, clf: Classifier, agency_norms: set,
     if not title or not company:
         return None, "missing_title_or_company"
     location = clean(raw.get("location"))
-    if out_of_scope(location):
+    searchable = f"{title} {location} {raw.get('category', '')} {raw.get('text', '')}"
+    is_remote = bool(re.search(
+        r"\b(remote|work from home|work-from-home|telecommute|distributed|anywhere|worldwide|global)\b",
+        searchable, re.I,
+    ))
+    if not is_remote and out_of_scope(location):
         return None, "out_of_scope"
     posted = parse_date(raw.get("posted_date"), today)
     expiry = parse_date(raw.get("expiry_date"), today)
@@ -372,7 +438,13 @@ def to_candidate(raw: dict, source_id: str, clf: Classifier, agency_norms: set,
         "source_url": clean(raw.get("url")), "category": clean(raw.get("category")),
         "vertical": vertical, "sector": sector, "classification_confidence": conf,
         "seniority": clf.seniority(title), "role_family": clf.role_family(title),
-        "employment_type": clean(raw.get("employment_type")), "posted_by": posted_by,
+        "employment_type": clean(raw.get("employment_type")),
+        "work_arrangement": "remote" if is_remote else ("hybrid" if re.search(r"\bhybrid\b", searchable, re.I) else "onsite"),
+        "talent_market": (
+            "Kenya / Africa eligible" if is_remote and re.search(r"\b(kenya|kenyan|africa|african)\b", searchable, re.I)
+            else ("Global / remote" if is_remote else "Kenya")
+        ),
+        "posted_by": posted_by,
         "urgency_flag": "1" if clf.is_urgent(title, raw.get("text")) else "",
     }, "ok"
 

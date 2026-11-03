@@ -72,10 +72,10 @@ class GateTests(unittest.TestCase):
         self.assertEqual(gate({**base, "secret": "KEY"}, s, {"KEY": "x"})[0], True)
         self.assertEqual(gate(base, {"user_agent": "x PLACEHOLDER"}, {})[1], "user_agent_placeholder")
 
-    def test_shipped_company_career_pages_are_the_only_default_runnable_source(self):
+    def test_shipped_default_runnable_sources(self):
         cfg = load_yaml("sources.yaml")
         runnable = [s["id"] for s in cfg["engine1_jobs"] if gate(s, cfg["settings"], {})[0]]
-        self.assertEqual(runnable, ["company_ats"])
+        self.assertEqual(runnable, ["remotive_api", "arbeitnow_api", "remoteok_api", "company_ats"])
 
 
 class HttpTests(unittest.TestCase):
@@ -209,6 +209,26 @@ class AdapterTests(unittest.TestCase):
         self.assertEqual((wk[0]["title"], wk[0]["location"], wk[0]["posted_date"]),
                          ("Accountant", "Nairobi, Kenya", "2026-11-03"))
 
+    def test_global_remote_adapters(self):
+        remotive = e1.parse_remotive(json.dumps({"jobs": [{
+            "title": "Python Developer - Work from Kenya",
+            "company_name": "Global Acme",
+            "candidate_required_location": "Worldwide",
+            "publication_date": "2026-11-03T12:00:00",
+            "url": "https://example.test/remotive/1",
+        }]}))
+        arbeitnow = e1.parse_arbeitnow(json.dumps({"data": [{
+            "title": "Remote Data Analyst", "company_name": "Example Co",
+            "location": "Remote", "created_at": "2026-11-03", "url": "https://example.test/arbeitnow/1",
+        }]}))
+        remoteok = e1.parse_remoteok(json.dumps([{
+            "position": "Remote Engineer", "company": "Example Inc",
+            "location": "Worldwide", "date": "2026-11-03", "url": "https://example.test/remoteok/1",
+        }]))
+        self.assertEqual(remotive[0]["location"], "Worldwide")
+        self.assertEqual(arbeitnow[0]["title"], "Remote Data Analyst")
+        self.assertEqual(remoteok[0]["company"], "Example Inc")
+
     def test_additional_public_ats_adapters(self):
         target = {"company": "Acme"}
         smart = e1.parse_smartrecruiters(json.dumps({"content": [{
@@ -247,7 +267,19 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(c["posted_by"], "agency")
         c, _ = self.cand(base)
         self.assertEqual(c["posted_by"], "unknown")
-        self.assertEqual(c["posted_date"], "")                # blank, not invented
+        self.assertEqual(c["posted_date"], "")
+
+    def test_global_remote_is_classified_not_out_of_scope(self):
+        raw = {
+            "title": "Remote Software Engineer",
+            "company": "Global Acme",
+            "location": "United States (Remote)",
+            "text": "Work from Kenya or Africa for a global distributed team",
+        }
+        cand, reason = self.cand(raw, src="remotive_api")
+        self.assertEqual(reason, "ok")
+        self.assertEqual(cand["work_arrangement"], "remote")
+        self.assertEqual(cand["talent_market"], "Kenya / Africa eligible")
 
     def test_dedupe_keeps_newest_and_counts_sources(self):
         a = self.cand({"title": "Nurse", "company": "Karen Hospital Ltd", "location": "Nairobi", "posted_date": "2026-10-10"}, "A")[0]

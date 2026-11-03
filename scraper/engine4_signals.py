@@ -343,7 +343,8 @@ def build_signals(items: list[dict], prev_rows: list[dict], det: Detector, scori
                  "leadership_hire": "Leadership hire", "product_launch": "Product launch",
                  "international_market_entry": "International market entry",
                  "workforce_development": "Workforce development", "youth_or_job_access": "Youth / job access",
-                 "hr_system_or_transformation": "HR / payroll transformation"}[c["type"]]
+                 "hr_system_or_transformation": "HR / payroll transformation",
+                 "overseas_remote_hiring": "Overseas / remote hiring"}[c["type"]]
         rows.append({
             "signal_id": sid, "company_id": it0["company_id"], "company": it0["company"],
             "company_matched": "1" if it0["matched"] else "0", "sector": it0["sector"], "icp_status": it0["icp"],
