@@ -81,8 +81,8 @@ Each step is optional and can be done at your own pace.
 
 1. **Add companies to watch.** Open `config/career_pages.csv` and add one row per company:
    `company,careers_url,ats_type,ats_token`, for example `Acme Hospital Ltd,https://acme.co.ke/careers,,`.
-   Leave `ats_type` and `ats_token` blank unless the company uses Greenhouse or Lever.
-   Then, in `config/sources.yaml`, review **company_ats** (see below) and set it to `enabled: true`.
+   Leave `ats_type` and `ats_token` blank unless the company uses Greenhouse, Lever, or Workable. Supported
+   ATS values are `greenhouse`, `lever`, and `workable`; the `ats_token` is the board/account token.
 2. **Add public company lists** (regulators, associations). Download the list as CSV into `data/imports/` and
    describe it in `config/imports.yaml`. That file shows an example.
 3. **Turn on news signals.** Review **gnews_rss** (Google News) in `config/sources.yaml`.

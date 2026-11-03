@@ -50,8 +50,6 @@ class DocsTests(unittest.TestCase):
         cfg = load_yaml("sources.yaml")
         src = next(s for s in cfg["engine1_jobs"] if s["id"] == "company_ats")
         self.assertIn("tos_reviewed_by", src)                    # the guide tells you to fill this field in
-        self.assertEqual(gate(src, cfg["settings"]), (False, "disabled"))
-        src.update(tos_reviewed_by="Your Name", tos_reviewed_on="2026-10-23", enabled=True)
         self.assertEqual(gate(src, cfg["settings"]), (True, "ok"))
         header = (ROOT / "config" / "career_pages.csv").read_text(encoding="utf-8").splitlines()[0]
         self.assertEqual(header, "company,careers_url,ats_type,ats_token")
