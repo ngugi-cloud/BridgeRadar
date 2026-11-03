@@ -54,12 +54,16 @@ google_news:
 
 # Fill in feed URLs ONLY after reviewing each site's terms and finding a real RSS link.
 feeds:
-  kna: ""
+  kna: "https://www.kenyanews.go.ke/feed/"
   businessdaily: ""
   thestar: ""
   kenyanwallstreet: ""
   newstrendske: ""
-  techcabal_disrupt: ""
+  techcabal_disrupt: "https://techcabal.com/feed/"
+  disruptafrica: "https://disruptafrica.com/feed/"
+  capitalfm: "https://capitalfm.africa/news/feed/"
+  standardmedia: "https://www.standardmedia.co.ke/rss/headlines.php"
+  kenyatimes: "https://thekenyatimes.com/feed/"
 # Google Alerts "deliver to: RSS feed" URLs (one per company/sector you want to watch)
 alert_feeds: []
 

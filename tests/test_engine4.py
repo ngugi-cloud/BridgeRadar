@@ -51,6 +51,14 @@ def enrich(items, **kw):
 
 
 class FeedTests(unittest.TestCase):
+    def test_reviewed_direct_feeds_have_urls(self):
+        sources = load_yaml("sources.yaml")
+        enabled = {s["id"] for s in sources["engine4_signals"]["sources"] if s.get("enabled")}
+        feeds = SIG["feeds"]
+        for source_id in ("kna", "techcabal_disrupt", "disruptafrica", "capitalfm", "standardmedia", "kenyatimes"):
+            self.assertIn(source_id, enabled)
+            self.assertTrue(feeds.get(source_id))
+
     def test_rss_and_atom(self):
         items = e4.parse_feed(RSS)
         self.assertEqual(len(items), 3)                      # undated item is parsed (date None); enrich drops it later

@@ -618,8 +618,8 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
     hbars(document.getElementById("c-top"), DATA.top_hiring.map(function (r) { return {label: r.label, count: r.count, sub: r.sector}; }), "No employer postings yet.", "postings");
     columns(document.getElementById("c-trend"), DATA.new_jobs_trend, DATA.baseline.active);
     leadsChart(document.getElementById("c-leads"), DATA.leads_by_temperature, DATA.leads_by_sector);
-    hbars(document.getElementById("c-signals"), DATA.signals_by_type, "No live signals. News sources are off until reviewed.", "signals");
-    hbars(document.getElementById("c-signals-tab"), DATA.signals_by_type, "No live signals. News sources are off until reviewed.", "signals");
+    hbars(document.getElementById("c-signals"), DATA.signals_by_type, "No live signals from the latest run. Check source health below.", "signals");
+    hbars(document.getElementById("c-signals-tab"), DATA.signals_by_type, "No live signals from the latest run. Check source health below.", "signals");
     hbars(document.getElementById("c-remote"), DATA.remote_jobs_by_company || [], "No global remote postings collected yet.", "postings");
   }
   function render(d) {

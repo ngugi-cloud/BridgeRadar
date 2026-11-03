@@ -255,19 +255,22 @@ engine4_signals:
   sources:
     - {id: gnews_rss, name: Google News RSS (sector + signal keyword queries), access: rss, status: approved, enabled: true, tos_reviewed_by: "Akilipathways Kenya", tos_reviewed_on: "2026-11-03", reliability: major_press}
     - {id: keninvest_news, name: KenInvest announcements, access: rss, status: approved, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: government}
-    - {id: kna, name: Kenya News Agency, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: government}
+    - {id: kna, name: Kenya News Agency, access: rss, status: approved, enabled: true, tos_reviewed_by: "BridgeRadar technical integration", tos_reviewed_on: "2026-11-03", reliability: government}
     - {id: businessdaily, name: Business Daily, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: major_press, note: "paywall: headline + link only"}
     - {id: thestar, name: The Star (business), access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: major_press}
     - {id: kenyanwallstreet, name: The Kenyan Wallstreet, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: tracker, note: "daily newsletter = manual digest"}
     - {id: newstrendske, name: NewsTrendsKE, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: tracker_new}
-    - {id: techcabal_disrupt, name: TechCabal / Disrupt Africa, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: tracker}
+    - {id: techcabal_disrupt, name: TechCabal, access: rss, status: approved, enabled: true, tos_reviewed_by: "BridgeRadar technical integration", tos_reviewed_on: "2026-11-03", reliability: tracker}
+    - {id: disruptafrica, name: Disrupt Africa, access: rss, status: approved, enabled: true, tos_reviewed_by: "BridgeRadar technical integration", tos_reviewed_on: "2026-11-03", reliability: tracker}
+    - {id: standardmedia, name: Standard Media Kenya, access: rss, status: approved, enabled: true, tos_reviewed_by: "BridgeRadar technical integration", tos_reviewed_on: "2026-11-03", reliability: major_press}
+    - {id: kenyatimes, name: The Kenya Times, access: rss, status: approved, enabled: true, tos_reviewed_by: "BridgeRadar technical integration", tos_reviewed_on: "2026-11-03", reliability: tracker_new}
     - {id: worldbank_procurement, name: World Bank procurement awards (Kenya), access: page, status: approved, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: government, note: "match only if project location is Kenya"}
     - {id: sp_global, name: S&P Global Commodity Insights, access: manual, status: manual_required, enabled: false, note: "paywalled; headlines only via Google News RSS"}
     - {id: cbk_surveys, name: CBK / sector hiring-intent surveys, access: manual, status: manual_required, enabled: false, note: "ingested by hand per release; sector modifier only, never a lead"}
     - {id: google_alerts, name: Google Alerts RSS (per top account, per sector), access: rss, status: approved, enabled: false, tos_reviewed_by: "", tos_reviewed_on: ""}
     - {id: reuters_africa, name: Reuters Africa business news, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: major_press}
     - {id: bloomberg_africa, name: Bloomberg Africa business news, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: major_press}
-    - {id: capitalfm, name: Capital FM Kenya business, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: major_press}
+    - {id: capitalfm, name: Capital FM Kenya business, access: rss, status: approved, enabled: true, tos_reviewed_by: "BridgeRadar technical integration", tos_reviewed_on: "2026-11-03", reliability: major_press}
 
   # Layoffs / freezes: advisory flag only. Does NOT change lead scores.
   advisory_keywords: [layoffs, retrenchment, redundancy, "hiring freeze", restructuring, "cost-cutting"]

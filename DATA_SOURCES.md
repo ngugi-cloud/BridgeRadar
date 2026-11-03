@@ -74,7 +74,8 @@ person filling in `tos_reviewed_by`.
 |---|---|---|
 | Google News RSS (`gnews_rss`) | approved, off | Main feed: about 15 Kenya searches over the last 30 days. **robots.txt not checked yet.** The tool checks it every run and records "blocked" if disallowed. If so, use direct outlet feeds |
 | Google Alerts RSS | approved, off | Add your own alert feed URLs to `alert_feeds` in `config/signals.yaml` |
-| KenInvest, Kenya News Agency, Business Daily, The Star, Kenyan Wallstreet, NewsTrendsKE, TechCabal/Disrupt Africa | approved / pending, off | Need a real RSS URL in `config/signals.yaml` → `feeds:` after review |
+| Kenya News Agency, TechCabal, Disrupt Africa, Capital FM, Standard Media, The Kenya Times | approved, on | Direct RSS feeds configured in `config/signals.yaml` and compliance-gated by runtime robots.txt checks |
+| KenInvest, Business Daily, The Star, Kenyan Wallstreet, NewsTrendsKE | approved / pending, off | No reviewed working feed or no approved automated access confirmed |
 | World Bank procurement awards | approved, off | No adapter yet |
 | S&P Global, CBK/sector hiring surveys | manual only | Add notable surveys or regulatory changes by hand to `config/sector_events.csv` (a source URL is required) |
 
