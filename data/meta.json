@@ -1,18 +1,18 @@
 {
-  "last_refreshed_utc": "2026-11-03T16:54:59+00:00",
+  "last_refreshed_utc": "2026-11-03T18:00:14+00:00",
   "run_date": "2026-11-03",
-  "started_utc": "2026-11-03T16:54:59+00:00",
+  "started_utc": "2026-11-03T17:56:50+00:00",
   "ok": true,
   "failed_steps": [],
   "steps": {
     "engine1_jobs": {
       "status": "ok",
-      "seconds": 163.5,
+      "seconds": 202.9,
       "summary": {
         "open": 0,
         "closed": 0,
         "changes": 0,
-        "manual": 15,
+        "manual": 20,
         "baseline": true,
         "dropped": {}
       }
@@ -21,10 +21,10 @@
       "status": "ok",
       "seconds": 0.1,
       "summary": {
-        "companies": 40,
+        "companies": 51,
         "created": 0,
         "agencies": 0,
-        "review": 27,
+        "review": 38,
         "baseline": false,
         "skipped_unnamed": 0,
         "icp": {
@@ -42,7 +42,7 @@
     },
     "engine4_signals": {
       "status": "ok",
-      "seconds": 1.4,
+      "seconds": 0.1,
       "summary": {
         "signals": 0,
         "live": 0,
@@ -55,7 +55,7 @@
     },
     "scoring": {
       "status": "ok",
-      "seconds": 0.1,
+      "seconds": 0.0,
       "summary": {
         "leads": 0,
         "temperatures": {},
