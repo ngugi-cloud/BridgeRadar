@@ -40,11 +40,11 @@ title_patterns:
 
 # Which Bridge Talent service each role typically buys (shown to BD, not a prediction)
 buys:
-  hr: "Recruitment; Compliance; HR Consulting"
-  finance: "Payroll"
-  operations: "Outsourcing"
-  legal_compliance: "Compliance"
-  executive: "Outsourcing; HR Consulting"
+  hr: "Recruitment; HR Consulting; HR Outsourcing; Payroll Outsourcing; Staff Outsourcing (EOR); HRIS; Impact Projects"
+  finance: "Payroll Outsourcing; HRIS; HR Outsourcing"
+  operations: "Staff Outsourcing (EOR); HR Outsourcing; Recruitment; HRIS; Impact Projects"
+  legal_compliance: "HR Consulting; HR Compliance; Payroll Outsourcing"
+  executive: "Recruitment; HR Consulting; HR Outsourcing; Payroll Outsourcing; Staff Outsourcing (EOR); HRIS; Impact Projects"
   generic: ""
 
 name_stopwords: [our, team, meet, contact, about, read, more, view, learn, send, call, email, phone, tel, board, members, management, leadership, executive, head, director, manager, officer, human, resources, people, culture, talent, limited, ltd, plc, company, group, chief, general, managing, finance, operations, careers, profile, linkedin, twitter, facebook, nairobi, kenya]

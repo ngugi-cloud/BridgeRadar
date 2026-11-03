@@ -17,7 +17,7 @@ icp:
   large_multinationals: keep_flagged  # you chose to include them (lower account-fit)
   exclude:
     - public_sector               # ministries, counties, state corporations
-    - ngo_development             # outside private-sector ICP (change if you want NGO leads)
+    - ngo_development             # outside private-sector ICP by default
   healthcare:
     include: [private hospital, medical centre, nursing home, diagnostic lab, imaging centre, clinic chain, dialysis centre]
     min_facility_level: 3         # Kenya MFL level 3 (health centre) and above

@@ -95,6 +95,13 @@ patterns:
   product_launch:
     - '\b(launche[sd]?|unveils?|introduces?|rolls out|debuts?)\b[^.]{0,50}\b(product|service|platform|app|range|line|brand|solution|offering)\b'
     - '\bnew product\b'
+  youth_or_job_access:
+    - '\b(youth employment|youth jobs|job placement|graduate placement|internship programme|tv(et)? partnership)\b'
+    - '\b(employability|career readiness|job readiness|work readiness)\b'
+  workforce_development:
+    - '\b(apprenticeship|graduate trainee programme|management trainee programme|skills programme|reskilling|upskilling|workforce development)\b'
+  hr_system_or_transformation:
+    - '\b(hris|human capital management system|payroll system)\b[^.]{0,50}\b(implements?|implemented|deploys?|deployed|launches?|launched|selects?|selected)\b|\b(digital hr transformation|hr transformation|payroll digitisation)\b'
 
 # Layoffs / freezes: ADVISORY only. Never changes lead scores. Takes precedence
 # over hiring patterns for the same headline.
@@ -111,6 +118,9 @@ angles:
   contract_or_tender_won: "Contract win{jobs} — pitch project and contract staffing"
   leadership_hire: "New senior leader — pitch team build-out and HR consulting"
   product_launch: "Product launch — pitch sales and operations hiring"
+  workforce_development: "Workforce-development programme — pitch impact projects, training, assessments, and placement support"
+  youth_or_job_access: "Youth/job-access initiative — pitch employability, skills, apprenticeships, and candidate pipelines"
+  hr_system_or_transformation: "HR/payroll transformation — pitch HRIS implementation, payroll outsourcing, and change support"
 
 kenya_markers: [kenya, kenyan, nairobi, mombasa, kisumu, nakuru, eldoret, thika, kiambu, machakos, ksh, kes]
 generic_candidate_words: [kenya, government, govt, firm, company, startup, bank, hospital, county, ministry, investors, group, farmers, state, firms]

@@ -89,6 +89,9 @@ signals:
     contract_or_tender_won: 8
     leadership_hire: 8
     product_launch: 8
+    workforce_development: 12
+    youth_or_job_access: 12
+    hr_system_or_transformation: 10
 
   # Removed from Engine 4 to avoid double counting (now handled as lead triggers):
   #   new HR head -> contact_change_lead
@@ -182,7 +185,7 @@ queue:
   # touched them (status changed, notes, last contacted, outcome), for this many days.
   keep_touched_expired_days: 180
   angles:
-    job_lead: "Hiring {title} now — offer Recruitment (shortlist in days) or contract staffing"
-    job_lead_hr_role: "Hiring their own HR ({title}) — offer interim HR support, HR Consulting or to run the search"
-    job_lead_bulk: "Several open roles — offer volume Recruitment or Outsourcing"
+    job_lead: "Hiring {title} now — offer Recruitment, contract/staff outsourcing (EOR), and payroll/HR outsourcing"
+    job_lead_hr_role: "Hiring their own HR ({title}) — offer Recruitment, HR Consulting, HR Outsourcing, HRIS, or interim support"
+    job_lead_bulk: "Several open roles — offer volume Recruitment, Staff Outsourcing (EOR), payroll support, and HRIS"
     contact_change_lead: "New HR/TA lead ({title}) — introduce Bridge in their first 90 days: HR audit, Compliance review, Recruitment support"

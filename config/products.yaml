@@ -1,0 +1,42 @@
+# Bridge Talent Group product portfolio used to route opportunities and outreach angles.
+# These are commercial capabilities, not claims about a prospect's need.
+products:
+  recruitment:
+    label: "Recruitment"
+    description: "Permanent, retained, and volume hiring support"
+    triggers: [open_jobs, hiring_spike, leadership_hire, expansion_announced, contract_win]
+  hr_consulting:
+    label: "HR Consulting"
+    description: "HR strategy, diagnostics, audits, policies, change, and compliance support"
+    triggers: [new_hr_head, restructuring, merger, regulatory_change, leadership_change]
+  hr_outsourcing:
+    label: "HR Outsourcing"
+    description: "Outsourced HR function and operational support"
+    triggers: [hr_team_growth, multi_site, rapid_hiring, restructuring]
+  payroll_outsourcing:
+    label: "Payroll Outsourcing"
+    description: "Payroll processing, statutory administration, and reporting"
+    triggers: [rapid_hiring, multi_location, merger, company_growth]
+  staff_outsourcing_eor:
+    label: "Staff Outsourcing / EOR"
+    description: "Employer-of-record, contract staffing, and workforce deployment"
+    triggers: [new_market_entry, project_win, expansion_announced, contract_win, seasonal_hiring]
+  hr_systems:
+    label: "HRIS"
+    description: "HR information-system sales, implementation, and support"
+    triggers: [digital_transformation, rapid_hiring, multi_location, hr_modernisation]
+  impact_projects:
+    label: "Impact Projects"
+    description: "Workforce development, employability, graduate readiness, reskilling, apprenticeships, and placement programmes"
+    triggers: [grant, skills_programme, youth_employment, tvet_partnership, csr, employability_training]
+
+impact_project_opportunities:
+  - name: "Graduate employability and placement"
+  - name: "Youth digital and technical skills academies"
+  - name: "TVET-industry apprenticeship and internship bridges"
+  - name: "Career readiness and work-readiness programmes"
+  - name: "Women, youth, refugee, and displaced-person job access programmes"
+  - name: "Employer-led reskilling and workforce transition"
+  - name: "Corporate social-impact workforce programmes"
+  - name: "Job fairs, assessment centres, and candidate pipelines"
+  - name: "HR capability-building and management academies"

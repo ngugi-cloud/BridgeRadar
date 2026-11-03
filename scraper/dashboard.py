@@ -38,7 +38,9 @@ CONTACT_LABELS = {"found": "Found", "not_found": "Not found", "": "Not checked"}
 SIGNAL_LABELS = {"funding_raised": "Funding raised", "expansion_announced": "Expansion announced",
                  "government_investment_deal": "Investment / PPP deal", "mna_or_ipo": "M&A / listing",
                  "licence_or_approval": "Licence / approval", "contract_or_tender_won": "Contract / tender won",
-                 "leadership_hire": "Leadership hire", "product_launch": "Product launch"}
+                 "leadership_hire": "Leadership hire", "product_launch": "Product launch",
+                 "workforce_development": "Workforce development", "youth_or_job_access": "Youth / job access",
+                 "hr_system_or_transformation": "HR / payroll transformation"}
 # Every key that may appear in a company row. Anything else is a bug (see tests).
 COMPANY_KEYS = ["name", "sector", "location", "fit", "open_jobs", "contact", "website"]
 
