@@ -1,18 +1,18 @@
 {
-  "last_refreshed_utc": "2026-11-03T16:14:04+00:00",
+  "last_refreshed_utc": "2026-11-03T16:37:08+00:00",
   "run_date": "2026-11-03",
-  "started_utc": "2026-11-03T16:14:04+00:00",
+  "started_utc": "2026-11-03T16:34:23+00:00",
   "ok": true,
   "failed_steps": [],
   "steps": {
     "engine1_jobs": {
       "status": "ok",
-      "seconds": 0.1,
+      "seconds": 163.5,
       "summary": {
         "open": 0,
         "closed": 0,
         "changes": 0,
-        "manual": 4,
+        "manual": 15,
         "baseline": true,
         "dropped": {}
       }
@@ -42,7 +42,7 @@
     },
     "engine4_signals": {
       "status": "ok",
-      "seconds": 0.1,
+      "seconds": 1.4,
       "summary": {
         "signals": 0,
         "live": 0,
@@ -55,7 +55,7 @@
     },
     "scoring": {
       "status": "ok",
-      "seconds": 0.0,
+      "seconds": 0.1,
       "summary": {
         "leads": 0,
         "temperatures": {},
