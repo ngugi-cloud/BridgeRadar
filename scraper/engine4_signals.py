@@ -119,6 +119,8 @@ class Detector:
 
     def signal_type(self, text: str) -> str | None:
         hits = [t for t, pats in self.patterns.items() if any(p.search(text) for p in pats)]
+        if "international_market_entry" in hits:
+            return "international_market_entry"
         return max(hits, key=lambda t: self.points.get(t, 0)) if hits else None   # one article -> one signal
 
     def has_kenya_marker(self, text: str) -> bool:
@@ -338,7 +340,10 @@ def build_signals(items: list[dict], prev_rows: list[dict], det: Detector, scori
         also = [o for o in outlets.values() if o != outlet_main]
         label = {"funding_raised": "Funding", "expansion_announced": "Expansion", "government_investment_deal": "Investment/PPP",
                  "mna_or_ipo": "M&A/IPO", "licence_or_approval": "Licence/approval", "contract_or_tender_won": "Contract win",
-                 "leadership_hire": "Leadership hire", "product_launch": "Product launch"}[c["type"]]
+                 "leadership_hire": "Leadership hire", "product_launch": "Product launch",
+                 "international_market_entry": "International market entry",
+                 "workforce_development": "Workforce development", "youth_or_job_access": "Youth / job access",
+                 "hr_system_or_transformation": "HR / payroll transformation"}[c["type"]]
         rows.append({
             "signal_id": sid, "company_id": it0["company_id"], "company": it0["company"],
             "company_matched": "1" if it0["matched"] else "0", "sector": it0["sector"], "icp_status": it0["icp"],

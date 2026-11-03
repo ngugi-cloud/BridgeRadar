@@ -89,6 +89,7 @@ signals:
     contract_or_tender_won: 8
     leadership_hire: 8
     product_launch: 8
+    international_market_entry: 15
     workforce_development: 12
     youth_or_job_access: 12
     hr_system_or_transformation: 10

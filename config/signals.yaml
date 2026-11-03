@@ -95,6 +95,10 @@ patterns:
   product_launch:
     - '\b(launche[sd]?|unveils?|introduces?|rolls out|debuts?)\b[^.]{0,50}\b(product|service|platform|app|range|line|brand|solution|offering)\b'
     - '\bnew product\b'
+  international_market_entry:
+    - '\b(international|foreign|multinational|global) (company|firm|startup|brand|business)\b[^.]{0,80}\b(sets? up|enters?|launches?|opens?|expands?)\b[^.]{0,40}\bKenya\b'
+    - '\b(company|brand|startup|firm)\b[^.]{0,80}\b(enters?|opens? in|sets? up in|launches? in|expands? to)\b[^.]{0,30}\bKenya\b'
+    - '\b(Kenya|Nairobi)\b[^.]{0,50}\b(first African|African hub|regional hub|market entry)\b'
   youth_or_job_access:
     - '\b(youth employment|youth jobs|job placement|graduate placement|internship programme|tv(et)? partnership)\b'
     - '\b(employability|career readiness|job readiness|work readiness)\b'
@@ -121,6 +125,7 @@ angles:
   workforce_development: "Workforce-development programme — pitch impact projects, training, assessments, and placement support"
   youth_or_job_access: "Youth/job-access initiative — pitch employability, skills, apprenticeships, and candidate pipelines"
   hr_system_or_transformation: "HR/payroll transformation — pitch HRIS implementation, payroll outsourcing, and change support"
+  international_market_entry: "International market entry — pitch launch recruitment, EOR, payroll, HR setup, and compliance support"
 
 kenya_markers: [kenya, kenyan, nairobi, mombasa, kisumu, nakuru, eldoret, thika, kiambu, machakos, ksh, kes]
 generic_candidate_words: [kenya, government, govt, firm, company, startup, bank, hospital, county, ministry, investors, group, farmers, state, firms]

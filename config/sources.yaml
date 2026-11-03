@@ -230,6 +230,9 @@ engine4_signals:
     - {id: sp_global, name: S&P Global Commodity Insights, access: manual, status: manual_required, enabled: false, note: "paywalled; headlines only via Google News RSS"}
     - {id: cbk_surveys, name: CBK / sector hiring-intent surveys, access: manual, status: manual_required, enabled: false, note: "ingested by hand per release; sector modifier only, never a lead"}
     - {id: google_alerts, name: Google Alerts RSS (per top account, per sector), access: rss, status: approved, enabled: false, tos_reviewed_by: "", tos_reviewed_on: ""}
+    - {id: reuters_africa, name: Reuters Africa business news, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: major_press}
+    - {id: bloomberg_africa, name: Bloomberg Africa business news, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: major_press}
+    - {id: capitalfm, name: Capital FM Kenya business, access: rss, status: pending_review, enabled: false, tos_reviewed_by: "", tos_reviewed_on: "", reliability: major_press}
 
   # Layoffs / freezes: advisory flag only. Does NOT change lead scores.
   advisory_keywords: [layoffs, retrenchment, redundancy, "hiring freeze", restructuring, "cost-cutting"]

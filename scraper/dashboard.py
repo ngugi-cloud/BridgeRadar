@@ -40,7 +40,8 @@ SIGNAL_LABELS = {"funding_raised": "Funding raised", "expansion_announced": "Exp
                  "licence_or_approval": "Licence / approval", "contract_or_tender_won": "Contract / tender won",
                  "leadership_hire": "Leadership hire", "product_launch": "Product launch",
                  "workforce_development": "Workforce development", "youth_or_job_access": "Youth / job access",
-                 "hr_system_or_transformation": "HR / payroll transformation"}
+                 "hr_system_or_transformation": "HR / payroll transformation",
+                 "international_market_entry": "International company enters Kenya"}
 # Every key that may appear in a company row. Anything else is a bug (see tests).
 COMPANY_KEYS = ["name", "sector", "location", "fit", "open_jobs", "contact", "website"]
 
@@ -89,6 +90,11 @@ def build(data_dir=None, today: dt.date | None = None, meta: dict | None = None,
     t = today.isoformat()
     new_today = sum(1 for j in jobs if j.get("first_seen") == t and clean(j.get("first_seen_baseline")) != "1")
     employers = [j for j in jobs if j.get("posted_by") not in ("agency", "confidential")]
+    closed_jobs_30d = sum(
+        1 for j in closed
+        if parse_date(j.get("closed_date"), today)
+        and 0 <= (today - parse_date(j.get("closed_date"), today)).days <= 30
+    )
     by_company = Counter(clean(j.get("company")) for j in employers if clean(j.get("company")))
     hiring_norms = defaultdict(int)
     for name, n in by_company.items():
@@ -158,6 +164,7 @@ def build(data_dir=None, today: dt.date | None = None, meta: dict | None = None,
         "baseline": {"active": in_baseline, "since": baseline_since.isoformat() if baseline_since else ""},
         "kpis": {"active_jobs": len(jobs), "new_today": new_today, "companies_hiring": len(hiring_norms),
                  "companies_tracked": len(companies),
+                 "closed_jobs_30d": closed_jobs_30d,
                  "companies_with_contact": sum(1 for c in companies if c["contact"] == "Found"),
                  "live_signals": sum(sig_types.values()), "leads": sum(lead_temp.values())},
         "jobs_by_sector": [{"label": sector_label(k), "target": k in targets, "count": n}
