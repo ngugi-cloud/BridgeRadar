@@ -131,7 +131,9 @@ class MergeTests(unittest.TestCase):
     def test_new_contact_high_confidence_and_buys(self):
         rows, ch = self.merge([], {"c1": {"outcome": "found", "found": [found("Jane Wanjiru", "HR Manager")]}})
         self.assertEqual((rows[0]["confidence"], rows[0]["reconfirmed"], rows[0]["buys"]),
-                         ("High", "yes", "Recruitment; Compliance; HR Consulting"))
+                         ("High", "yes",
+                          "Recruitment; HR Consulting; HR Outsourcing; Payroll Outsourcing; "
+                          "Staff Outsourcing (EOR); HRIS; Impact Projects"))
         self.assertEqual(ch, [])                           # first ever contact is not a "change"
 
     def test_new_hr_head_detected_and_old_marked_unconfirmed(self):
