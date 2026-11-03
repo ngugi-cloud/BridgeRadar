@@ -209,6 +209,24 @@ class AdapterTests(unittest.TestCase):
         self.assertEqual((wk[0]["title"], wk[0]["location"], wk[0]["posted_date"]),
                          ("Accountant", "Nairobi, Kenya", "2026-11-03"))
 
+    def test_additional_public_ats_adapters(self):
+        target = {"company": "Acme"}
+        smart = e1.parse_smartrecruiters(json.dumps({"content": [{
+            "name": "Data Analyst", "location": {"city": "Nairobi", "country": "Kenya"},
+            "releasedDate": "2026-11-03", "ref": "https://example.test/job/1",
+        }]}), target)
+        ashby = e1.parse_ashby(json.dumps({"jobs": [{
+            "title": "Finance Officer", "location": {"name": "Nairobi, Kenya"},
+            "publishedAt": "2026-11-03", "jobUrl": "https://example.test/job/2",
+        }]}), target)
+        recruitee = e1.parse_recruitee(json.dumps({"offers": [{
+            "title": "HR Manager", "location": "Nairobi",
+            "created_at": "2026-11-03", "careers_url": "https://example.test/job/3",
+        }]}), target)
+        self.assertEqual((smart[0]["title"], smart[0]["location"]), ("Data Analyst", "Nairobi, Kenya"))
+        self.assertEqual((ashby[0]["title"], ashby[0]["location"]), ("Finance Officer", "Nairobi, Kenya"))
+        self.assertEqual((recruitee[0]["title"], recruitee[0]["location"]), ("HR Manager", "Nairobi"))
+
 
 class PipelineTests(unittest.TestCase):
     @classmethod

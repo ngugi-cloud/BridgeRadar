@@ -139,7 +139,7 @@ engine1_jobs:
     url: https://api.reliefweb.int/v2/jobs
     access: api
     status: approved
-    enabled: false                  # turn on after you register an appname
+    enabled: true                  # requires the RELIEFWEB_APPNAME GitHub secret
     tos_reviewed_by: "Claude first pass (API docs read); human to confirm"
     tos_reviewed_on: "2026-10-22"
     finding: >
