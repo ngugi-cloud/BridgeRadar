@@ -9,20 +9,20 @@
 <style>
 :root {
   color-scheme: light;
-  --page: #f9f9f7;
-  --surface: #fcfcfb;
-  --surface-2: #f0efec;
-  --ink: #0b0b0b;
-  --ink-2: #52514e;
-  --muted: #6f6d68;
-  --grid: #e1e0d9;
-  --axis: #c3c2b7;
-  --ring: rgba(11, 11, 11, 0.10);
-  --accent: #2a78d6;
-  --series-1: #2a78d6;
-  --t-cold: #86b6ef;
-  --t-warm: #2a78d6;
-  --t-hot: #104281;
+  --page: #f4f7fb;
+  --surface: #ffffff;
+  --surface-2: #eaf1fb;
+  --ink: #071b3a;
+  --ink-2: #29466f;
+  --muted: #60799b;
+  --grid: #dbe6f3;
+  --axis: #b8c9df;
+  --ring: rgba(18, 88, 190, 0.14);
+  --accent: #1769d2;
+  --series-1: #1769d2;
+  --t-cold: #86b3ed;
+  --t-warm: #1769d2;
+  --t-hot: #082a63;
   --on-cold: #0b0b0b;
   --on-warm: #ffffff;
   --on-hot: #ffffff;
@@ -32,7 +32,7 @@
   --critical: #d03b3b;
   --banner: #fff6dd;
   --banner-ink: #5b4300;
-  --hover: rgba(42, 120, 214, 0.08);
+  --hover: rgba(23, 105, 210, 0.08);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -98,6 +98,9 @@ a { color: var(--accent); }
 
 /* header */
 header.top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 20px; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-logo { width: 190px; max-width: 190px; height: 58px; object-fit: contain; object-position: left center; border-radius: 8px; }
+.brand-copy { border-left: 1px solid var(--grid); padding-left: 14px; }
 h1 { font-size: 24px; line-height: 1.2; margin: 0; letter-spacing: -0.01em; }
 .sub { color: var(--ink-2); margin: 4px 0 0; }
 .meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; color: var(--ink-2); font-size: 13px; }
@@ -197,6 +200,9 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
   .grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 480px) {
+  .brand { align-items: flex-start; }
+  .brand-logo { width: 132px; height: 48px; }
+  .brand-copy { padding-left: 10px; }
   .tile.hero .val { font-size: 44px; }
   .tile .val { font-size: 24px; }
   .hbars { grid-template-columns: minmax(80px, 42%) 1fr; }
@@ -209,9 +215,12 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
 <body>
 <div class="wrap">
   <header class="top">
-    <div>
-      <h1>Bridge Lead Radar</h1>
-      <p class="sub">Kenya hiring activity from public sources: aggregates only</p>
+    <div class="brand">
+      <img class="brand-logo" src="assets/btm-logo.png" alt="Bridge Talent Management">
+      <div class="brand-copy">
+        <h1>Bridge Lead Radar</h1>
+        <p class="sub">Kenya hiring activity from public sources: aggregates only</p>
+      </div>
     </div>
     <div class="meta-row">
       <span id="refreshed">Loading…</span>
@@ -604,6 +613,9 @@ footer { color: var(--muted); font-size: 12px; margin-top: 28px; line-height: 1.
     if (age >= 2) msgs.push("This data is " + Math.round(age) + " days old: the daily update has not run.");
     if (!d.pipeline_ok && d.failed_steps.length) msgs.push("Some steps failed on the last run (" + d.failed_steps.join(", ") + "); their figures are from the run before.");
     if (d.baseline.active) msgs.push("The radar started on " + d.baseline.since + ". For the first 30 days, \"new\" counts and trends are incomplete.");
+    if (k.active_jobs === 0 && k.live_signals === 0 && (!d.sources || !d.sources.some(function (s) { return s.status === "ok"; }))) {
+      msgs.push("No usable public data was collected on the latest run. Check the Data sources section for disabled, blocked or zero-result sources.");
+    }
     var b = document.getElementById("banner");
     b.textContent = msgs.join(" ");
     b.hidden = !msgs.length;
