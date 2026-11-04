@@ -179,7 +179,15 @@ function mergeTab(spec, csv, existing, todayStr, defaults) {
     out.push(header.map(function (h) {
       if (h === 'Sync_State') return 'current';
       if (human.indexOf(h) >= 0) {
-        if (ex && h in ex) return ex[h];                                   // the sheet wins
+        if (h === 'Status') {
+          var existingStatus = ex && h in ex ? String(ex[h]).trim() : '';
+          if (STATUSES.indexOf(existingStatus) >= 0) return existingStatus; // a valid sheet value wins
+          var pipelineStatus = String(r[h] || '').trim();
+          if (STATUSES.indexOf(pipelineStatus) >= 0) return pipelineStatus;
+          return defaults && defaults[h] !== undefined ? defaults[h] : 'New';
+        } else if (ex && h in ex) {
+          return ex[h];                                                     // other human values win
+        }
         if (!isBlank(r[h])) return r[h];                                   // new row: value the pipeline carried
         return defaults && defaults[h] !== undefined ? defaults[h] : '';
       }

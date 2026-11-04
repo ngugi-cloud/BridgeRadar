@@ -108,6 +108,13 @@ test('mergeTab tolerates an apostrophe-prefixed key read back from the sheet', (
   assert.equal(m.values[0][3], 'Won');
 });
 
+test('mergeTab normalizes invalid Status values to a valid dropdown value', () => {
+  const header = ['job_id', 'title', 'Owner', 'Status', 'Last_contacted', 'Notes'];
+  const ex = {header, values: [['a', 't', 'Ngugi', 'Pending review', '', '']]};
+  const m = g.mergeTab(JOBS, csv(['job_id', 'title'], [['a', 't']]), ex, '2026-10-23', DEF);
+  assert.equal(m.values[0][3], 'New');
+});
+
 test('checkFreshness', () => {
   assert.equal(g.checkFreshness(null, null, '2026-10-23').fresh, false);
   assert.match(g.checkFreshness({run_date: '2026-10-22'}, null, '2026-10-23').reason, /2026-10-22/);
