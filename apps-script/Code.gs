@@ -526,6 +526,7 @@ function onOpen() {
     .addItem('1. First-time setup', 'setup')
     .addSeparator()
     .addItem('Import latest data now', 'importNow')
+    .addItem('Check data connection', 'checkConnectionNow')
     .addItem('Send my edits to the pipeline now', 'writeBackNow')
     .addItem('Suppress the selected row (do not contact)', 'suppressSelected')
     .addItem('Mark selected company as a client', 'clientSelected')
@@ -580,6 +581,38 @@ function installTriggers_() {
 function importNow() {
   var res = runImport_({force: true, digest: false});
   SpreadsheetApp.getUi().alert('Bridge Radar', res.message, SpreadsheetApp.getUi().ButtonSet.OK);
+}
+
+/** Menu: diagnose Sheet-to-GitHub settings and data freshness without importing anything. */
+function checkConnectionNow() {
+  var ui = SpreadsheetApp.getUi(), lines = [];
+  try {
+    assertPrivateRepo_();
+    lines.push('Private repository: OK (' + setting_('GITHUB_OWNER') + '/' + setting_('PRIVATE_REPO') + ')');
+
+    var pub = gh_('get', '/repos/' + encodeURIComponent(setting_('GITHUB_OWNER')) + '/' +
+      encodeURIComponent(setting_('PUBLIC_REPO')));
+    lines.push('Public repository: ' + (pub.code === 200 ? 'OK' : 'FAILED (HTTP ' + pub.code + ')'));
+
+    var privMeta = JSON.parse(readFile_('private', 'meta.json') || 'null');
+    var pubMeta = JSON.parse(readFile_('public', 'meta.json') || 'null');
+    lines.push('Private run date: ' + (privMeta && privMeta.run_date ? privMeta.run_date : 'missing'));
+    lines.push('Public run date: ' + (pubMeta && pubMeta.run_date ? pubMeta.run_date : 'missing'));
+
+    var today = today_();
+    var fresh = checkFreshness(privMeta, pubMeta, today);
+    lines.push('Today (' + today + '): ' + (fresh.fresh ? 'fresh' : 'stale - ' + fresh.reason));
+
+    var files = [];
+    TABS.forEach(function (spec) {
+      var text = readFile_(spec.repo, spec.file);
+      if (text !== null) files.push(spec.name);
+    });
+    lines.push('Data tabs readable: ' + (files.length ? files.join(', ') : 'none'));
+  } catch (e) {
+    lines.push('Connection check failed: ' + e.message);
+  }
+  ui.alert('Bridge Radar connection check', lines.join('\n'), ui.ButtonSet.OK);
 }
 
 /** Time trigger, ~07:00 EAT. */
