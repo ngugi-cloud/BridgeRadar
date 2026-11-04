@@ -408,7 +408,7 @@ ADAPTERS = {
 # Pure pipeline functions (unit-tested offline)
 # =============================================================================
 def to_candidate(raw: dict, source_id: str, clf: Classifier, agency_norms: set,
-                 today: dt.date) -> tuple[dict | None, str]:
+                 today: dt.date, source_scope: str = "local") -> tuple[dict | None, str]:
     title, company = clean(raw.get("title")), clean(raw.get("company"))
     if not title or not company:
         return None, "missing_title_or_company"
@@ -418,6 +418,10 @@ def to_candidate(raw: dict, source_id: str, clf: Classifier, agency_norms: set,
         r"\b(remote|work from home|work-from-home|telecommute|distributed|anywhere|worldwide|global)\b",
         searchable, re.I,
     ))
+    if source_scope == "global_remote" and not is_remote:
+        return None, "global_source_requires_remote"
+    if source_scope == "global_remote" and out_of_scope(location):
+        return None, "global_source_region_restricted"
     if not is_remote and out_of_scope(location):
         return None, "out_of_scope"
     posted = parse_date(raw.get("posted_date"), today)
@@ -560,7 +564,9 @@ def run(dry_run: bool = False, today: dt.date | None = None, client: PoliteClien
             continue
         n_before = len(cands)
         for raw in raws:
-            cand, reason = to_candidate(raw, src["id"], clf, agency_norms, today)
+            cand, reason = to_candidate(
+                raw, src["id"], clf, agency_norms, today, source_scope=src.get("scope", "local")
+            )
             reasons[reason] += 1
             if cand:
                 cands.append(cand)

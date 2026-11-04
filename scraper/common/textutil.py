@@ -12,7 +12,10 @@ _FOREIGN = re.compile(
     r"\b(uganda|tanzania|rwanda|burundi|ethiopia|somalia|south sudan|nigeria|ghana|"
     r"south africa|egypt|zambia|zimbabwe|malawi|mozambique|senegal|cameroon|dubai|uae|"
     r"united arab emirates|saudi|qatar|kuwait|united kingdom|england|usa|united states|"
-    r"canada|india|germany|netherlands|france|australia|singapore)\b",
+    r"canada|india|germany|netherlands|france|australia|singapore|belgium|spain|italy|"
+    r"portugal|poland|sweden|norway|denmark|switzerland|austria|ireland|japan|china|"
+    r"brazil|mexico|berlin|hamburg|munich|muenchen|frankfurt|dusseldorf|düsseldorf|"
+    r"cologne|freiburg|vienna|amsterdam|paris|london|madrid|lisbon|stockholm|copenhagen)\b",
     re.I,
 )
 _CONFIDENTIAL = re.compile(

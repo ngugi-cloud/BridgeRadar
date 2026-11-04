@@ -281,6 +281,29 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(cand["work_arrangement"], "remote")
         self.assertEqual(cand["talent_market"], "Kenya / Africa eligible")
 
+    def test_global_source_requires_remote_and_rejects_region_restricted_roles(self):
+        onsite = {"title": "Operations Manager", "company": "Example GmbH", "location": "Hamburg, Germany"}
+        remote_restricted = {"title": "Remote Engineer", "company": "Example GmbH", "location": "Berlin, Germany"}
+        global_remote = {"title": "Remote Engineer", "company": "Global Acme", "location": "Worldwide"}
+
+        cand, reason = e1.to_candidate(
+            onsite, "arbeitnow_api", self.clf, set(), TODAY, source_scope="global_remote"
+        )
+        self.assertEqual(reason, "global_source_requires_remote")
+        self.assertIsNone(cand)
+
+        cand, reason = e1.to_candidate(
+            remote_restricted, "arbeitnow_api", self.clf, set(), TODAY, source_scope="global_remote"
+        )
+        self.assertEqual(reason, "global_source_region_restricted")
+        self.assertIsNone(cand)
+
+        cand, reason = e1.to_candidate(
+            global_remote, "arbeitnow_api", self.clf, set(), TODAY, source_scope="global_remote"
+        )
+        self.assertEqual(reason, "ok")
+        self.assertEqual(cand["talent_market"], "Global / remote")
+
     def test_dedupe_keeps_newest_and_counts_sources(self):
         a = self.cand({"title": "Nurse", "company": "Karen Hospital Ltd", "location": "Nairobi", "posted_date": "2026-10-10"}, "A")[0]
         b = self.cand({"title": "NURSE", "company": "Karen Hospital Limited", "location": "Nairobi, Kenya", "posted_date": "2026-10-18"}, "B")[0]

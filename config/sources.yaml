@@ -35,7 +35,7 @@ settings:
   retry_count: 2
   stop_source_after_consecutive_errors: 3   # e.g. 403/429 -> stop, log, flag manual
   store_article_text: false         # headline + own summary + link only (copyright)
-  scope_country: "Kenya"            # Kenya-only. Overseas remote roles excluded.
+  scope_country: "Kenya + Africa/global eligible remote roles"
 
 # -----------------------------------------------------------------------------
 # ENGINE 1 - Active job leads
