@@ -1,34 +1,38 @@
 {
-  "last_refreshed_utc": "2026-11-03T18:00:14+00:00",
-  "run_date": "2026-11-03",
-  "started_utc": "2026-11-03T17:56:50+00:00",
+  "last_refreshed_utc": "2026-11-04T03:04:13+00:00",
+  "run_date": "2026-11-04",
+  "started_utc": "2026-11-04T03:00:56+00:00",
   "ok": true,
   "failed_steps": [],
   "steps": {
     "engine1_jobs": {
       "status": "ok",
-      "seconds": 202.9,
+      "seconds": 194.5,
       "summary": {
-        "open": 0,
+        "open": 597,
         "closed": 0,
-        "changes": 0,
-        "manual": 20,
-        "baseline": true,
-        "dropped": {}
+        "changes": 238,
+        "manual": 18,
+        "baseline": false,
+        "dropped": {
+          "ok": 363,
+          "out_of_scope": 46
+        }
       }
     },
     "engine2_companies": {
       "status": "ok",
       "seconds": 0.1,
       "summary": {
-        "companies": 51,
-        "created": 0,
-        "agencies": 0,
-        "review": 38,
+        "companies": 408,
+        "created": 357,
+        "agencies": 4,
+        "review": 396,
         "baseline": false,
         "skipped_unnamed": 0,
         "icp": {
-          "unknown_size": 51
+          "unknown_size": 407,
+          "excluded_ngo": 1
         }
       }
     },
@@ -42,14 +46,17 @@
     },
     "engine4_signals": {
       "status": "ok",
-      "seconds": 0.1,
+      "seconds": 2.1,
       "summary": {
-        "signals": 0,
-        "live": 0,
+        "signals": 2,
+        "live": 2,
         "advisories": 0,
-        "candidates": 0,
+        "candidates": 1,
         "baseline": true,
-        "dropped": {},
+        "dropped": {
+          "no_signal": 82,
+          "unattributed": 6
+        },
         "sector_modifiers": 0
       }
     },
@@ -57,10 +64,19 @@
       "status": "ok",
       "seconds": 0.0,
       "summary": {
-        "leads": 0,
-        "temperatures": {},
-        "by_type": {},
-        "excluded": {}
+        "leads": 594,
+        "temperatures": {
+          "Warm": 270,
+          "Cold": 324
+        },
+        "by_type": {
+          "job_lead": 592,
+          "signal_lead": 2
+        },
+        "excluded": {
+          "job_posted_by_agency": 4,
+          "excluded_ngo": 1
+        }
       }
     },
     "dashboard": {
