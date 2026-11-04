@@ -76,6 +76,21 @@ class FeedTests(unittest.TestCase):
         urls = e4.google_news_urls(SIG)
         self.assertEqual(len(urls), len(SIG["google_news"]["queries"]))
         self.assertTrue(urls[0].startswith("https://news.google.com/rss/search?q=Kenya+company+raises+funding+when%3A30d"))
+        for url, query in zip(urls, SIG["google_news"]["queries"]):
+            self.assertIn("https://news.google.com/rss/search?q=", url)
+            self.assertTrue(query.strip(), "Google News query must not be blank")
+
+    def test_new_query_groups_are_present(self):
+        queries = SIG["google_news"]["queries"]
+        required_fragments = (
+            '"Kenya" "financial close"',
+            '"Kenya" "construction begins"',
+            '"Kenya" "Public Service Commission"',
+            '"Kenya" AI technology hub investment jobs',
+            '"Kenya" company closure insolvency administration',
+            "site:investkenya.go.ke",
+        )
+        self.assertTrue(all(any(fragment in query for query in queries) for fragment in required_fragments))
 
 
 class DetectTests(unittest.TestCase):
@@ -109,6 +124,15 @@ class DetectTests(unittest.TestCase):
         self.assertTrue(DET.is_advisory("Acme announces layoffs after expansion plans collapse"))
         sigs, advs, _ = enrich([raw("Karen Hospital announces retrenchment of staff", "https://n/1")])
         self.assertEqual((len(sigs), len(advs)), (0, 1))
+        for headline in (
+            "Kenya factory shutdown leaves workers idle",
+            "Company closure confirmed after insolvency proceedings",
+            "Global manufacturer exits Kenya operations",
+            "Court halts project after injunction",
+            "Project stalled as funding delays continue",
+            "Tender cancelled after supplier loses contract",
+        ):
+            self.assertTrue(DET.is_advisory(headline), headline)
 
     def test_candidates_amounts_jobs(self):
         self.assertEqual(DET.candidate_company("Acme Foods raises $8M in seed funding"), "Acme Foods")

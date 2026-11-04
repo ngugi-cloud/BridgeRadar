@@ -51,6 +51,92 @@ google_news:
     - "Kenya government procurement contract awarded company"
     - "Kenya county tender contract awarded supplier"
     - "Kenya Nairobi Mombasa Kisumu expansion investment"
+    # Funding, deals, and expansion
+    - '"Kenya" "financial close" investment project'
+    - '"Kenya" "investment agreement signed" jobs'
+    - '"Kenya" "Memorandum of Understanding" investment jobs'
+    - '"Kenya" "groundbreaking" project jobs'
+    - '"Kenya" "commissioning" plant factory'
+    - '"Kenya" "capacity expansion" recruitment'
+    - '"Kenya" "new market entry" hiring'
+    - '"Kenya" "regional headquarters" Nairobi'
+    - '"Kenya" "sets up operations" company'
+    - '"Kenya" "begins operations" factory plant'
+    - '"Kenya" "job creation" investment announcement'
+    - '"Kenya" "create jobs" expansion'
+    - '"Kenya" "recruitment drive" company'
+    - '"Kenya" "mass recruitment" vacancies'
+    - '"Kenya" "hiring spree" company'
+
+    # Projects and construction
+    - '"Kenya" "project reaches" milestone construction'
+    - '"Kenya" "construction begins" project jobs'
+    - '"Kenya" "contractor awarded" project'
+    - '"Kenya" "EPC contract" awarded'
+    - '"Kenya" "feasibility study" investment project'
+    - '"Kenya" "environmental impact assessment" approved project'
+    - '"Kenya" "NEMA approval" project'
+    - '"Kenya" "special economic zone" investor factory'
+    - '"Kenya" "industrial park" new factory jobs'
+    - '"Kenya" "affordable housing" project contractor jobs'
+    - '"Kenya" "road project" contractor awarded jobs'
+    - '"Kenya" "rail project" contractor recruitment'
+    - '"Kenya" "port expansion" Mombasa jobs'
+    - '"Kenya" "water project" tender contractor'
+
+    # Public sector and procurement
+    - '"Kenya" "tender award" recruitment'
+    - '"Kenya" "procurement notice" jobs'
+    - '"Kenya" "request for proposals" recruitment'
+    - '"Kenya" "expression of interest" project jobs'
+    - '"Kenya" "public procurement" contract awarded'
+    - '"Kenya" "county government" tender awarded supplier'
+    - '"Kenya" "state corporation" recruitment vacancies'
+    - '"Kenya" "Public Service Commission" vacancies recruitment'
+    - '"Kenya" "internship programme" graduate opportunities'
+    - '"Kenya" "county investment" project jobs'
+    - '"Kenya" "NG-CDF" project tender jobs'
+    - '"Kenya" "donor funded project" recruitment'
+
+    # Sector-specific demand signals
+    - '"Kenya" BPO call centre opens recruitment'
+    - '"Kenya" data centre construction jobs'
+    - '"Kenya" AI technology hub investment jobs'
+    - '"Kenya" e-commerce fulfilment centre jobs'
+    - '"Kenya" EV assembly plant investment'
+    - '"Kenya" battery manufacturing plant'
+    - '"Kenya" textile apparel factory jobs'
+    - '"Kenya" leather tannery expansion jobs'
+    - '"Kenya" horticulture export packhouse jobs'
+    - '"Kenya" avocado mango processing plant'
+    - '"Kenya" dairy processing expansion recruitment'
+    - '"Kenya" blue economy fishing port investment'
+    - '"Kenya" tourism hotel reopening recruitment'
+    - '"Kenya" medical consumables manufacturing investment'
+    - '"Kenya" health facility staffing recruitment'
+    - '"Kenya" SACCO digitisation expansion recruitment'
+    - '"Kenya" microfinance expansion recruits'
+    - '"Kenya" logistics last-mile delivery expansion jobs'
+    - '"Kenya" oil gas exploration contract jobs'
+    - '"Kenya" mining project feasibility jobs'
+
+    # Negative and contrarian risk signals
+    - '"Kenya" company closure insolvency administration'
+    - '"Kenya" business relocation exits Kenya'
+    - '"Kenya" restructuring cost cutting recruitment freeze'
+    - '"Kenya" company loses contract tender cancelled'
+    - '"Kenya" project stalled delayed funding'
+    - '"Kenya" court halts project injunction'
+    - '"Kenya" factory shutdown production halt'
+
+    # Better search syntax
+    - '"Kenya" "creates 500 jobs" OR "creates 1,000 jobs"'
+    - 'site:investkenya.go.ke "jobs" investment'
+    - 'site:businessdailyafrica.com Kenya "recruit" expansion'
+    - 'site:standardmedia.co.ke Kenya "job opportunities" investment'
+    - 'site:tenders.go.ke Kenya supply installation'
+    - 'site:ppp.go.ke Kenya project'
+    - '"Kenya" "hiring" "new factory" -course -training'
 
 # Fill in feed URLs ONLY after reviewing each site's terms and finding a real RSS link.
 feeds:
@@ -84,8 +170,11 @@ patterns:
     - '\b(expands?|expansion|breaks? ground|groundbreaking|market entry)\b'
     - '\b(opens?|launche[sd]|unveils?|commissions?|sets? up|to build|to open|to set up|building)\b[^.]{0,40}\b(branch|plant|factory|warehouse|hospital|facility|store|outlet|office|hub|distribution centre|processing)\b'
     - '\benters? (the )?(kenyan?|kenya) market\b'
+    - '\b(commissioning|capacity expansion|begins? operations|sets? up operations)\b[^.]{0,80}\b(plant|factory|company|project|facility|operations)\b'
+    - '\b(create|creating|creates?|job creation|recruitment drive|mass recruitment|hiring spree)\b'
   government_investment_deal:
     - '\b(ppp|public[- ]private partnership|fdi|foreign direct investment|investment (deal|agreement|pledge)|memorandum of understanding|special economic zone)\b'
+    - '\b(financial close|investment agreement signed|feasibility study|industrial park|government investment|donor funded project)\b'
   mna_or_ipo:
     - '\b(acquires?|acquired|acquisition|takeover|merger|merges|buyout|ipo|initial public offering|lists? on (the )?(nse|nairobi securities exchange))\b'
   licence_or_approval:
@@ -94,6 +183,7 @@ patterns:
   contract_or_tender_won:
     - '\b(wins?|won|awarded|bags|secures?|clinches|lands)\b[^.]{0,50}\b(contract|tender|deal|order)\b'
     - '\bcontract (award|awarded)\b'
+    - '\b(EPC contract|tender award|procurement notice|public procurement|expression of interest|request for proposals)\b[^.]{0,50}\b(awarded|award|contract|recruitment|project)\b'
   leadership_hire:
     - '\b(appoints?|appointed|names?|named|hires?|hired|taps)\b[^.]{0,40}\b(ceo|chief executive|managing director|coo|cfo|chief [a-z]+ officer|hr director|head of (hr|human resources|people)|country manager|general manager)\b'
   product_launch:
@@ -116,7 +206,7 @@ patterns:
 
 # Layoffs / freezes: ADVISORY only. Never changes lead scores. Takes precedence
 # over hiring patterns for the same headline.
-advisory_pattern: '\b(layoffs?|lays? off|retrench\w*|redundanc(y|ies)|job cuts?|hiring freeze|restructuring|cost[- ]cutting|downsiz\w*|shuts? down|closes? (down )?(its )?(plant|factory|branch|operations))\b'
+advisory_pattern: '\b(layoffs?|lays? off|retrench\w*|redundanc(y|ies)|job cuts?|hiring freeze|restructuring|cost[- ]cutting|downsiz\w*|shuts? down|closes? (down )?(its )?(plant|factory|branch|operations)|company closure|insolvency|administration|relocat(e|es|ed|ing)|exits? Kenya|recruitment freeze|tender cancelled|project stalled|project delayed|funding delay|court halts?|injunction|factory shutdown|production halt)\b'
 advisory_angle: "HR Consulting / outplacement"
 
 # What to say (angle templates). {amount} and {jobs} appear only when found in the headline.
