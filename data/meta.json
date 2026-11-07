@@ -1,23 +1,23 @@
 {
-  "last_refreshed_utc": "2026-11-06T03:04:14+00:00",
-  "run_date": "2026-11-06",
-  "started_utc": "2026-11-06T03:01:10+00:00",
+  "last_refreshed_utc": "2026-11-07T03:02:33+00:00",
+  "run_date": "2026-11-07",
+  "started_utc": "2026-11-07T02:59:28+00:00",
   "ok": true,
   "failed_steps": [],
   "steps": {
     "engine1_jobs": {
       "status": "ok",
-      "seconds": 182.3,
+      "seconds": 182.7,
       "summary": {
-        "open": 175,
-        "closed": 505,
-        "changes": 29,
+        "open": 174,
+        "closed": 540,
+        "changes": 69,
         "manual": 18,
         "baseline": false,
         "dropped": {
-          "ok": 111,
-          "global_source_requires_remote": 218,
-          "global_source_region_restricted": 80
+          "ok": 107,
+          "global_source_region_restricted": 83,
+          "global_source_requires_remote": 221
         }
       }
     },
@@ -25,14 +25,14 @@
       "status": "ok",
       "seconds": 0.1,
       "summary": {
-        "companies": 457,
-        "created": 16,
+        "companies": 478,
+        "created": 21,
         "agencies": 4,
-        "review": 444,
+        "review": 465,
         "baseline": false,
         "skipped_unnamed": 0,
         "icp": {
-          "unknown_size": 456,
+          "unknown_size": 477,
           "excluded_ngo": 1
         }
       }
@@ -47,7 +47,7 @@
     },
     "engine4_signals": {
       "status": "ok",
-      "seconds": 2.1,
+      "seconds": 3.0,
       "summary": {
         "signals": 2,
         "live": 2,
@@ -63,15 +63,15 @@
     },
     "scoring": {
       "status": "ok",
-      "seconds": 0.1,
+      "seconds": 0.0,
       "summary": {
-        "leads": 177,
+        "leads": 176,
         "temperatures": {
-          "Warm": 42,
-          "Cold": 135
+          "Warm": 47,
+          "Cold": 129
         },
         "by_type": {
-          "job_lead": 175,
+          "job_lead": 174,
           "signal_lead": 2
         },
         "excluded": {}
