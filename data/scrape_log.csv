@@ -566,3 +566,58 @@ run_date,engine,source_id,status,items,detail
 2026-11-07,engine4_signals,capitalfm,ok,10,
 2026-11-07,engine4_signals,_run,ok,2,"{""no_signal"": 82, ""unattributed"": 8}"
 2026-11-07,scoring,_run,ok,176,"{""Warm"": 47, ""Cold"": 129}"
+2026-11-08,engine1_jobs,remotive_api,ok,8,"raw=12 dropped={'global_source_region_restricted': 2, 'ok': 8, 'global_source_requires_remote': 2}"
+2026-11-08,engine1_jobs,arbeitnow_api,ok,56,"raw=300 dropped={'global_source_region_restricted': 27, 'ok': 64, 'global_source_requires_remote': 221}"
+2026-11-08,engine1_jobs,remoteok_api,ok,70,"raw=99 dropped={'global_source_region_restricted': 34, 'ok': 134, 'global_source_requires_remote': 243}"
+2026-11-08,engine1_jobs,brightermonday,skipped:manual_required,0,
+2026-11-08,engine1_jobs,fuzu,skipped:manual_required,0,
+2026-11-08,engine1_jobs,myjobmag_ke,skipped:disabled,0,
+2026-11-08,engine1_jobs,talent_com_ke,skipped:disabled,0,
+2026-11-08,engine1_jobs,kenyamoja,skipped:disabled,0,
+2026-11-08,engine1_jobs,careerpointkenya,skipped:disabled,0,
+2026-11-08,engine1_jobs,advance_africa,skipped:disabled,0,
+2026-11-08,engine1_jobs,pigiame,skipped:manual_required,0,
+2026-11-08,engine1_jobs,linkedin_jobs,skipped:manual_required,0,
+2026-11-08,engine1_jobs,reliefweb,skipped:missing_secret:RELIEFWEB_APPNAME,0,
+2026-11-08,engine1_jobs,company_ats,zero_results,0,"raw=0 dropped={'global_source_region_restricted': 34, 'ok': 134, 'global_source_requires_remote': 243}"
+2026-11-08,engine1_jobs,jooble_api,skipped:disabled,0,
+2026-11-08,engine2_companies,mhfl,skipped:disabled,0,
+2026-11-08,engine2_companies,kmpdc_ppb,skipped:disabled,0,
+2026-11-08,engine2_companies,cbk_licensed,skipped:disabled,0,
+2026-11-08,engine2_companies,ira_cma,skipped:disabled,0,
+2026-11-08,engine2_companies,epra,skipped:disabled,0,
+2026-11-08,engine2_companies,nse,skipped:disabled,0,
+2026-11-08,engine2_companies,kam,skipped:disabled,0,
+2026-11-08,engine2_companies,epza,skipped:disabled,0,
+2026-11-08,engine2_companies,agri_assocs,skipped:disabled,0,
+2026-11-08,engine2_companies,tra_tourism,skipped:disabled,0,
+2026-11-08,engine2_companies,ca_licensees,skipped:disabled,0,
+2026-11-08,engine2_companies,fke_kepsa,skipped:disabled,0,
+2026-11-08,engine2_companies,keninvest,skipped:disabled,0,
+2026-11-08,engine2_companies,wikidata,skipped:disabled,0,
+2026-11-08,engine2_companies,gazette,skipped:disabled,0,
+2026-11-08,engine2_companies,engine1_employers,ok,132,
+2026-11-08,engine2_companies,career_pages_seed,ok,53,
+2026-11-08,engine2_companies,nea_agencies,skipped:disabled,0,
+2026-11-08,engine2_companies,brs_search,skipped:manual_required,0,
+2026-11-08,engine3_contacts,company_site,skipped:disabled,0,
+2026-11-08,engine4_signals,gnews_rss,blocked,0,https://news.google.com/rss/search?q=%22Kenya%22+%22hiring%22+%22new+factory%22+-course+-training+when%3A30d&hl=en-KE&gl
+2026-11-08,engine4_signals,keninvest_news,skipped:disabled,0,
+2026-11-08,engine4_signals,kna,blocked,0,https://www.kenyanews.go.ke/feed/
+2026-11-08,engine4_signals,businessdaily,skipped:disabled,0,
+2026-11-08,engine4_signals,thestar,skipped:disabled,0,
+2026-11-08,engine4_signals,kenyanwallstreet,skipped:disabled,0,
+2026-11-08,engine4_signals,newstrendske,skipped:disabled,0,
+2026-11-08,engine4_signals,techcabal_disrupt,ok,10,
+2026-11-08,engine4_signals,disruptafrica,ok,10,
+2026-11-08,engine4_signals,standardmedia,ok,30,
+2026-11-08,engine4_signals,kenyatimes,ok,30,
+2026-11-08,engine4_signals,worldbank_procurement,skipped:disabled,0,
+2026-11-08,engine4_signals,sp_global,skipped:manual_required,0,
+2026-11-08,engine4_signals,cbk_surveys,skipped:manual_required,0,
+2026-11-08,engine4_signals,google_alerts,skipped:disabled,0,
+2026-11-08,engine4_signals,reuters_africa,skipped:disabled,0,
+2026-11-08,engine4_signals,bloomberg_africa,skipped:disabled,0,
+2026-11-08,engine4_signals,capitalfm,ok,10,
+2026-11-08,engine4_signals,_run,ok,2,"{""no_signal"": 80, ""unattributed"": 10}"
+2026-11-08,scoring,_run,ok,199,"{""Warm"": 72, ""Cold"": 127}"
