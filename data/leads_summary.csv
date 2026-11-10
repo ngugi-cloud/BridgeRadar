@@ -1,5 +1,6 @@
 sector,temperature,count
 construction,Cold,2
+construction,Warm,3
 education,Cold,1
 energy,Cold,2
 financial_services,Cold,4
@@ -8,10 +9,10 @@ healthcare,Cold,1
 logistics,Cold,2
 logistics,Warm,3
 manufacturing,Cold,1
-other,Cold,36
-other,Warm,9
-professional_services,Cold,8
+other,Cold,38
+other,Warm,8
+professional_services,Cold,6
 professional_services,Warm,3
-tech_ecommerce,Cold,66
-tech_ecommerce,Warm,33
+tech_ecommerce,Cold,65
+tech_ecommerce,Warm,30
 telecoms,Cold,1
