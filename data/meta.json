@@ -1,23 +1,23 @@
 {
-  "last_refreshed_utc": "2026-11-11T03:04:38+00:00",
-  "run_date": "2026-11-11",
-  "started_utc": "2026-11-11T03:01:31+00:00",
+  "last_refreshed_utc": "2026-11-12T03:04:54+00:00",
+  "run_date": "2026-11-12",
+  "started_utc": "2026-11-12T03:01:38+00:00",
   "ok": true,
   "failed_steps": [],
   "steps": {
     "engine1_jobs": {
       "status": "ok",
-      "seconds": 167.9,
+      "seconds": 187.3,
       "summary": {
-        "open": 178,
-        "closed": 678,
-        "changes": 85,
+        "open": 179,
+        "closed": 717,
+        "changes": 87,
         "manual": 19,
         "baseline": false,
         "dropped": {
-          "ok": 109,
-          "global_source_region_restricted": 42,
-          "global_source_requires_remote": 261
+          "ok": 125,
+          "global_source_region_restricted": 52,
+          "global_source_requires_remote": 234
         }
       }
     },
@@ -25,14 +25,14 @@
       "status": "ok",
       "seconds": 0.1,
       "summary": {
-        "companies": 532,
-        "created": 17,
+        "companies": 551,
+        "created": 19,
         "agencies": 4,
-        "review": 519,
+        "review": 538,
         "baseline": false,
         "skipped_unnamed": 0,
         "icp": {
-          "unknown_size": 531,
+          "unknown_size": 550,
           "excluded_ngo": 1
         }
       }
@@ -47,7 +47,7 @@
     },
     "engine4_signals": {
       "status": "ok",
-      "seconds": 18.6,
+      "seconds": 9.2,
       "summary": {
         "signals": 2,
         "live": 2,
@@ -55,23 +55,23 @@
         "candidates": 1,
         "baseline": false,
         "dropped": {
-          "no_signal": 84,
-          "unattributed": 10
+          "no_signal": 87,
+          "unattributed": 7
         },
         "sector_modifiers": 0
       }
     },
     "scoring": {
       "status": "ok",
-      "seconds": 0.1,
+      "seconds": 0.0,
       "summary": {
-        "leads": 180,
+        "leads": 181,
         "temperatures": {
-          "Warm": 48,
-          "Cold": 132
+          "Warm": 45,
+          "Cold": 136
         },
         "by_type": {
-          "job_lead": 178,
+          "job_lead": 179,
           "signal_lead": 2
         },
         "excluded": {}
