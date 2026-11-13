@@ -1,20 +1,20 @@
 source_id,name,reason,helper_url,date
-brightermonday,BrighterMonday Kenya,"Terms page states site information is for personal, non-commercial use only and prohibits data mining, robots and screen scraping without prior written consent. It also says advertiser contact details must not be used for unsolicited commercial correspondence. => Do not scrape. Do not harvest employ",https://www.brightermonday.co.ke/jobs,2026-11-12
-fuzu,Fuzu,NOT CONFIRMED. First-pass search returned nothing usable. Default manual until a human reads the ToS and robots.txt.,https://www.fuzu.com/kenya/job,2026-11-12
-pigiame,Pigiame,"Classifieds: noisy, fake-listing risk. Manual unless a clean structure + permissive ToS is confirmed.",,2026-11-12
-linkedin_jobs,LinkedIn jobs,"LinkedIn's terms are widely understood to prohibit scraping, including public listings. Not re-read in this pass. Manual only.",https://www.linkedin.com/jobs/search/?location=Kenya,2026-11-12
-company_ats:www.safaricom.co.ke,company_ats:www.safaricom.co.ke,robots_disallowed,https://www.safaricom.co.ke/careers,2026-11-12
-company_ats:careers.kcbgroup.com,company_ats:careers.kcbgroup.com,robots_disallowed,https://careers.kcbgroup.com/,2026-11-12
-company_ats:thenairobihospitals.org,company_ats:thenairobihospitals.org,robots_disallowed,https://thenairobihospitals.org/careers,2026-11-12
-company_ats:www.mpshahhospitals.org,company_ats:www.mpshahhospitals.org,robots_disallowed,https://www.mpshahhospitals.org/careers,2026-11-12
-company_ats:www.bamburi.co.ke,company_ats:www.bamburi.co.ke,robots_disallowed,https://www.bamburi.co.ke/careers,2026-11-12
-company_ats:www.kengas.com,company_ats:www.kengas.com,robots_disallowed,https://www.kengas.com/careers,2026-11-12
-company_ats:cellulant.io,company_ats:cellulant.io,robots_disallowed,https://cellulant.io/careers,2026-11-12
-company_ats:watupro.com,company_ats:watupro.com,robots_disallowed,https://watupro.com/careers,2026-11-12
-company_ats:nairobijavahouse.com,company_ats:nairobijavahouse.com,robots_disallowed,https://nairobijavahouse.com/careers,2026-11-12
-company_ats:kapaoil.com,company_ats:kapaoil.com,robots_disallowed,https://kapaoil.com/careers,2026-11-12
-company_ats:www.copia.co.ke,company_ats:www.copia.co.ke,robots_disallowed,https://www.copia.co.ke/careers,2026-11-12
-company_ats:jobs.undp.org,company_ats:jobs.undp.org,robots_disallowed,https://jobs.undp.org/,2026-11-12
-company_ats:jobs.unicef.org,company_ats:jobs.unicef.org,robots_disallowed,https://jobs.unicef.org/en-us/listing/,2026-11-12
-company_ats:www.wvi.org,company_ats:www.wvi.org,robots_disallowed,https://www.wvi.org/careers,2026-11-12
-company_ats:jobs-jhpiego.icims.com,company_ats:jobs-jhpiego.icims.com,robots_disallowed,https://jobs-jhpiego.icims.com/jobs,2026-11-12
+brightermonday,BrighterMonday Kenya,"Terms page states site information is for personal, non-commercial use only and prohibits data mining, robots and screen scraping without prior written consent. It also says advertiser contact details must not be used for unsolicited commercial correspondence. => Do not scrape. Do not harvest employ",https://www.brightermonday.co.ke/jobs,2026-11-13
+fuzu,Fuzu,NOT CONFIRMED. First-pass search returned nothing usable. Default manual until a human reads the ToS and robots.txt.,https://www.fuzu.com/kenya/job,2026-11-13
+pigiame,Pigiame,"Classifieds: noisy, fake-listing risk. Manual unless a clean structure + permissive ToS is confirmed.",,2026-11-13
+linkedin_jobs,LinkedIn jobs,"LinkedIn's terms are widely understood to prohibit scraping, including public listings. Not re-read in this pass. Manual only.",https://www.linkedin.com/jobs/search/?location=Kenya,2026-11-13
+company_ats:www.safaricom.co.ke,company_ats:www.safaricom.co.ke,robots_disallowed,https://www.safaricom.co.ke/careers,2026-11-13
+company_ats:careers.kcbgroup.com,company_ats:careers.kcbgroup.com,robots_disallowed,https://careers.kcbgroup.com/,2026-11-13
+company_ats:thenairobihospitals.org,company_ats:thenairobihospitals.org,robots_disallowed,https://thenairobihospitals.org/careers,2026-11-13
+company_ats:www.mpshahhospitals.org,company_ats:www.mpshahhospitals.org,robots_disallowed,https://www.mpshahhospitals.org/careers,2026-11-13
+company_ats:www.gerties.org,company_ats:www.gerties.org,robots_disallowed,https://www.gerties.org/careers,2026-11-13
+company_ats:www.bamburi.co.ke,company_ats:www.bamburi.co.ke,robots_disallowed,https://www.bamburi.co.ke/careers,2026-11-13
+company_ats:www.kengas.com,company_ats:www.kengas.com,robots_disallowed,https://www.kengas.com/careers,2026-11-13
+company_ats:cellulant.io,company_ats:cellulant.io,robots_disallowed,https://cellulant.io/careers,2026-11-13
+company_ats:watupro.com,company_ats:watupro.com,robots_disallowed,https://watupro.com/careers,2026-11-13
+company_ats:kapaoil.com,company_ats:kapaoil.com,robots_disallowed,https://kapaoil.com/careers,2026-11-13
+company_ats:www.copia.co.ke,company_ats:www.copia.co.ke,robots_disallowed,https://www.copia.co.ke/careers,2026-11-13
+company_ats:jobs.undp.org,company_ats:jobs.undp.org,robots_disallowed,https://jobs.undp.org/,2026-11-13
+company_ats:jobs.unicef.org,company_ats:jobs.unicef.org,robots_disallowed,https://jobs.unicef.org/en-us/listing/,2026-11-13
+company_ats:www.wvi.org,company_ats:www.wvi.org,robots_disallowed,https://www.wvi.org/careers,2026-11-13
+company_ats:jobs-jhpiego.icims.com,company_ats:jobs-jhpiego.icims.com,robots_disallowed,https://jobs-jhpiego.icims.com/jobs,2026-11-13

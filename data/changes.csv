@@ -2032,3 +2032,75 @@ date,change_type,entity_type,entity_id,company,summary,source_url
 2026-11-12,new_company,company,c_8e91a20ddc,The Trainee Company,new in other,https://www.arbeitnow.nl/jobs/companies/the-trainee-company/remote-junior-system-engineer-apeldoorn-481393
 2026-11-12,new_company,company,c_461b8c143c,Mento,new in other,https://remoteOK.com/remote-jobs/remote-strategy-operations-coach-apac-mento-1137717
 2026-11-12,new_company,company,c_c80eac7cd9,Addepto,new in tech_ecommerce,https://remoteOK.com/remote-jobs/remote-data-engineer-addepto-1137714
+2026-11-13,new_job,job,01c654b8d79f,Focused,"PMO Operations Specialist (f/m/d) (Darmstadt, DE)",https://www.arbeitnow.com/jobs/companies/focused/pmo-operations-specialist-darmstadt-374540
+2026-11-13,new_job,job,dd177dc6f761,Focused,"Laser Architect (f/m/d) (Darmstadt, DE)",https://www.arbeitnow.com/jobs/companies/focused/laser-architect-darmstadt-146794
+2026-11-13,new_job,job,b105880acf91,Focused,"Principal Software Engineer (f/m/d) (Darmstadt, DE)",https://www.arbeitnow.com/jobs/companies/focused/principal-software-engineer-darmstadt-20255
+2026-11-13,new_job,job,829e371918d6,Focused,"Machine Learning Engineer (f/m/d) (Darmstadt, DE)",https://www.arbeitnow.com/jobs/companies/focused/machine-learning-engineer-darmstadt-101910
+2026-11-13,new_job,job,4eb2860660ef,SOFTGAMES,Senior Game Producer (Live Games) - Fully Remote (Remote job),https://www.arbeitnow.com/jobs/companies/softgames/senior-game-producer-live-games-fully-remote-berlin-267750
+2026-11-13,new_job,job,5b63880e89c0,SOFTGAMES,Senior Game Designer - Systems & Economy - Fully Remote (Remote job),https://www.arbeitnow.com/jobs/companies/softgames/senior-game-designer-systems-economy-fully-remote-berlin-338173
+2026-11-13,new_job,job,239cedf73433,SOFTGAMES,Senior QA Manager Automation & AI - Fully Remote (Remote job),https://www.arbeitnow.com/jobs/companies/softgames/senior-qa-manager-automation-ai-fully-remote-berlin-71172
+2026-11-13,new_job,job,23535ea936b9,Bluerocksecurity,UI Engineer (Based in CA or NC only) (Remote),https://www.arbeitnow.com/jobs/companies/bluerocksecurity/remote-ui-engineer-based-in-ca-or-nc-only-47794
+2026-11-13,new_job,job,6ee926938574,Guardsquare,Senior Compiler Engineer C++/LLVM - Glasgow (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/guardsquare/senior-compiler-engineer-c-llvm-glasgow-404620
+2026-11-13,new_job,job,68525662d50a,Thehutgroup,Senior Crm Manager 12M Ftc | Lookfantastic (Manchester),https://www.arbeitnow.co.uk/jobs/companies/thehutgroup/senior-crm-manager-12m-ftc-lookfantastic-manchester-329179
+2026-11-13,new_job,job,b2e904b90125,Dexory,Product Manager (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/dexory/product-manager-85312
+2026-11-13,new_job,job,8b4dbf87d353,Twilio,New Business Account Executive (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/twilio/new-business-account-executive-246588
+2026-11-13,new_job,job,0945dc97ab95,Affirm,Senior Product Designer (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/affirm/senior-product-designer-453785
+2026-11-13,new_job,job,55781ab210db,Auterion,Fullstack Web Developer (Zurich),https://www.arbeitnow.ch/jobs/companies/auterion/fullstack-web-developer-zurich-374360
+2026-11-13,new_job,job,5c091e23c864,PROSTAFF Schweiz GmbH,"Data Engineer (Databricks, Snowflake) (Zürich)",https://www.arbeitnow.ch/jobs/companies/prostaff-schweiz-gmbh/data-engineer-databricks-snowflake-zurich-290301
+2026-11-13,new_job,job,67d41f0ecad0,PROSTAFF Schweiz GmbH,Big Data Engineer (Zürich),https://www.arbeitnow.ch/jobs/companies/prostaff-schweiz-gmbh/big-data-engineer-zurich-377130
+2026-11-13,new_job,job,dd6ec1162f9a,Wavestone Germany AG,Senior BizDevOps Engineer (m/w/d) - Java/Angular Fullstack (80-100%) (Ref.Nr.: 48248) (Bern),https://www.arbeitnow.ch/jobs/companies/wavestone-germany-ag/senior-bizdevops-engineer-java-angular-fullstack-80-100-refnr-48248-bern-228816
+2026-11-13,new_job,job,cd7b0d5f3bf8,Aepsy,Psychologue | Operations & Community Manager (FR) (Zürich),https://www.arbeitnow.ch/jobs/companies/aepsy/psychologue-operations-community-manager-fr-zurich-124652
+2026-11-13,new_job,job,c495c328585e,Coopers Group AG,H3C Expert für Infrastruktur Migration (Zürich),https://www.arbeitnow.ch/jobs/companies/coopers-group-ag/h3c-expert-fur-infrastruktur-migration-zurich-423184
+2026-11-13,new_job,job,cb40cf30798c,GalleryLab GmbH,E-Commerce Operations Manager/-in (Amazon DE & USA) (Zürich),https://www.arbeitnow.ch/jobs/companies/gallerylab-gmbh/e-commerce-operations-manager-in-amazon-de-usa-zurich-487927
+2026-11-13,new_job,job,f6d90723f2d2,Riverkin,"ML Hydrologist, Flood Forecasting (Zürich)",https://www.arbeitnow.ch/jobs/companies/riverkin/ml-hydrologist-flood-forecasting-zurich-338377
+2026-11-13,new_job,job,9dc68a7f51a7,grafanalabs,Senior Solutions Engineer | Switzerland | Remote (Remote worldwide),https://www.arbeitnow.ch/jobs/companies/grafanalabs/senior-solutions-engineer-switzerland-remote-203048
+2026-11-13,new_job,job,b7ae7bb99524,CBRE Global Workplace Solutions,Project Manager - Facility Management (Rotterdam),https://www.arbeitnow.nl/jobs/companies/cbre-global-workplace-solutions/project-manager-facility-management-rotterdam-239454
+2026-11-13,new_job,job,0be08d813baa,oklo,"Senior Director, International Development (Remote worldwide)",https://www.arbeitnow.nl/jobs/companies/oklo/senior-director-international-development-113624
+2026-11-13,new_job,job,f61999a4254b,mozilla,"Senior Software Engineer, OS Integration (Remote worldwide)",https://www.arbeitnow.nl/jobs/companies/mozilla/senior-software-engineer-os-integration-354834
+2026-11-13,new_job,job,e92661635c3e,zscaler,"Specialist Account Executive, Sec Ops (Remote worldwide)",https://www.arbeitnow.nl/jobs/companies/zscaler/specialist-account-executive-sec-ops-2413
+2026-11-13,new_job,job,c9cc993f6294,gitlab,SMB Account Executive (New Business) (Remote),https://www.arbeitnow.nl/jobs/companies/gitlab/remote-smb-account-executive-new-business-456629
+2026-11-13,new_job,job,3288b5a0ebcb,gitlab,SMB Account Executive (Growth) (Remote),https://www.arbeitnow.nl/jobs/companies/gitlab/remote-smb-account-executive-growth-420192
+2026-11-13,new_job,job,4136a71cbc0d,gitlab,"Commercial Account Executive, Netherlands (Remote)",https://www.arbeitnow.nl/jobs/companies/gitlab/remote-commercial-account-executive-netherlands-17631
+2026-11-13,new_job,job,8435f90dfa52,Boston Scientific,Patient Care Specialist I (Remote worldwide),https://remoteOK.com/remote-jobs/remote-patient-care-specialist-i-boston-scientific-1137719
+2026-11-13,job_closed,job,124e18662414,mongodb,Senior Technical Project Manager no longer listed,https://www.arbeitnow.com/jobs/companies/mongodb/senior-technical-project-manager-37688
+2026-11-13,job_closed,job,ddc20ad61ccf,neo4j,Sr.Enterprise Account Executive - Munich no longer listed,https://www.arbeitnow.com/jobs/companies/neo4j/srenterprise-account-executive-munich-357355
+2026-11-13,job_closed,job,6a8d2691333e,nice,"Senior Sales Engineer - AI Agents (Western Europe, Italy) no longer listed",https://www.arbeitnow.com/jobs/companies/nice/senior-sales-engineer-ai-agents-western-europe-italy-431223
+2026-11-13,job_closed,job,41e8b741f6d9,Chaos,Senior Accountant (m/f/d) no longer listed,https://www.arbeitnow.com/jobs/companies/chaos/remote-senior-accountant-karlsruhe-303234
+2026-11-13,job_closed,job,9b5e7632bd3b,Quantum-Systems GmbH,Rust Software Engineer - Rust / C++ (m/f/d) no longer listed,https://www.arbeitnow.com/jobs/companies/quantum-systems-gmbh/remote-rust-software-engineer-rust-c-gilching-217668
+2026-11-13,job_closed,job,d52752e9e262,Onestream,Partner Success Manager (CPM/EPM Software) EMEA no longer listed,https://www.arbeitnow.co.uk/jobs/companies/onestream/partner-success-manager-cpm-epm-software-emea-358884
+2026-11-13,job_closed,job,45edf53164d5,Nlighten,Regional Director Construction UK no longer listed,https://www.arbeitnow.co.uk/jobs/companies/nlighten/regional-director-construction-uk-59785
+2026-11-13,job_closed,job,713b15f6b2ea,Bakerhicks,Expression of Interest – Contractor Engagement – Bridge and Structures Inspectors no longer listed,https://www.arbeitnow.co.uk/jobs/companies/bakerhicks/expression-of-interest-contractor-engagement-bridge-and-structures-inspectors-269036
+2026-11-13,job_closed,job,7140524055ba,capco,Senior Security Engineer no longer listed,https://www.arbeitnow.co.uk/jobs/companies/capco/senior-security-engineer-404618
+2026-11-13,job_closed,job,2a9dd4411f48,capco,Security Architect no longer listed,https://www.arbeitnow.co.uk/jobs/companies/capco/security-architect-95620
+2026-11-13,job_closed,job,e9aeb8ee1370,capco,Principal Security Engineer no longer listed,https://www.arbeitnow.co.uk/jobs/companies/capco/principal-security-engineer-88972
+2026-11-13,job_closed,job,3470b7a1ea89,mewssystems,VP of Product & Engineering - Back of House no longer listed,https://www.arbeitnow.fr/jobs/companies/mewssystems/vp-of-product-engineering-back-of-house-463968
+2026-11-13,job_closed,job,4e4cb3837143,Artefactjobs,Senior Data Engineer (Databricks) no longer listed,https://www.arbeitnow.ch/jobs/companies/artefactjobs/senior-data-engineer-databricks-lausanne-vaud-130127
+2026-11-13,job_closed,job,fe59f6cb2f59,Wavestone Germany AG,Senior Business Analyst (m/w/d) - Mobile Apps & Digital Identity (Ref.Nr.: 48196) no longer listed,https://www.arbeitnow.ch/jobs/companies/wavestone-germany-ag/senior-business-analyst-mobile-apps-digital-identity-refnr-48196-zurich-440803
+2026-11-13,job_closed,job,77c1f044a9d5,Coopers Group AG,Senior Cloud Engineer - Azure no longer listed,https://www.arbeitnow.ch/jobs/companies/coopers-group-ag/senior-cloud-engineer-azure-basel-165209
+2026-11-13,job_closed,job,dec58b266aa6,Wavestone Germany AG,Senior Solution Architekt (m/w/d) - CCaaS (Contact Center as a Service) 40-60% (Ref.Nr.: 47500) no longer listed,https://www.arbeitnow.ch/jobs/companies/wavestone-germany-ag/senior-solution-architekt-ccaas-contact-center-as-a-service-40-60-refnr-47500-bern-375086
+2026-11-13,job_closed,job,67bd10a514a8,Wavestone Germany AG,Senior Java/Kotlin Fullstack Entwickler (m/w/d) - Angular / Spring Boot / Azure (Ref.Nr.: 48191) no longer listed,https://www.arbeitnow.ch/jobs/companies/wavestone-germany-ag/senior-java-kotlin-fullstack-entwickler-angular-spring-boot-azure-refnr-48191-zurich-288530
+2026-11-13,job_closed,job,ce99ad0af0ed,Coopers Group AG,Java Fullstack Software Engineer (Spring Boot / Angular) no longer listed,https://www.arbeitnow.ch/jobs/companies/coopers-group-ag/java-fullstack-software-engineer-spring-boot-angular-bern-241500
+2026-11-13,job_closed,job,3a701f3160d9,Proton,Account Executive no longer listed,https://www.arbeitnow.ch/jobs/companies/proton/account-executive-188797
+2026-11-13,job_closed,job,1dd73c31fa12,colabsoftware,Mechanical Forward Deployed Engineer - Switzerland no longer listed,https://www.arbeitnow.ch/jobs/companies/colabsoftware/mechanical-forward-deployed-engineer-switzerland-385092
+2026-11-13,job_closed,job,5a98878219ef,SwissPeak Partners GmbH,Software Test Engineer no longer listed,https://www.arbeitnow.ch/jobs/companies/swisspeak-partners-gmbh/remote-software-test-engineer-bern-255669
+2026-11-13,job_closed,job,4fcb96cfcd0b,SwissPeak Partners GmbH,ServiceNow AI Architect no longer listed,https://www.arbeitnow.ch/jobs/companies/swisspeak-partners-gmbh/remote-servicenow-ai-architect-zurich-455252
+2026-11-13,job_closed,job,7787337059f0,SwissPeak Partners GmbH,ServiceNow CRM Architect no longer listed,https://www.arbeitnow.ch/jobs/companies/swisspeak-partners-gmbh/remote-servicenow-crm-architect-zurich-336784
+2026-11-13,job_closed,job,a2b060093729,Wingtra 2,Product Manager - Surveying & Mapping Drone no longer listed,https://www.arbeitnow.ch/jobs/companies/wingtra-2/product-manager-surveying-mapping-drone-zurich-464976
+2026-11-13,job_closed,job,6a982f69591f,Calabrio,Sales Operations Analyst no longer listed,https://remoteOK.com/remote-jobs/remote-sales-operations-analyst-calabrio-1137674
+2026-11-13,job_closed,job,54f01eea1a16,StaffRight,Senior Property Manager ENG no longer listed,https://remoteOK.com/remote-jobs/remote-senior-property-manager-eng-staffright-1137624
+2026-11-13,job_closed,job,50e0d3e5c01f,eClinical Solutions,External Data Specialist no longer listed,https://remoteOK.com/remote-jobs/remote-external-data-specialist-eclinical-solutions-1137375
+2026-11-13,new_company,company,c_f31b0b2273,Focused,new in energy,https://www.arbeitnow.com/jobs/companies/focused/pmo-operations-specialist-darmstadt-374540
+2026-11-13,new_company,company,c_22942eb1d5,Bluerocksecurity,new in other,https://www.arbeitnow.com/jobs/companies/bluerocksecurity/remote-ui-engineer-based-in-ca-or-nc-only-47794
+2026-11-13,new_company,company,c_deee08ab62,Guardsquare,new in tech_ecommerce,https://www.arbeitnow.co.uk/jobs/companies/guardsquare/senior-compiler-engineer-c-llvm-glasgow-404620
+2026-11-13,new_company,company,c_86c7b71ad3,Thehutgroup,new in tech_ecommerce,https://www.arbeitnow.co.uk/jobs/companies/thehutgroup/senior-crm-manager-12m-ftc-lookfantastic-manchester-329179
+2026-11-13,new_company,company,c_a30fd4919d,Dexory,new in tech_ecommerce,https://www.arbeitnow.co.uk/jobs/companies/dexory/product-manager-85312
+2026-11-13,new_company,company,c_e92733a3fe,Twilio,new in other,https://www.arbeitnow.co.uk/jobs/companies/twilio/new-business-account-executive-246588
+2026-11-13,new_company,company,c_84c07c4a7e,Affirm,new in other,https://www.arbeitnow.co.uk/jobs/companies/affirm/senior-product-designer-453785
+2026-11-13,new_company,company,c_e07076c624,Aepsy,new in other,https://www.arbeitnow.ch/jobs/companies/aepsy/psychologue-operations-community-manager-fr-zurich-124652
+2026-11-13,new_company,company,c_bb3dd972cb,GalleryLab GmbH,new in tech_ecommerce,https://www.arbeitnow.ch/jobs/companies/gallerylab-gmbh/e-commerce-operations-manager-in-amazon-de-usa-zurich-487927
+2026-11-13,new_company,company,c_5957cd0cbe,Riverkin,new in other,https://www.arbeitnow.ch/jobs/companies/riverkin/ml-hydrologist-flood-forecasting-zurich-338377
+2026-11-13,new_company,company,c_6723483dd2,CBRE Global Workplace Solutions,new in other,https://www.arbeitnow.nl/jobs/companies/cbre-global-workplace-solutions/project-manager-facility-management-rotterdam-239454
+2026-11-13,new_company,company,c_eeaaf62dff,oklo,new in manufacturing,https://www.arbeitnow.nl/jobs/companies/oklo/senior-director-international-development-113624
+2026-11-13,new_company,company,c_62c559b42e,zscaler,new in tech_ecommerce,https://www.arbeitnow.nl/jobs/companies/zscaler/specialist-account-executive-sec-ops-2413
+2026-11-13,new_company,company,c_322f31631d,gitlab,new in tech_ecommerce,https://www.arbeitnow.nl/jobs/companies/gitlab/remote-smb-account-executive-new-business-456629
+2026-11-13,new_company,company,c_42f5245630,Boston Scientific,new in tech_ecommerce,https://remoteOK.com/remote-jobs/remote-patient-care-specialist-i-boston-scientific-1137719
