@@ -2265,3 +2265,66 @@ date,change_type,entity_type,entity_id,company,summary,source_url
 2026-11-15,new_company,company,c_62f5058cd1,dept,new in other,https://www.arbeitnow.nl/jobs/companies/dept/growth-director-42106
 2026-11-15,new_company,company,c_4f1ef894ca,dnata B.V.,new in other,https://www.arbeitnow.nl/jobs/companies/dnata-bv/stagecoordinator-passenger-services-schiphol-98969
 2026-11-15,new_company,company,c_ea48ad16aa,DoiT,new in tech_ecommerce,https://remoteOK.com/remote-jobs/remote-scaled-account-manager-emea-doit-1137795
+2026-11-16,new_job,job,4e704bf3e9bf,gitlab,"Senior Engagement Manager - Professional Services Sales, EMEA (Remote)",https://www.arbeitnow.com/jobs/companies/gitlab/remote-senior-engagement-manager-professional-services-sales-emea-410334
+2026-11-16,new_job,job,029505f39ac5,planetlabs,Senior Infrastructure Solutions Engineer (Remote),https://www.arbeitnow.com/jobs/companies/planetlabs/remote-senior-infrastructure-solutions-engineer-316487
+2026-11-16,new_job,job,a3d92f08231e,Algolia,"Commercial Account Executive, DACH (Remote worldwide)",https://www.arbeitnow.com/jobs/companies/algolia/commercial-account-executive-dach-334107
+2026-11-16,new_job,job,f2ea39d9ae96,capco,(Senior) GenAI Engineer (Remote worldwide),https://www.arbeitnow.com/jobs/companies/capco/senior-genai-engineer-382513
+2026-11-16,new_job,job,4ab3a13e02fd,capco,(Senior) Consultant* - Payments Transformation (Remote worldwide),https://www.arbeitnow.com/jobs/companies/capco/senior-consultant-payments-transformation-339902
+2026-11-16,new_job,job,bec7d8327685,Ninjaone,"Enterprise Solutions Engineer, EMEA (Remote worldwide)",https://www.arbeitnow.com/jobs/companies/ninjaone/enterprise-solutions-engineer-emea-427878
+2026-11-16,new_job,job,a9ab893c50cc,Ninjaone,"Enterprise Account Executive MSP, DACH (Remote worldwide)",https://www.arbeitnow.com/jobs/companies/ninjaone/enterprise-account-executive-msp-dach-312606
+2026-11-16,new_job,job,b5d1a0cd6699,Recordedfuture,"Senior Sales Engineer, DACH (Remote worldwide)",https://www.arbeitnow.com/jobs/companies/recordedfuture/senior-sales-engineer-dach-105891
+2026-11-16,new_job,job,5e5207cf465a,teccle group GmbH,Senior Data Engineer & Consultant (all genders) – Microsoft Fabric (Homeoffice),https://www.arbeitnow.com/jobs/companies/teccle-group-gmbh/remote-senior-data-engineer-consultant-all-genders-microsoft-fabric-berlin-222668
+2026-11-16,new_job,job,cbad0be79f74,gitlab,"Customer Success Architect, NEUR (Remote)",https://www.arbeitnow.co.uk/jobs/companies/gitlab/remote-customer-success-architect-neur-53586
+2026-11-16,new_job,job,b1e9e0e97b83,Rithum,Senior Strategic Account Executive (Accounts 1 billion+) (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/rithum/senior-strategic-account-executive-accounts-1-billion-37037
+2026-11-16,new_job,job,eda7045ad24b,Rithum,Senior Account Executive (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/rithum/senior-account-executive-404243
+2026-11-16,new_job,job,7fcf45b06bff,Recursionpharmaceuticals,"Executive Director, Clinical Pharmacology/Pharmacometrics (Remote worldwide)",https://www.arbeitnow.co.uk/jobs/companies/recursionpharmaceuticals/executive-director-clinical-pharmacology-pharmacometrics-214531
+2026-11-16,new_job,job,ebf8b61c2e48,Flowfuse,Senior Solution Engineer - EU & UK (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/flowfuse/senior-solution-engineer-eu-uk-302613
+2026-11-16,new_job,job,2ea4c1bf6bb4,Polyai,"Senior Marketing Manager, EMEA (Remote worldwide)",https://www.arbeitnow.co.uk/jobs/companies/polyai/senior-marketing-manager-emea-337593
+2026-11-16,new_job,job,93ac288cc789,Polyai,"Forward Deployed Engineer, Agentic AI (Remote worldwide)",https://www.arbeitnow.co.uk/jobs/companies/polyai/forward-deployed-engineer-agentic-ai-369740
+2026-11-16,new_job,job,84d045f36c85,Nebius,Senior HPC Cluster Engineer (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/nebius/senior-hpc-cluster-engineer-453820
+2026-11-16,new_job,job,38be32151997,Ninjaone,Enterprise Account Executive - English (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/ninjaone/enterprise-account-executive-english-1995
+2026-11-16,new_job,job,e6f50f286ef0,Anaplan,Platform Engineer (GoLang) (Manchester),https://www.arbeitnow.co.uk/jobs/companies/anaplan/platform-engineer-golang-manchester-63766
+2026-11-16,new_job,job,696129b6c76f,Anaplan,"AVP, Data, Analytics & AI Engineering (York)",https://www.arbeitnow.co.uk/jobs/companies/anaplan/avp-data-analytics-ai-engineering-york-181778
+2026-11-16,new_job,job,ebb7b1dc7e85,Anaplan,"AVP, Data, Analytics & AI Engineering (Manchester)",https://www.arbeitnow.co.uk/jobs/companies/anaplan/avp-data-analytics-ai-engineering-manchester-294124
+2026-11-16,new_job,job,4e074ad78adc,gitlab,"Customer Success Architect, France (Remote)",https://www.arbeitnow.fr/jobs/companies/gitlab/remote-customer-success-architect-france-248760
+2026-11-16,new_job,job,bfa9beadd3d2,Gravis Robotics,Software Engineer Intern - Robotics Platform (Zurich),https://www.arbeitnow.ch/jobs/companies/gravis-robotics/software-engineer-intern-robotics-platform-zurich-419539
+2026-11-16,new_job,job,6f21b0205aff,Gravis Robotics,Senior Software Engineer - Robotics Platform (Zurich),https://www.arbeitnow.ch/jobs/companies/gravis-robotics/senior-software-engineer-robotics-platform-zurich-495607
+2026-11-16,new_job,job,12c4c830679e,Gravis Robotics,Manufacturing Systems Engineer (Zurich),https://www.arbeitnow.ch/jobs/companies/gravis-robotics/manufacturing-systems-engineer-zurich-132979
+2026-11-16,new_job,job,8c8ca2d34a33,Mendix,Senior Consultant/Lead Developer (Rotterdam),https://www.arbeitnow.nl/jobs/companies/mendix/senior-consultant-lead-developer-rotterdam-290367
+2026-11-16,job_closed,job,01c654b8d79f,Focused,PMO Operations Specialist (f/m/d) no longer listed,https://www.arbeitnow.com/jobs/companies/focused/pmo-operations-specialist-darmstadt-374540
+2026-11-16,job_closed,job,dd177dc6f761,Focused,Laser Architect (f/m/d) no longer listed,https://www.arbeitnow.com/jobs/companies/focused/laser-architect-darmstadt-146794
+2026-11-16,job_closed,job,b105880acf91,Focused,Principal Software Engineer (f/m/d) no longer listed,https://www.arbeitnow.com/jobs/companies/focused/principal-software-engineer-darmstadt-20255
+2026-11-16,job_closed,job,829e371918d6,Focused,Machine Learning Engineer (f/m/d) no longer listed,https://www.arbeitnow.com/jobs/companies/focused/machine-learning-engineer-darmstadt-101910
+2026-11-16,job_closed,job,4eb2860660ef,SOFTGAMES,Senior Game Producer (Live Games) - Fully Remote no longer listed,https://www.arbeitnow.com/jobs/companies/softgames/senior-game-producer-live-games-fully-remote-berlin-267750
+2026-11-16,job_closed,job,5b63880e89c0,SOFTGAMES,Senior Game Designer - Systems & Economy - Fully Remote no longer listed,https://www.arbeitnow.com/jobs/companies/softgames/senior-game-designer-systems-economy-fully-remote-berlin-338173
+2026-11-16,job_closed,job,239cedf73433,SOFTGAMES,Senior QA Manager Automation & AI - Fully Remote no longer listed,https://www.arbeitnow.com/jobs/companies/softgames/senior-qa-manager-automation-ai-fully-remote-berlin-71172
+2026-11-16,job_closed,job,23535ea936b9,Bluerocksecurity,UI Engineer (Based in CA or NC only) no longer listed,https://www.arbeitnow.com/jobs/companies/bluerocksecurity/remote-ui-engineer-based-in-ca-or-nc-only-47794
+2026-11-16,job_closed,job,6ee926938574,Guardsquare,Senior Compiler Engineer C++/LLVM - Glasgow no longer listed,https://www.arbeitnow.co.uk/jobs/companies/guardsquare/senior-compiler-engineer-c-llvm-glasgow-404620
+2026-11-16,job_closed,job,68525662d50a,Thehutgroup,Senior Crm Manager 12M Ftc | Lookfantastic no longer listed,https://www.arbeitnow.co.uk/jobs/companies/thehutgroup/senior-crm-manager-12m-ftc-lookfantastic-manchester-329179
+2026-11-16,job_closed,job,b2e904b90125,Dexory,Product Manager no longer listed,https://www.arbeitnow.co.uk/jobs/companies/dexory/product-manager-85312
+2026-11-16,job_closed,job,8b4dbf87d353,Twilio,New Business Account Executive no longer listed,https://www.arbeitnow.co.uk/jobs/companies/twilio/new-business-account-executive-246588
+2026-11-16,job_closed,job,0945dc97ab95,Affirm,Senior Product Designer no longer listed,https://www.arbeitnow.co.uk/jobs/companies/affirm/senior-product-designer-453785
+2026-11-16,job_closed,job,c495c328585e,Coopers Group AG,H3C Expert für Infrastruktur Migration no longer listed,https://www.arbeitnow.ch/jobs/companies/coopers-group-ag/h3c-expert-fur-infrastruktur-migration-zurich-423184
+2026-11-16,job_closed,job,cb40cf30798c,GalleryLab GmbH,E-Commerce Operations Manager/-in (Amazon DE & USA) no longer listed,https://www.arbeitnow.ch/jobs/companies/gallerylab-gmbh/e-commerce-operations-manager-in-amazon-de-usa-zurich-487927
+2026-11-16,job_closed,job,f6d90723f2d2,Riverkin,"ML Hydrologist, Flood Forecasting no longer listed",https://www.arbeitnow.ch/jobs/companies/riverkin/ml-hydrologist-flood-forecasting-zurich-338377
+2026-11-16,job_closed,job,9dc68a7f51a7,grafanalabs,Senior Solutions Engineer | Switzerland | Remote no longer listed,https://www.arbeitnow.ch/jobs/companies/grafanalabs/senior-solutions-engineer-switzerland-remote-203048
+2026-11-16,job_closed,job,b7ae7bb99524,CBRE Global Workplace Solutions,Project Manager - Facility Management no longer listed,https://www.arbeitnow.nl/jobs/companies/cbre-global-workplace-solutions/project-manager-facility-management-rotterdam-239454
+2026-11-16,job_closed,job,0be08d813baa,oklo,"Senior Director, International Development no longer listed",https://www.arbeitnow.nl/jobs/companies/oklo/senior-director-international-development-113624
+2026-11-16,job_closed,job,f61999a4254b,mozilla,"Senior Software Engineer, OS Integration no longer listed",https://www.arbeitnow.nl/jobs/companies/mozilla/senior-software-engineer-os-integration-354834
+2026-11-16,job_closed,job,e92661635c3e,zscaler,"Specialist Account Executive, Sec Ops no longer listed",https://www.arbeitnow.nl/jobs/companies/zscaler/specialist-account-executive-sec-ops-2413
+2026-11-16,job_closed,job,c9cc993f6294,gitlab,SMB Account Executive (New Business) no longer listed,https://www.arbeitnow.nl/jobs/companies/gitlab/remote-smb-account-executive-new-business-456629
+2026-11-16,job_closed,job,3288b5a0ebcb,gitlab,SMB Account Executive (Growth) no longer listed,https://www.arbeitnow.nl/jobs/companies/gitlab/remote-smb-account-executive-growth-420192
+2026-11-16,job_closed,job,4136a71cbc0d,gitlab,"Commercial Account Executive, Netherlands no longer listed",https://www.arbeitnow.nl/jobs/companies/gitlab/remote-commercial-account-executive-netherlands-17631
+2026-11-16,job_closed,job,fb7deb88be17,"Caringhand Home Health Solutions, Inc.",Registered Nurse no longer listed,https://remoteOK.com/remote-jobs/remote-registered-nurse-caringhand-home-health-solutions-inc-1137695
+2026-11-16,job_closed,job,044e1e16c0cb,MultiplyMii,Brand Protection & Marketplace Compliance Analyst no longer listed,https://remoteOK.com/remote-jobs/remote-brand-protection-marketplace-compliance-analyst-multiplymii-1136687
+2026-11-16,new_company,company,c_0e0adcab0a,planetlabs,new in tech_ecommerce,https://www.arbeitnow.com/jobs/companies/planetlabs/remote-senior-infrastructure-solutions-engineer-316487
+2026-11-16,new_company,company,c_0122bb7e51,Algolia,new in tech_ecommerce,https://www.arbeitnow.com/jobs/companies/algolia/commercial-account-executive-dach-334107
+2026-11-16,new_company,company,c_ff74310446,Ninjaone,new in tech_ecommerce,https://www.arbeitnow.com/jobs/companies/ninjaone/enterprise-solutions-engineer-emea-427878
+2026-11-16,new_company,company,c_4eb57340a0,Recordedfuture,new in tech_ecommerce,https://www.arbeitnow.com/jobs/companies/recordedfuture/senior-sales-engineer-dach-105891
+2026-11-16,new_company,company,c_d76a096e8f,teccle group GmbH,new in tech_ecommerce,https://www.arbeitnow.com/jobs/companies/teccle-group-gmbh/remote-senior-data-engineer-consultant-all-genders-microsoft-fabric-berlin-222668
+2026-11-16,new_company,company,c_225a3001da,Rithum,new in tech_ecommerce,https://www.arbeitnow.co.uk/jobs/companies/rithum/senior-strategic-account-executive-accounts-1-billion-37037
+2026-11-16,new_company,company,c_c0da54ad37,Recursionpharmaceuticals,new in other,https://www.arbeitnow.co.uk/jobs/companies/recursionpharmaceuticals/executive-director-clinical-pharmacology-pharmacometrics-214531
+2026-11-16,new_company,company,c_0ca00ea0ab,Flowfuse,new in manufacturing,https://www.arbeitnow.co.uk/jobs/companies/flowfuse/senior-solution-engineer-eu-uk-302613
+2026-11-16,new_company,company,c_b0afe96ae5,Polyai,new in tech_ecommerce,https://www.arbeitnow.co.uk/jobs/companies/polyai/senior-marketing-manager-emea-337593
+2026-11-16,new_company,company,c_e4d6d83021,Gravis Robotics,new in construction,https://www.arbeitnow.ch/jobs/companies/gravis-robotics/software-engineer-intern-robotics-platform-zurich-419539
+2026-11-16,new_company,company,c_110903d3d6,Mendix,new in tech_ecommerce,https://www.arbeitnow.nl/jobs/companies/mendix/senior-consultant-lead-developer-rotterdam-290367

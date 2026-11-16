@@ -1,23 +1,23 @@
 {
-  "last_refreshed_utc": "2026-11-15T03:04:42+00:00",
-  "run_date": "2026-11-15",
-  "started_utc": "2026-11-15T03:01:03+00:00",
+  "last_refreshed_utc": "2026-11-16T03:09:16+00:00",
+  "run_date": "2026-11-16",
+  "started_utc": "2026-11-16T03:05:52+00:00",
   "ok": true,
   "failed_steps": [],
   "steps": {
     "engine1_jobs": {
       "status": "ok",
-      "seconds": 182.2,
+      "seconds": 188.3,
       "summary": {
         "open": 172,
-        "closed": 816,
-        "changes": 71,
+        "closed": 842,
+        "changes": 52,
         "manual": 19,
         "baseline": false,
         "dropped": {
-          "ok": 117,
-          "global_source_requires_remote": 249,
-          "global_source_region_restricted": 47
+          "global_source_region_restricted": 50,
+          "ok": 115,
+          "global_source_requires_remote": 248
         }
       }
     },
@@ -25,14 +25,14 @@
       "status": "ok",
       "seconds": 0.1,
       "summary": {
-        "companies": 589,
+        "companies": 600,
         "created": 11,
         "agencies": 4,
-        "review": 576,
+        "review": 587,
         "baseline": false,
         "skipped_unnamed": 0,
         "icp": {
-          "unknown_size": 588,
+          "unknown_size": 599,
           "excluded_ngo": 1
         }
       }
@@ -47,7 +47,7 @@
     },
     "engine4_signals": {
       "status": "ok",
-      "seconds": 36.6,
+      "seconds": 15.5,
       "summary": {
         "signals": 2,
         "live": 2,
@@ -55,8 +55,8 @@
         "candidates": 1,
         "baseline": false,
         "dropped": {
-          "no_signal": 87,
-          "unattributed": 7
+          "no_signal": 86,
+          "unattributed": 8
         },
         "sector_modifiers": 0
       }
@@ -67,8 +67,8 @@
       "summary": {
         "leads": 174,
         "temperatures": {
-          "Warm": 47,
-          "Cold": 127
+          "Warm": 44,
+          "Cold": 130
         },
         "by_type": {
           "job_lead": 172,
