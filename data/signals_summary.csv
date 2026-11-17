@@ -1,3 +1,5 @@
 signal_type,sector,probability,count
+expansion_announced,other,High,1
 funding_raised,other,High,1
 leadership_hire,other,Low,1
+leadership_hire,other,Medium,1
