@@ -4,9 +4,10 @@ education,Cold,3
 energy,Cold,3
 financial_services,Cold,3
 logistics,Cold,8
+manufacturing,Cold,1
 manufacturing,Warm,2
-other,Cold,40
-other,Warm,3
+other,Cold,38
+other,Warm,5
 professional_services,Cold,9
 tech_ecommerce,Cold,67
-tech_ecommerce,Warm,48
+tech_ecommerce,Warm,46
