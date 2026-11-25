@@ -3064,3 +3064,85 @@ date,change_type,entity_type,entity_id,company,summary,source_url
 2026-11-24,new_company,company,c_ce2eea26ce,Acodis AG,new in tech_ecommerce,https://www.arbeitnow.ch/jobs/companies/acodis-ag/freelance-product-manager-ai-for-quality-regulatory-zurich-201759
 2026-11-24,new_company,company,c_79a0d89357,International Brands AG,new in retail_fmcg,https://www.arbeitnow.ch/jobs/companies/international-brands-ag/art-director-in-fmcg-baar-254989
 2026-11-24,new_company,company,c_29c1c2a29c,Axon,new in tech_ecommerce,https://www.arbeitnow.nl/jobs/companies/axon/strategic-account-executive-nordics-baltics-160968
+2026-11-25,new_job,job,4e1d7df8390c,Focused,"Working Student – Construction Project Coordination (f/m/d) (Darmstadt, DE)",https://www.arbeitnow.com/jobs/companies/focused/working-student-construction-project-coordination-darmstadt-79654
+2026-11-25,new_job,job,a4cbdbf43978,Focused,"Senior HR Business Partner (f/m/d) (Darmstadt, DE)",https://www.arbeitnow.com/jobs/companies/focused/senior-hr-business-partner-darmstadt-29568
+2026-11-25,job_reopened,job,ebd9513a44e6,virtual7 GmbH,AI Solution Architect (m/w/d) reappeared,https://www.arbeitnow.com/jobs/companies/virtual7-gmbh/remote-ai-solution-architect-nurnberg-mittelfranken-191672
+2026-11-25,job_reopened,job,27bdb5af9503,virtual7 GmbH,Senior Oracle Data Engineer (m/w/d) reappeared,https://www.arbeitnow.com/jobs/companies/virtual7-gmbh/remote-senior-oracle-data-engineer-karlsruhe-234713
+2026-11-25,new_job,job,9347b677754c,virtual7 GmbH,Detection & Security Automation Engineer (m/w/d) (Homeoffice),https://www.arbeitnow.com/jobs/companies/virtual7-gmbh/remote-detection-security-automation-engineer-bonn-348290
+2026-11-25,new_job,job,e64117002d9c,TRM Labs,"Solutions Architect, Onchain Compliance - EMEA (EMEA)",https://www.arbeitnow.com/jobs/companies/trm-labs/solutions-architect-onchain-compliance-emea-324386
+2026-11-25,new_job,job,2b636c42e668,Luminovo GmbH,Customer Success Manager – Italy (full-cycle) (🇪🇺 Europe (remote)),https://www.arbeitnow.com/jobs/companies/luminovo-gmbh/remote-customer-success-manager-italy-full-cycle-56940
+2026-11-25,new_job,job,ff07e38e60f3,Referralsuseonly,Site Reliability Engineer - Platform Reliability (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/referralsuseonly/site-reliability-engineer-platform-reliability-124715
+2026-11-25,new_job,job,7278805ad9cf,Faculty,Senior Manager (Remote (UK)),https://www.arbeitnow.co.uk/jobs/companies/faculty/senior-manager-london-54282
+2026-11-25,new_job,job,ce5bddf5088f,M Kopa,Group Data Protection Officer (UK),https://www.arbeitnow.co.uk/jobs/companies/m-kopa/group-data-protection-officer-london-102835
+2026-11-25,new_job,job,209b59277e42,tide,"Director of Engineering, KYX (Remote worldwide)",https://www.arbeitnow.co.uk/jobs/companies/tide/director-of-engineering-kyx-449520
+2026-11-25,new_job,job,b4e9650690d6,gympass,Client Success Senior Manager (Remote worldwide),https://www.arbeitnow.co.uk/jobs/companies/gympass/client-success-senior-manager-147220
+2026-11-25,new_job,job,77c590d57912,Nebius,Head of Communications - EMEA (Remote worldwide),https://www.arbeitnow.fr/jobs/companies/nebius/head-of-communications-emea-379905
+2026-11-25,new_job,job,ed58f8a7e5ba,Coopers Group AG,1st Level Supporter:in (DE/FR) (Zürich),https://www.arbeitnow.ch/jobs/companies/coopers-group-ag/1st-level-supporterin-de-fr-zurich-255280
+2026-11-25,new_job,job,f9dd644090cb,Cloudbedsthirdpartyboard,Staff Software Engineer - Revenue Intelligence (Remote worldwide),https://www.arbeitnow.ch/jobs/companies/cloudbedsthirdpartyboard/staff-software-engineer-revenue-intelligence-295603
+2026-11-25,new_job,job,eb187344c4bd,BLP Digital AG,Technical Project Manager (Zurich),https://www.arbeitnow.ch/jobs/companies/blp-digital-ag/technical-project-manager-zurich-363655
+2026-11-25,new_job,job,826e530c70d5,Proton,Product Engineer (Geneva),https://www.arbeitnow.ch/jobs/companies/proton/product-engineer-geneva-232479
+2026-11-25,new_job,job,8fe84266da2d,Proton,Mobile Product Engineer (Geneva),https://www.arbeitnow.ch/jobs/companies/proton/mobile-product-engineer-geneva-95478
+2026-11-25,new_job,job,a47568d9648f,Coopers Group AG,Senior Business Analyst (Data & Process Transformation) (Bern),https://www.arbeitnow.ch/jobs/companies/coopers-group-ag/senior-business-analyst-data-process-transformation-bern-221671
+2026-11-25,job_reopened,job,55781ab210db,Auterion,Fullstack Web Developer reappeared,https://www.arbeitnow.ch/jobs/companies/auterion/fullstack-web-developer-zurich-279380
+2026-11-25,new_job,job,60a0cd38573c,Jumbo,Marketing Specialist (Benelux & Nordics) (Zaandam),https://www.arbeitnow.nl/jobs/companies/jumbo/marketing-specialist-benelux-nordics-zaandam-321436
+2026-11-25,new_job,job,4cdffb8e4271,Doximity,"Regional Vice President, Biddable (US Only)",https://remoteOK.com/remote-jobs/remote-regional-vice-president-biddable-doximity-1138097
+2026-11-25,new_job,job,7707b522395b,Cribl,"Staff Software Engineer, Control Plane (US Only)",https://remoteOK.com/remote-jobs/remote-staff-software-engineer-control-plane-cribl-1138092
+2026-11-25,new_job,job,b0dd2a8a0a6e,Oscar Health,"Associate, Payment Integrity (Worldwide)",https://remoteOK.com/remote-jobs/remote-associate-payment-integrity-oscar-health-1138090
+2026-11-25,new_job,job,628d02fadeaa,Augment,Revenue Operations Analyst (Remote worldwide),https://remoteOK.com/remote-jobs/remote-revenue-operations-analyst-augment-1138081
+2026-11-25,new_job,job,2255d4794ef6,Wing Assistant,Real Estate Executive Assistant 21370 (Philippines),https://remoteOK.com/remote-jobs/remote-real-estate-executive-assistant-21370-wing-assistant-1138078
+2026-11-25,new_job,job,a9fa5d05d070,Real REMAX Group,Senior Tax Associate (Newark),https://remoteOK.com/remote-jobs/remote-senior-tax-associate-real-remax-group-1138077
+2026-11-25,new_job,job,1cdf0371fb3a,Thrive,Strategic Technical Advisor (Remote worldwide),https://remoteOK.com/remote-jobs/remote-strategic-technical-advisor-thrive-1138074
+2026-11-25,job_closed,job,ff3379af732a,Skdse,Working Student – Hardware Engineering (UAS Propulsion & Power) (All Genders) no longer listed,https://www.arbeitnow.com/jobs/companies/skdse/working-student-hardware-engineering-uas-propulsion-power-all-genders-438072
+2026-11-25,job_closed,job,c238f0d967f5,Skdse,Senior Flight Dynamics Integration Engineer (All Genders) no longer listed,https://www.arbeitnow.com/jobs/companies/skdse/senior-flight-dynamics-integration-engineer-all-genders-367591
+2026-11-25,job_closed,job,6b1e726a0052,Enpal,Disponent:in Service Wärmepumpen (w/m/d) | Quereinsteiger:innen willkommen no longer listed,https://www.arbeitnow.com/jobs/companies/enpal/remote-disponentin-service-warmepumpen-quereinsteigerinnen-willkommen-85829
+2026-11-25,job_closed,job,4f15e7ab0952,stripe,"Account Executive, DACH, Commercial (Existing Business) no longer listed",https://www.arbeitnow.com/jobs/companies/stripe/account-executive-dach-commercial-existing-business-446551
+2026-11-25,job_closed,job,5d1726140f51,Kraken,Client Delivery Lead - Billing or Accounting Experience (f/m/d) no longer listed,https://www.arbeitnow.com/jobs/companies/kraken/remote-client-delivery-lead-billing-or-accounting-experience-420718
+2026-11-25,job_closed,job,a6d8dee0ee27,onapsis,"Director, Alliances EMEA (GSI) (m/f/d) no longer listed",https://www.arbeitnow.com/jobs/companies/onapsis/director-alliances-emea-gsi-301802
+2026-11-25,job_closed,job,84b1a16ec6b3,zscaler,Senior Recruiter no longer listed,https://www.arbeitnow.com/jobs/companies/zscaler/senior-recruiter-77006
+2026-11-25,job_closed,job,348cfecf6b8d,zscaler,Commercial Account Executive - Berlin no longer listed,https://www.arbeitnow.com/jobs/companies/zscaler/commercial-account-executive-berlin-102082
+2026-11-25,job_closed,job,a842c3c4e96a,gitlab,Strategic Account Executive no longer listed,https://www.arbeitnow.com/jobs/companies/gitlab/remote-strategic-account-executive-494000
+2026-11-25,job_closed,job,2c3d169ae534,gitlab,Major Account Executive no longer listed,https://www.arbeitnow.com/jobs/companies/gitlab/remote-major-account-executive-113116
+2026-11-25,job_closed,job,b9d0c7da4f58,Focused,Working Student – Laser Lab & Cleanroom Operations (f/m/d) no longer listed,https://www.arbeitnow.com/jobs/companies/focused/working-student-laser-lab-cleanroom-operations-darmstadt-274887
+2026-11-25,job_closed,job,676f0337342f,Scape,3D Environment Artist & Level Designer no longer listed,https://www.arbeitnow.com/jobs/companies/scape/remote-3d-environment-artist-level-designer-457684
+2026-11-25,job_closed,job,b116dcac7a98,TRM Labs,"Lead Instructor, EMEA no longer listed",https://www.arbeitnow.com/jobs/companies/trm-labs/lead-instructor-emea-156023
+2026-11-25,job_closed,job,29ce768abd95,Allica Bank,Senior Business Development Manager no longer listed,https://www.arbeitnow.co.uk/jobs/companies/allica-bank/remote-senior-business-development-manager-197801
+2026-11-25,job_closed,job,68ce69d00fe2,Allica Bank,Broker Relationship Manager no longer listed,https://www.arbeitnow.co.uk/jobs/companies/allica-bank/remote-broker-relationship-manager-272228
+2026-11-25,job_closed,job,f1396bdf2ba9,eucalyptus,Senior Data Analyst no longer listed,https://www.arbeitnow.co.uk/jobs/companies/eucalyptus/senior-data-analyst-472271
+2026-11-25,job_closed,job,80de65b7c4ab,eucalyptus,Director of Engineering no longer listed,https://www.arbeitnow.co.uk/jobs/companies/eucalyptus/director-of-engineering-80671
+2026-11-25,job_closed,job,91e2d7cfa396,typeform,Senior Account Executive no longer listed,https://www.arbeitnow.co.uk/jobs/companies/typeform/senior-account-executive-140224
+2026-11-25,job_closed,job,f3a29612366d,AIOS (YC W20/S21),"Web Designer, Growth at AIOS — Remote, $100k–$200k/yr inc equity no longer listed",https://www.arbeitnow.co.uk/jobs/companies/aios-yc-w20s21/web-designer-growth-at-aios-remote-100k-200k-yr-inc-equity-blackburn-499188
+2026-11-25,job_closed,job,b910a2408f47,Castrol,People & Culture Graduate (UK) - 2027 no longer listed,https://www.arbeitnow.co.uk/jobs/companies/castrol/people-culture-graduate-uk-2027-451083
+2026-11-25,job_closed,job,6fc7dfb4619f,chainguard,"Senior Manager, Professional Services - EMEA no longer listed",https://www.arbeitnow.co.uk/jobs/companies/chainguard/senior-manager-professional-services-emea-426107
+2026-11-25,job_closed,job,141b75feae85,veeamsoftware,"Solutions Engineer, Veeam Data Cloud Vault no longer listed",https://www.arbeitnow.fr/jobs/companies/veeamsoftware/remote-solutions-engineer-veeam-data-cloud-vault-242654
+2026-11-25,job_closed,job,bd610b2b1267,Samsara,Outbound Account Development Representative - France no longer listed,https://www.arbeitnow.fr/jobs/companies/samsara/outbound-account-development-representative-france-105305
+2026-11-25,job_closed,job,cd8fe022b1bc,Samsara,Inbound Account Development Representative - France no longer listed,https://www.arbeitnow.fr/jobs/companies/samsara/inbound-account-development-representative-france-87467
+2026-11-25,job_closed,job,89b5dab07321,chainguard,Enterprise Sales Engineer - France no longer listed,https://www.arbeitnow.fr/jobs/companies/chainguard/enterprise-sales-engineer-france-333058
+2026-11-25,job_closed,job,f524e23565a2,Wavestone Germany AG,Expert ICT-Architekt (m/w/d) - Digital Onboarding (Ref.Nr.: 48359) no longer listed,https://www.arbeitnow.ch/jobs/companies/wavestone-germany-ag/expert-ict-architekt-digital-onboarding-refnr-48359-zurich-30165
+2026-11-25,job_closed,job,8effe581fd54,Wavestone Germany AG,Senior Financial Risk Manager (m/w/d) (Ref.Nr.: 48358) no longer listed,https://www.arbeitnow.ch/jobs/companies/wavestone-germany-ag/senior-financial-risk-manager-refnr-48358-zurich-35954
+2026-11-25,job_closed,job,e2fec6a2d94b,sonyinteractiveentertainmentglobal,"Director, Global Operations Excellence no longer listed",https://www.arbeitnow.nl/jobs/companies/sonyinteractiveentertainmentglobal/director-global-operations-excellence-hilversum-68633
+2026-11-25,job_closed,job,ec5ba6746c6d,FP Markets,Business Development Specialist Arabic speaker no longer listed,https://remoteOK.com/remote-jobs/remote-business-development-specialist-arabic-speaker-fp-markets-1137863
+2026-11-25,job_closed,job,28d0cc970a86,Handspring,Mental Health Clinical Supervisor no longer listed,https://remoteOK.com/remote-jobs/remote-mental-health-clinical-supervisor-handspring-1137862
+2026-11-25,job_closed,job,31d5642b2486,Salesloft,Senior GTM Engineer no longer listed,https://remoteOK.com/remote-jobs/remote-senior-gtm-engineer-salesloft-1137851
+2026-11-25,job_closed,job,f0cd823c18e9,Airbnb,Senior Software Engineer Guest & Host no longer listed,https://remoteOK.com/remote-jobs/remote-senior-software-engineer-guest-host-airbnb-1137849
+2026-11-25,job_closed,job,d4dd597e985e,Storyblok,"Velocity, Sales Director - USA & Europe no longer listed",https://remoteOK.com/remote-jobs/remote-velocity-sales-director-usa-europe-storyblok-1137845
+2026-11-25,job_closed,job,f270210b5488,Netlify,Staff Software Engineer (Interfaces) no longer listed,https://remoteOK.com/remote-jobs/remote-staff-software-engineer-interfaces-netlify-1137844
+2026-11-25,job_closed,job,a74bce98794f,Bitwarden,"Vice President, Public Sector no longer listed",https://remoteOK.com/remote-jobs/remote-vice-president-public-sector-bitwarden-1137843
+2026-11-25,job_closed,job,b723735e8c3d,NIKI Digital Engineering,Engineer Software Defined Vehicle Simulation and Development no longer listed,https://remoteOK.com/remote-jobs/remote-engineer-software-defined-vehicle-simulation-and-development-niki-digital-engineering-1137839
+2026-11-25,job_closed,job,8009e4084296,NIKI Digital Engineering,Marketing and Communications Officer no longer listed,https://remoteOK.com/remote-jobs/remote-marketing-and-communications-officer-niki-digital-engineering-1137838
+2026-11-25,job_closed,job,f7ef32829f11,NIKI Digital Engineering,Postdoc PhD PhD cand. Physics Computer Science no longer listed,https://remoteOK.com/remote-jobs/remote-postdoc-phd-phd-cand-physics-computer-science-niki-digital-engineering-1137837
+2026-11-25,job_closed,job,6098396b0859,Bybit,Business Development Assistant no longer listed,https://remoteOK.com/remote-jobs/remote-business-development-assistant-bybit-1137836
+2026-11-25,job_closed,job,ab22e3031b67,Norm,Technical Lead Norm Compliance no longer listed,https://remoteOK.com/remote-jobs/remote-technical-lead-norm-compliance-norm-1137835
+2026-11-25,job_closed,job,ab7731b03708,Rubrik Job Board,"GSI Specialty Seller, Identity Resilience (Global) no longer listed",https://remoteOK.com/remote-jobs/remote-gsi-specialty-seller-identity-resilience-global-rubrik-job-board-1137830
+2026-11-25,job_closed,job,889e3a266d12,Abnormal,"Integrated Marketing Manager, Global Programs no longer listed",https://remoteOK.com/remote-jobs/remote-integrated-marketing-manager-global-programs-abnormal-1137829
+2026-11-25,job_closed,job,4f3e0892dd43,Rubrik Job Board,"Manager, WW Distribution no longer listed",https://remoteOK.com/remote-jobs/remote-manager-ww-distribution-rubrik-job-board-1137828
+2026-11-25,new_company,company,c_7463ebc7c9,Luminovo GmbH,new in tech_ecommerce,https://www.arbeitnow.com/jobs/companies/luminovo-gmbh/remote-customer-success-manager-italy-full-cycle-56940
+2026-11-25,new_company,company,c_e658d13ded,Referralsuseonly,new in tech_ecommerce,https://www.arbeitnow.co.uk/jobs/companies/referralsuseonly/site-reliability-engineer-platform-reliability-124715
+2026-11-25,new_company,company,c_5cee1c23e1,Faculty,new in other,https://www.arbeitnow.co.uk/jobs/companies/faculty/senior-manager-london-54282
+2026-11-25,new_company,company,c_b74be44fc2,M Kopa,new in financial_services,https://www.arbeitnow.co.uk/jobs/companies/m-kopa/group-data-protection-officer-london-102835
+2026-11-25,new_company,company,c_037e124cc0,Jumbo,new in other,https://www.arbeitnow.nl/jobs/companies/jumbo/marketing-specialist-benelux-nordics-zaandam-321436
+2026-11-25,new_company,company,c_dfb99cccbb,Doximity,new in tech_ecommerce,https://remoteOK.com/remote-jobs/remote-regional-vice-president-biddable-doximity-1138097
+2026-11-25,new_company,company,c_d6bc890ddc,Augment,new in logistics,https://remoteOK.com/remote-jobs/remote-revenue-operations-analyst-augment-1138081
+2026-11-25,new_company,company,c_7de561b1c1,Wing Assistant,new in construction,https://remoteOK.com/remote-jobs/remote-real-estate-executive-assistant-21370-wing-assistant-1138078
+2026-11-25,new_company,company,c_48b3751993,Real REMAX Group,new in construction,https://remoteOK.com/remote-jobs/remote-senior-tax-associate-real-remax-group-1138077
+2026-11-25,new_company,company,c_4a7256df95,Thrive,new in tech_ecommerce,https://remoteOK.com/remote-jobs/remote-strategic-technical-advisor-thrive-1138074
+2026-11-25,new_signal,signal,2fef522eaf97,Cloud9,mna_or_ipo (Medium),https://disruptafrica.com/2026/11/25/kenyas-cloud9-acquires-canadian-money-services-business-monix-pay/?utm_source=rss&utm_medium=rss&utm_campaign=kenyas-cloud9-acquires-canadian-money-services-business-monix-pay

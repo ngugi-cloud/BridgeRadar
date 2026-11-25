@@ -1,4 +1,5 @@
 company_a,company_b,ratio,reason
+M Kopa,M-KOPA Kenya,0.9,similar names: not merged automatically
 4POS AG,,,sector uncertain: confirm or add override
 4Psnl,,,sector uncertain: confirm or add override
 Abnormal,,,sector uncertain: confirm or add override
@@ -6,6 +7,7 @@ Access Destination Services,,,sector uncertain: confirm or add override
 Accountsiq,,,sector uncertain: confirm or add override
 Ace IT Careers,,,sector uncertain: confirm or add override
 Aclue GmbH,,,sector uncertain: confirm or add override
+Acodis AG,,,sector uncertain: confirm or add override
 Adaptyv,,,sector uncertain: confirm or add override
 ADBAKER,,,sector uncertain: confirm or add override
 Addepto,,,sector uncertain: confirm or add override
@@ -63,6 +65,7 @@ Auterion,,,sector uncertain: confirm or add override
 autoscout24,,,sector uncertain: confirm or add override
 Avenue Healthcare,,,sector uncertain: confirm or add override
 AWeber,,,sector uncertain: confirm or add override
+Axon,,,sector uncertain: confirm or add override
 B2spin,,,sector uncertain: confirm or add override
 Backmarket,,,sector uncertain: confirm or add override
 Badenweiler Tourismus GmbH,,,sector uncertain: confirm or add override
@@ -140,6 +143,7 @@ cloudbeds,,,sector uncertain: confirm or add override
 Cloudbedsthirdpartyboard,,,sector uncertain: confirm or add override
 Coalition Technologies,,,sector uncertain: confirm or add override
 Coda,,,sector uncertain: confirm or add override
+Cognite,,,sector uncertain: confirm or add override
 colabsoftware,,,sector uncertain: confirm or add override
 Commvault,,,sector uncertain: confirm or add override
 Constructor,,,sector uncertain: confirm or add override
@@ -191,6 +195,7 @@ Doitintl,,,sector uncertain: confirm or add override
 Domera Labs,,,sector uncertain: confirm or add override
 Dotfile,,,sector uncertain: confirm or add override
 Dr. Ansay Ltd.,,,sector uncertain: confirm or add override
+Duck Duck Go,,,sector uncertain: confirm or add override
 DuckDuckGo,,,sector uncertain: confirm or add override
 Duna,,,sector uncertain: confirm or add override
 Dura Vermeer,,,sector uncertain: confirm or add override
@@ -247,6 +252,7 @@ Fullenrich,,,sector uncertain: confirm or add override
 Fyxer,,,sector uncertain: confirm or add override
 gaea21,,,sector uncertain: confirm or add override
 GalleryLab GmbH,,,sector uncertain: confirm or add override
+ganss personal GmbH,,,sector uncertain: confirm or add override
 Gasser Felstechnik AG,,,sector uncertain: confirm or add override
 Getlabs,,,sector uncertain: confirm or add override
 GEV Wind Power,,,sector uncertain: confirm or add override
@@ -267,6 +273,7 @@ GT,,,sector uncertain: confirm or add override
 Guardsquare,,,sector uncertain: confirm or add override
 Gutehoffnungshütte Radsatz GmbH,,,sector uncertain: confirm or add override
 gympass,,,sector uncertain: confirm or add override
+Gymshark,,,sector uncertain: confirm or add override
 Handspring,,,sector uncertain: confirm or add override
 happybrush,,,sector uncertain: confirm or add override
 Harbor,,,sector uncertain: confirm or add override
@@ -279,6 +286,7 @@ Hello Lemon GmbH,,,sector uncertain: confirm or add override
 Heras B.V.,,,sector uncertain: confirm or add override
 Hexa,,,sector uncertain: confirm or add override
 Higgsfield,,,sector uncertain: confirm or add override
+HiOffice,,,sector uncertain: confirm or add override
 Hippocratic AI,,,sector uncertain: confirm or add override
 Hirehire,,,sector uncertain: confirm or add override
 HomeOfficeClub.ch,,,sector uncertain: confirm or add override
@@ -306,6 +314,7 @@ iMerit,,,sector uncertain: confirm or add override
 iMerit Technology,,,sector uncertain: confirm or add override
 Imnoo AG,,,sector uncertain: confirm or add override
 Impuls Invasion,,,sector uncertain: confirm or add override
+International Brands AG,,,sector uncertain: confirm or add override
 International Rescue Committee Kenya,,,sector uncertain: confirm or add override
 Internationales E-Commerce-Unternehmen,,,sector uncertain: confirm or add override
 INTESCIA GROUP,,,sector uncertain: confirm or add override
@@ -323,6 +332,7 @@ jetbrains,,,sector uncertain: confirm or add override
 Jfrog,,,sector uncertain: confirm or add override
 Jhpiego Kenya,,,sector uncertain: confirm or add override
 Jobbusters® GmbH,,,sector uncertain: confirm or add override
+Jua,,,sector uncertain: confirm or add override
 Jumia Kenya,,,sector uncertain: confirm or add override
 Junior Data Scientist - Downstream Demand Forecast - Value Chain ...,,,sector uncertain: confirm or add override
 Kairos Project,,,sector uncertain: confirm or add override
@@ -533,6 +543,7 @@ Sarova Hotels and Resorts,,,sector uncertain: confirm or add override
 Save the Children Kenya,,,sector uncertain: confirm or add override
 Saviynt,,,sector uncertain: confirm or add override
 Sayari,,,sector uncertain: confirm or add override
+scaleai,,,sector uncertain: confirm or add override
 Scalera,,,sector uncertain: confirm or add override
 Scape,,,sector uncertain: confirm or add override
 Scholarrock,,,sector uncertain: confirm or add override
@@ -563,6 +574,7 @@ sonyinteractiveentertainmentglobal,,,sector uncertain: confirm or add override
 Sophie's Flats Inc.,,,sector uncertain: confirm or add override
 Sothebys,,,sector uncertain: confirm or add override
 Sothebyâs,,,sector uncertain: confirm or add override
+Speechmatics,,,sector uncertain: confirm or add override
 Speekly,,,sector uncertain: confirm or add override
 Spiralyze,,,sector uncertain: confirm or add override
 Spring Health,,,sector uncertain: confirm or add override
@@ -670,6 +682,7 @@ World Vision Kenya,,,sector uncertain: confirm or add override
 Wrapbook,,,sector uncertain: confirm or add override
 Wypoon,,,sector uncertain: confirm or add override
 Xebiadach,,,sector uncertain: confirm or add override
+Xometryeurope,,,sector uncertain: confirm or add override
 Yes Technology GmbH,,,sector uncertain: confirm or add override
 Yopeso Romania SRL,,,sector uncertain: confirm or add override
 Your Software Supplier,,,sector uncertain: confirm or add override
@@ -677,15 +690,13 @@ Yuno,,,sector uncertain: confirm or add override
 Zefir,,,sector uncertain: confirm or add override
 zscaler,,,sector uncertain: confirm or add override
 ÅURA,,,sector uncertain: confirm or add override
-Cognite,,,sector uncertain: confirm or add override
-ganss personal GmbH,,,sector uncertain: confirm or add override
-HiOffice,,,sector uncertain: confirm or add override
-Duck Duck Go,,,sector uncertain: confirm or add override
-scaleai,,,sector uncertain: confirm or add override
-Gymshark,,,sector uncertain: confirm or add override
-Speechmatics,,,sector uncertain: confirm or add override
-Xometryeurope,,,sector uncertain: confirm or add override
-Jua,,,sector uncertain: confirm or add override
-Acodis AG,,,sector uncertain: confirm or add override
-International Brands AG,,,sector uncertain: confirm or add override
-Axon,,,sector uncertain: confirm or add override
+Luminovo GmbH,,,sector uncertain: confirm or add override
+Referralsuseonly,,,sector uncertain: confirm or add override
+Faculty,,,sector uncertain: confirm or add override
+M Kopa,,,sector uncertain: confirm or add override
+Jumbo,,,sector uncertain: confirm or add override
+Doximity,,,sector uncertain: confirm or add override
+Augment,,,sector uncertain: confirm or add override
+Wing Assistant,,,sector uncertain: confirm or add override
+Real REMAX Group,,,sector uncertain: confirm or add override
+Thrive,,,sector uncertain: confirm or add override
