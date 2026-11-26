@@ -1,5 +1,4 @@
 company_a,company_b,ratio,reason
-M Kopa,M-KOPA Kenya,0.9,similar names: not merged automatically
 4POS AG,,,sector uncertain: confirm or add override
 4Psnl,,,sector uncertain: confirm or add override
 Abnormal,,,sector uncertain: confirm or add override
@@ -61,6 +60,7 @@ Asm,,,sector uncertain: confirm or add override
 Asubium AG,,,sector uncertain: confirm or add override
 Athora Netherlands,,,sector uncertain: confirm or add override
 audibene,,,sector uncertain: confirm or add override
+Augment,,,sector uncertain: confirm or add override
 Auterion,,,sector uncertain: confirm or add override
 autoscout24,,,sector uncertain: confirm or add override
 Avenue Healthcare,,,sector uncertain: confirm or add override
@@ -194,6 +194,7 @@ DoiT,,,sector uncertain: confirm or add override
 Doitintl,,,sector uncertain: confirm or add override
 Domera Labs,,,sector uncertain: confirm or add override
 Dotfile,,,sector uncertain: confirm or add override
+Doximity,,,sector uncertain: confirm or add override
 Dr. Ansay Ltd.,,,sector uncertain: confirm or add override
 Duck Duck Go,,,sector uncertain: confirm or add override
 DuckDuckGo,,,sector uncertain: confirm or add override
@@ -228,6 +229,7 @@ Evolve Digital GmbH,,,sector uncertain: confirm or add override
 Exeon Analytics,,,sector uncertain: confirm or add override
 Extend Your Team,,,sector uncertain: confirm or add override
 ExtraHop,,,sector uncertain: confirm or add override
+Faculty,,,sector uncertain: confirm or add override
 Fahrschule SULI,,,sector uncertain: confirm or add override
 Fal Ai,,,sector uncertain: confirm or add override
 Feedbackfruits,,,sector uncertain: confirm or add override
@@ -333,6 +335,7 @@ Jfrog,,,sector uncertain: confirm or add override
 Jhpiego Kenya,,,sector uncertain: confirm or add override
 Jobbusters® GmbH,,,sector uncertain: confirm or add override
 Jua,,,sector uncertain: confirm or add override
+Jumbo,,,sector uncertain: confirm or add override
 Jumia Kenya,,,sector uncertain: confirm or add override
 Junior Data Scientist - Downstream Demand Forecast - Value Chain ...,,,sector uncertain: confirm or add override
 Kairos Project,,,sector uncertain: confirm or add override
@@ -375,7 +378,9 @@ Linehub,,,sector uncertain: confirm or add override
 Lithosquare,,,sector uncertain: confirm or add override
 Loftorbital,,,sector uncertain: confirm or add override
 Loki,,,sector uncertain: confirm or add override
+Luminovo GmbH,,,sector uncertain: confirm or add override
 Luscii,,,sector uncertain: confirm or add override
+M Kopa,,,sector uncertain: confirm or add override
 M-KOPA Kenya,,,sector uncertain: confirm or add override
 Magic Eden,,,sector uncertain: confirm or add override
 MAGYC DRINKS GmbH,,,sector uncertain: confirm or add override
@@ -501,12 +506,14 @@ QuickMail,,,sector uncertain: confirm or add override
 Quince,,,sector uncertain: confirm or add override
 Rain,,,sector uncertain: confirm or add override
 Rain for Rent International,,,sector uncertain: confirm or add override
+Real REMAX Group,,,sector uncertain: confirm or add override
 RealStudio GmbH,,,sector uncertain: confirm or add override
 Recordedfuture,,,sector uncertain: confirm or add override
 Recursionpharmaceuticals,,,sector uncertain: confirm or add override
 reddit,,,sector uncertain: confirm or add override
 RedMimicry,,,sector uncertain: confirm or add override
 Redwoodsoftware,,,sector uncertain: confirm or add override
+Referralsuseonly,,,sector uncertain: confirm or add override
 Rentman,,,sector uncertain: confirm or add override
 Replit,,,sector uncertain: confirm or add override
 Resonance,,,sector uncertain: confirm or add override
@@ -617,6 +624,7 @@ thequalitygroupgmbh2,,,sector uncertain: confirm or add override
 Thgingenuity,,,sector uncertain: confirm or add override
 think about IT GmbH,,,sector uncertain: confirm or add override
 Think Cell,,,sector uncertain: confirm or add override
+Thrive,,,sector uncertain: confirm or add override
 Thyme Care,,,sector uncertain: confirm or add override
 tide,,,sector uncertain: confirm or add override
 Tierarzt Plus Partner,,,sector uncertain: confirm or add override
@@ -676,6 +684,7 @@ what. AG,,,sector uncertain: confirm or add override
 Whitevision B.V.,,,sector uncertain: confirm or add override
 wibzo,,,sector uncertain: confirm or add override
 Windhoff Group,,,sector uncertain: confirm or add override
+Wing Assistant,,,sector uncertain: confirm or add override
 Wingtra 2,,,sector uncertain: confirm or add override
 wizinc,,,sector uncertain: confirm or add override
 World Vision Kenya,,,sector uncertain: confirm or add override
@@ -690,13 +699,18 @@ Yuno,,,sector uncertain: confirm or add override
 Zefir,,,sector uncertain: confirm or add override
 zscaler,,,sector uncertain: confirm or add override
 ÅURA,,,sector uncertain: confirm or add override
-Luminovo GmbH,,,sector uncertain: confirm or add override
-Referralsuseonly,,,sector uncertain: confirm or add override
-Faculty,,,sector uncertain: confirm or add override
-M Kopa,,,sector uncertain: confirm or add override
-Jumbo,,,sector uncertain: confirm or add override
-Doximity,,,sector uncertain: confirm or add override
-Augment,,,sector uncertain: confirm or add override
-Wing Assistant,,,sector uncertain: confirm or add override
-Real REMAX Group,,,sector uncertain: confirm or add override
-Thrive,,,sector uncertain: confirm or add override
+Digistore24,,,sector uncertain: confirm or add override
+Tailscale,,,sector uncertain: confirm or add override
+Nmi,,,sector uncertain: confirm or add override
+3E,,,sector uncertain: confirm or add override
+TrustFlight,,,sector uncertain: confirm or add override
+Nexgencloud,,,sector uncertain: confirm or add override
+Pingidentity,,,sector uncertain: confirm or add override
+Powerdot,,,sector uncertain: confirm or add override
+Digicert,,,sector uncertain: confirm or add override
+Kinsta,,,sector uncertain: confirm or add override
+Vendavo,,,sector uncertain: confirm or add override
+Dun & Bradstreet,,,sector uncertain: confirm or add override
+Veeva Systems,,,sector uncertain: confirm or add override
+Everbridge,,,sector uncertain: confirm or add override
+Destination Knot,,,sector uncertain: confirm or add override
