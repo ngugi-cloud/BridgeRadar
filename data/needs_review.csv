@@ -1,4 +1,5 @@
 company_a,company_b,ratio,reason
+3E,,,sector uncertain: confirm or add override
 4POS AG,,,sector uncertain: confirm or add override
 4Psnl,,,sector uncertain: confirm or add override
 Abnormal,,,sector uncertain: confirm or add override
@@ -179,10 +180,13 @@ Delinea,,,sector uncertain: confirm or add override
 Deliveroo,,,sector uncertain: confirm or add override
 dept,,,sector uncertain: confirm or add override
 Destination Careers,,,sector uncertain: confirm or add override
+Destination Knot,,,sector uncertain: confirm or add override
 DEUNA,,,sector uncertain: confirm or add override
 Dexory,,,sector uncertain: confirm or add override
 DIE MAtCHERIN - Marie Kornhoff,,,sector uncertain: confirm or add override
 Differential.bio,,,sector uncertain: confirm or add override
+Digicert,,,sector uncertain: confirm or add override
+Digistore24,,,sector uncertain: confirm or add override
 Digitale Leute School,,,sector uncertain: confirm or add override
 Distribusion Technologies,,,sector uncertain: confirm or add override
 Distyl,,,sector uncertain: confirm or add override
@@ -198,6 +202,7 @@ Doximity,,,sector uncertain: confirm or add override
 Dr. Ansay Ltd.,,,sector uncertain: confirm or add override
 Duck Duck Go,,,sector uncertain: confirm or add override
 DuckDuckGo,,,sector uncertain: confirm or add override
+Dun & Bradstreet,,,sector uncertain: confirm or add override
 Duna,,,sector uncertain: confirm or add override
 Dura Vermeer,,,sector uncertain: confirm or add override
 E-M-C-direct GmbH & Co. KG,,,sector uncertain: confirm or add override
@@ -223,6 +228,7 @@ epilot GmbH,,,sector uncertain: confirm or add override
 Equity Group Holdings PLC,,,sector uncertain: confirm or add override
 eucalyptus,,,sector uncertain: confirm or add override
 EuroEyes Deutschland Holding GmbH & Co. KG,,,sector uncertain: confirm or add override
+Everbridge,,,sector uncertain: confirm or add override
 Everpure,,,sector uncertain: confirm or add override
 Everway,,,sector uncertain: confirm or add override
 Evolve Digital GmbH,,,sector uncertain: confirm or add override
@@ -351,6 +357,7 @@ Kenya Oil Company,,,sector uncertain: confirm or add override
 Kestra Technologies,,,sector uncertain: confirm or add override
 Kevin Kehr,,,sector uncertain: confirm or add override
 Keyrock,,,sector uncertain: confirm or add override
+Kinsta,,,sector uncertain: confirm or add override
 Kirbygroupengineering,,,sector uncertain: confirm or add override
 Klardaten,,,sector uncertain: confirm or add override
 knowbe4,,,sector uncertain: confirm or add override
@@ -432,10 +439,12 @@ Neuphonic,,,sector uncertain: confirm or add override
 Neuralconcept,,,sector uncertain: confirm or add override
 Neurawork GmbH & Co. KG,,,sector uncertain: confirm or add override
 Nevoya,,,sector uncertain: confirm or add override
+Nexgencloud,,,sector uncertain: confirm or add override
 nice,,,sector uncertain: confirm or add override
 NIKI Digital Engineering,,,sector uncertain: confirm or add override
 Ninjaone,,,sector uncertain: confirm or add override
 Nlighten,,,sector uncertain: confirm or add override
+Nmi,,,sector uncertain: confirm or add override
 Nomagic,,,sector uncertain: confirm or add override
 Nord-Ostsee Sparkasse,,,sector uncertain: confirm or add override
 Norm,,,sector uncertain: confirm or add override
@@ -476,6 +485,7 @@ Pennylane SAS,,,sector uncertain: confirm or add override
 Penumbra,,,sector uncertain: confirm or add override
 phiture2,,,sector uncertain: confirm or add override
 PIKA fresh GmbH,,,sector uncertain: confirm or add override
+Pingidentity,,,sector uncertain: confirm or add override
 Pivotal Health,,,sector uncertain: confirm or add override
 Plaid,,,sector uncertain: confirm or add override
 planetlabs,,,sector uncertain: confirm or add override
@@ -483,6 +493,7 @@ Pmg,,,sector uncertain: confirm or add override
 Polaroid,,,sector uncertain: confirm or add override
 Political Asylum Lawyers,,,sector uncertain: confirm or add override
 Polyai,,,sector uncertain: confirm or add override
+Powerdot,,,sector uncertain: confirm or add override
 Pragmatike,,,sector uncertain: confirm or add override
 Precisionmedicinegroup,,,sector uncertain: confirm or add override
 Prenosis,,,sector uncertain: confirm or add override
@@ -604,6 +615,7 @@ Swissitsecuritygroup,,,sector uncertain: confirm or add override
 SwissPeak Partners GmbH,,,sector uncertain: confirm or add override
 Syner-G,,,sector uncertain: confirm or add override
 Tactiliarobotics,,,sector uncertain: confirm or add override
+Tailscale,,,sector uncertain: confirm or add override
 Talkspace,,,sector uncertain: confirm or add override
 Taurus SA,,,sector uncertain: confirm or add override
 Teaching Finance GmbH & Co. KG,,,sector uncertain: confirm or add override
@@ -640,6 +652,7 @@ Tremendous,,,sector uncertain: confirm or add override
 tripadvisor,,,sector uncertain: confirm or add override
 Triplepointllp,,,sector uncertain: confirm or add override
 TRM Labs,,,sector uncertain: confirm or add override
+TrustFlight,,,sector uncertain: confirm or add override
 Twiga Foods,,,sector uncertain: confirm or add override
 Twilio,,,sector uncertain: confirm or add override
 Twoconnect,,,sector uncertain: confirm or add override
@@ -663,6 +676,8 @@ Valiantys,,,sector uncertain: confirm or add override
 Valova,,,sector uncertain: confirm or add override
 VDK Groep B.V.,,,sector uncertain: confirm or add override
 veeamsoftware,,,sector uncertain: confirm or add override
+Veeva Systems,,,sector uncertain: confirm or add override
+Vendavo,,,sector uncertain: confirm or add override
 VIA HealthTech,,,sector uncertain: confirm or add override
 Vinteden,,,sector uncertain: confirm or add override
 Viralnation,,,sector uncertain: confirm or add override
@@ -699,18 +714,29 @@ Yuno,,,sector uncertain: confirm or add override
 Zefir,,,sector uncertain: confirm or add override
 zscaler,,,sector uncertain: confirm or add override
 ÅURA,,,sector uncertain: confirm or add override
-Digistore24,,,sector uncertain: confirm or add override
-Tailscale,,,sector uncertain: confirm or add override
-Nmi,,,sector uncertain: confirm or add override
-3E,,,sector uncertain: confirm or add override
-TrustFlight,,,sector uncertain: confirm or add override
-Nexgencloud,,,sector uncertain: confirm or add override
-Pingidentity,,,sector uncertain: confirm or add override
-Powerdot,,,sector uncertain: confirm or add override
-Digicert,,,sector uncertain: confirm or add override
-Kinsta,,,sector uncertain: confirm or add override
-Vendavo,,,sector uncertain: confirm or add override
-Dun & Bradstreet,,,sector uncertain: confirm or add override
-Veeva Systems,,,sector uncertain: confirm or add override
-Everbridge,,,sector uncertain: confirm or add override
-Destination Knot,,,sector uncertain: confirm or add override
+roboyo,,,sector uncertain: confirm or add override
+Dudes&Partner,,,sector uncertain: confirm or add override
+Clinchoice,,,sector uncertain: confirm or add override
+Eva Travel,,,sector uncertain: confirm or add override
+Outsight,,,sector uncertain: confirm or add override
+Goegmbh,,,sector uncertain: confirm or add override
+Global Survivors Fund,,,sector uncertain: confirm or add override
+Dufour Aerospace,,,sector uncertain: confirm or add override
+Jobtome,,,sector uncertain: confirm or add override
+S-PRO,,,sector uncertain: confirm or add override
+conga,,,sector uncertain: confirm or add override
+Aim Solutions,,,sector uncertain: confirm or add override
+Protective Life,,,sector uncertain: confirm or add override
+Bounteous,,,sector uncertain: confirm or add override
+Airalo,,,sector uncertain: confirm or add override
+agiloft,,,sector uncertain: confirm or add override
+aduna,,,sector uncertain: confirm or add override
+Netomi,,,sector uncertain: confirm or add override
+Silverback Strategies,,,sector uncertain: confirm or add override
+Welo Data,,,sector uncertain: confirm or add override
+Secure Code Warrior,,,sector uncertain: confirm or add override
+Coupa,,,sector uncertain: confirm or add override
+Insider One,,,sector uncertain: confirm or add override
+Loadsmart,,,sector uncertain: confirm or add override
+Wing,,,sector uncertain: confirm or add override
+Lightcast,,,sector uncertain: confirm or add override
