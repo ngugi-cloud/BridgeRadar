@@ -1,21 +1,21 @@
 {
-  "last_refreshed_utc": "2026-11-27T10:57:17+00:00",
-  "run_date": "2026-11-27",
-  "started_utc": "2026-11-27T10:53:43+00:00",
+  "last_refreshed_utc": "2026-11-28T10:29:01+00:00",
+  "run_date": "2026-11-28",
+  "started_utc": "2026-11-28T10:25:33+00:00",
   "ok": true,
   "failed_steps": [],
   "steps": {
     "engine1_jobs": {
       "status": "ok",
-      "seconds": 183.2,
+      "seconds": 198.2,
       "summary": {
-        "open": 162,
-        "closed": 1264,
-        "changes": 104,
+        "open": 168,
+        "closed": 1295,
+        "changes": 74,
         "manual": 17,
         "baseline": false,
         "dropped": {
-          "global_source_requires_remote": 268,
+          "global_source_requires_remote": 267,
           "global_source_region_restricted": 68,
           "ok": 81
         }
@@ -25,14 +25,14 @@
       "status": "ok",
       "seconds": 0.1,
       "summary": {
-        "companies": 754,
-        "created": 26,
+        "companies": 768,
+        "created": 14,
         "agencies": 4,
-        "review": 741,
+        "review": 755,
         "baseline": false,
         "skipped_unnamed": 0,
         "icp": {
-          "unknown_size": 753,
+          "unknown_size": 767,
           "excluded_ngo": 1
         }
       }
@@ -47,7 +47,7 @@
     },
     "engine4_signals": {
       "status": "ok",
-      "seconds": 30.9,
+      "seconds": 9.6,
       "summary": {
         "signals": 6,
         "live": 6,
@@ -55,23 +55,23 @@
         "candidates": 5,
         "baseline": false,
         "dropped": {
-          "no_signal": 87,
-          "unattributed": 6
+          "no_signal": 88,
+          "unattributed": 5
         },
         "sector_modifiers": 0
       }
     },
     "scoring": {
       "status": "ok",
-      "seconds": 0.1,
+      "seconds": 0.0,
       "summary": {
-        "leads": 168,
+        "leads": 174,
         "temperatures": {
-          "Warm": 58,
-          "Cold": 110
+          "Warm": 56,
+          "Cold": 118
         },
         "by_type": {
-          "job_lead": 162,
+          "job_lead": 168,
           "signal_lead": 6
         },
         "excluded": {}
